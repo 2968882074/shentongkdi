@@ -9,15 +9,24 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * (Line)表服务实现类
+ * (Line)表线路管理服务实现类
  *
  * @author makejava
  * @since 2020-12-27 12:10:39
  */
-@Service("lineService")
+@Service
 public class LineServiceImpl implements LineService {
     @Resource
     private LineDao lineDao;
+
+    /**
+     * 统计行数
+     * @return 实例对象
+     */
+    @Override
+    public int count() {
+        return  this.lineDao.count();
+    }
 
     /**
      * 通过ID查询单条数据
@@ -38,8 +47,8 @@ public class LineServiceImpl implements LineService {
      * @return 对象列表
      */
     @Override
-    public List<Line> queryAllByLimit(int offset, int limit) {
-        return this.lineDao.queryAllByLimit(offset, limit);
+    public List<Line> queryAllByLimit(int offset, int limit,String linename) {
+        return this.lineDao.queryAllByLimit(offset, limit,linename);
     }
 
     /**

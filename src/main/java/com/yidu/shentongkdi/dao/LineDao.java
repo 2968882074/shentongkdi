@@ -1,7 +1,10 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.Line;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,8 +13,14 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-27 12:10:38
  */
+@Mapper
+@Repository
 public interface LineDao {
-
+    /**
+     * 统计行数
+     * @return 实例对象
+     */
+    public int count();
     /**
      * 通过ID查询单条数据
      *
@@ -27,7 +36,7 @@ public interface LineDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Line> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Line> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("linename") String linename);
 
 
     /**

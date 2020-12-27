@@ -9,12 +9,12 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * (Freight)表服务实现类
+ * (Freight)货车线路表服务实现类
  *
  * @author makejava
  * @since 2020-12-27 12:11:48
  */
-@Service("freightService")
+@Service
 public class FreightServiceImpl implements FreightService {
     @Resource
     private FreightDao freightDao;

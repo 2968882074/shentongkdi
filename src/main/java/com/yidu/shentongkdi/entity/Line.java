@@ -1,13 +1,16 @@
 package com.yidu.shentongkdi.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
- * (Line)实体类
+ * (Line)线路管理表的实体类
  *
  * @author makejava
  * @since 2020-12-27 12:10:37
  */
+@Component
 public class Line implements Serializable {
     private static final long serialVersionUID = -31066904040745022L;
     
@@ -52,4 +55,29 @@ public class Line implements Serializable {
         this.linepath = linepath;
     }
 
+    public Line() {
+    }
+
+    public Line(Integer line, String linename, String linepath) {
+        this.line = line;
+        this.linename = linename;
+        this.linepath = linepath;
+    }
+
+    public Line(Integer lid, Integer line, String linename, String linepath) {
+        this.lid = lid;
+        this.line = line;
+        this.linename = linename;
+        this.linepath = linepath;
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "lid=" + lid +
+                ", line=" + line +
+                ", linename='" + linename + '\'' +
+                ", linepath='" + linepath + '\'' +
+                '}';
+    }
 }

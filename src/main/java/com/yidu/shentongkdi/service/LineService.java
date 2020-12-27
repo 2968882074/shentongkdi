@@ -4,12 +4,17 @@ import com.yidu.shentongkdi.entity.Line;
 import java.util.List;
 
 /**
- * (Line)表服务接口
+ * (Line)货车管理表服务接口类
  *
  * @author makejava
  * @since 2020-12-27 12:10:38
  */
 public interface LineService {
+    /**
+     * 统计行数
+     * @return  实例对象
+     */
+    public int count();
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +31,7 @@ public interface LineService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Line> queryAllByLimit(int offset, int limit);
+    List<Line> queryAllByLimit(int offset, int limit,String linename);
 
     /**
      * 新增数据

@@ -1,7 +1,10 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.Trucks;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,6 +13,8 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-27 12:12:12
  */
+@Mapper
+@Repository
 public interface TrucksDao {
 
     /**

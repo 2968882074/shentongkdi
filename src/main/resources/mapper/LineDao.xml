@@ -9,7 +9,6 @@
         <result property="linename" column="linename" jdbcType="VARCHAR"/>
         <result property="linepath" column="linepath" jdbcType="VARCHAR"/>
     </resultMap>
-
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
@@ -23,6 +22,11 @@
         select
           lid, line, linename, linepath
         from shentong.line
+        <where>
+            <if test="linename!=null">
+                and linename like '%${linename}%'
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 

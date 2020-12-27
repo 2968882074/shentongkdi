@@ -4,7 +4,7 @@ import com.yidu.shentongkdi.entity.Trucks;
 import java.util.List;
 
 /**
- * (Trucks)表服务接口
+ * (Trucks)货车管理表服务接口
  *
  * @author makejava
  * @since 2020-12-27 12:12:12

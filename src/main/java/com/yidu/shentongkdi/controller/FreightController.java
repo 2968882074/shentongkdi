@@ -2,6 +2,7 @@ package com.yidu.shentongkdi.controller;
 
 import com.yidu.shentongkdi.entity.Freight;
 import com.yidu.shentongkdi.service.FreightService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2020-12-27 12:11:48
  */
-@RestController
+@Controller
 @RequestMapping("freight")
 public class FreightController {
     /**
@@ -27,7 +28,8 @@ public class FreightController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
+    @ResponseBody
+    @RequestMapping("selectOne")
     public Freight selectOne(Integer id) {
         return this.freightService.queryById(id);
     }

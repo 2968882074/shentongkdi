@@ -4,7 +4,7 @@ import com.yidu.shentongkdi.entity.Freight;
 import java.util.List;
 
 /**
- * (Freight)表服务接口
+ * (Freight)表货车线路表服务接口
  *
  * @author makejava
  * @since 2020-12-27 12:11:48
