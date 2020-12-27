@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.TrucksDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Trucks">
+        <!--@Table trucks-->
+        <result property="trid" column="trid" jdbcType="INTEGER"/>
+        <result property="vehiclechoice" column="VehicleChoice" jdbcType="INTEGER"/>
+        <result property="license" column="license" jdbcType="VARCHAR"/>
+        <result property="commoncarrier" column="commonCarrier" jdbcType="VARCHAR"/>
+        <result property="vehiclemodel" column="vehicleModel" jdbcType="VARCHAR"/>
+        <result property="control" column="control" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          trid, VehicleChoice, license, commonCarrier, vehicleModel, control
+        from shentong.trucks
+        where trid = #{trid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          trid, VehicleChoice, license, commonCarrier, vehicleModel, control
+        from shentong.trucks
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          trid, VehicleChoice, license, commonCarrier, vehicleModel, control
+        from shentong.trucks
+        <where>
+            <if test="trid != null">
+                and trid = #{trid}
+            </if>
+            <if test="vehiclechoice != null">
+                and VehicleChoice = #{vehiclechoice}
+            </if>
+            <if test="license != null and license != ''">
+                and license = #{license}
+            </if>
+            <if test="commoncarrier != null and commoncarrier != ''">
+                and commonCarrier = #{commoncarrier}
+            </if>
+            <if test="vehiclemodel != null and vehiclemodel != ''">
+                and vehicleModel = #{vehiclemodel}
+            </if>
+            <if test="control != null and control != ''">
+                and control = #{control}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="trid" useGeneratedKeys="true">
+        insert into shentong.trucks(VehicleChoice, license, commonCarrier, vehicleModel, control)
+        values (#{vehiclechoice}, #{license}, #{commoncarrier}, #{vehiclemodel}, #{control})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.trucks
+        <set>
+            <if test="vehiclechoice != null">
+                VehicleChoice = #{vehiclechoice},
+            </if>
+            <if test="license != null and license != ''">
+                license = #{license},
+            </if>
+            <if test="commoncarrier != null and commoncarrier != ''">
+                commonCarrier = #{commoncarrier},
+            </if>
+            <if test="vehiclemodel != null and vehiclemodel != ''">
+                vehicleModel = #{vehiclemodel},
+            </if>
+            <if test="control != null and control != ''">
+                control = #{control},
+            </if>
+        </set>
+        where trid = #{trid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.trucks where trid = #{trid}
+    </delete>
+
+</mapper>

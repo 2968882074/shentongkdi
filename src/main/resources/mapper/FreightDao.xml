@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.FreightDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Freight">
+        <!--@Table freight-->
+        <result property="tlid" column="tlid" jdbcType="INTEGER"/>
+        <result property="trid" column="trid" jdbcType="INTEGER"/>
+        <result property="lid" column="lid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          tlid, trid, lid
+        from shentong.freight
+        where tlid = #{tlid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          tlid, trid, lid
+        from shentong.freight
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          tlid, trid, lid
+        from shentong.freight
+        <where>
+            <if test="tlid != null">
+                and tlid = #{tlid}
+            </if>
+            <if test="trid != null">
+                and trid = #{trid}
+            </if>
+            <if test="lid != null">
+                and lid = #{lid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="tlid" useGeneratedKeys="true">
+        insert into shentong.freight(trid, lid)
+        values (#{trid}, #{lid})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.freight
+        <set>
+            <if test="trid != null">
+                trid = #{trid},
+            </if>
+            <if test="lid != null">
+                lid = #{lid},
+            </if>
+        </set>
+        where tlid = #{tlid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.freight where tlid = #{tlid}
+    </delete>
+
+</mapper>

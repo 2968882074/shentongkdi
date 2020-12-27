@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.LineDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Line">
+        <!--@Table line-->
+        <result property="lid" column="lid" jdbcType="INTEGER"/>
+        <result property="line" column="line" jdbcType="INTEGER"/>
+        <result property="linename" column="linename" jdbcType="VARCHAR"/>
+        <result property="linepath" column="linepath" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          lid, line, linename, linepath
+        from shentong.line
+        where lid = #{lid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          lid, line, linename, linepath
+        from shentong.line
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          lid, line, linename, linepath
+        from shentong.line
+        <where>
+            <if test="lid != null">
+                and lid = #{lid}
+            </if>
+            <if test="line != null">
+                and line = #{line}
+            </if>
+            <if test="linename != null and linename != ''">
+                and linename = #{linename}
+            </if>
+            <if test="linepath != null and linepath != ''">
+                and linepath = #{linepath}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="lid" useGeneratedKeys="true">
+        insert into shentong.line(line, linename, linepath)
+        values (#{line}, #{linename}, #{linepath})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.line
+        <set>
+            <if test="line != null">
+                line = #{line},
+            </if>
+            <if test="linename != null and linename != ''">
+                linename = #{linename},
+            </if>
+            <if test="linepath != null and linepath != ''">
+                linepath = #{linepath},
+            </if>
+        </set>
+        where lid = #{lid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.line where lid = #{lid}
+    </delete>
+
+</mapper>
