@@ -16,32 +16,32 @@
     <title>申通物流后台系统</title>
 
     <!--Favicon -->
-    <link rel="icon" href="../../resources/static/assets/img/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon"/>
 
     <!--Bootstrap.min css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
 
     <!--Icons css-->
-    <link rel="stylesheet" href="../../resources/static/assets/css/icons.css">
+    <link rel="stylesheet" href="../assets/css/icons.css">
 
     <!--Style css-->
-    <link rel="stylesheet" href="../../resources/static/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <!--mCustomScrollbar css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
 
     <!--Sidemenu css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/toggle-menu/sidemenu.css">
+    <link rel="stylesheet" href="../assets/plugins/toggle-menu/sidemenu.css">
 
     <!--Chartist css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/chartist/chartist.css">
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/chartist/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="../assets/plugins/chartist/chartist.css">
+    <link rel="stylesheet" href="../assets/plugins/chartist/chartist-plugin-tooltip.css">
 
     <!--Full calendar css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/fullcalendar/stylesheet1.css">
+    <link rel="stylesheet" href="../assets/plugins/fullcalendar/stylesheet1.css">
 
     <!--morris css-->
-    <link rel="stylesheet" href="../../resources/static/assets/plugins/morris/morris.css">
+    <link rel="stylesheet" href="../assets/plugins/morris/morris.css">
 
 
 </head>
@@ -55,7 +55,7 @@
         <nav class="navbar navbar-expand-lg main-navbar">
             <a class="header-brand" href="../index.html">
                 <!-- logo图片 -->
-                <img src="../../resources/static/assets/img/brand/website_logo.png" class="header-brand-img" alt="Kharna-Admin  logo">
+                <img src="../assets/img/brand/website_logo.png" class="header-brand-img" alt="Kharna-Admin  logo">
             </a>
             <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="dropdown-list-content">
                             <a href="../index.html#" class="dropdown-item dropdown-item-unread">
-                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                                <img alt="image" src="../assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -91,7 +91,7 @@
                                 </div>
                             </a>
                             <a href="../index.html#" class="dropdown-item dropdown-item-unread">
-                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                                <img alt="image" src="../assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -103,7 +103,7 @@
                                 </div>
                             </a>
                             <a href="../index.html#" class="dropdown-item">
-                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                                <img alt="image" src="../assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -115,7 +115,7 @@
                                 </div>
                             </a>
                             <a href="../index.html#" class="dropdown-item">
-                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                                <img alt="image" src="../assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -127,7 +127,7 @@
                                 </div>
                             </a>
                             <a href="../index.html#" class="dropdown-item">
-                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                                <img alt="image" src="../assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -195,7 +195,7 @@
                 </li>
                 <li class="dropdown"><a href="../index.html#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                     <!-- 用户头像 -->
-                    <img src="../../resources/static/assets/img/avatar/mifei.jpg" alt="profile-user" class="rounded-circle w-32">
+                    <img src="../assets/img/avatar/mifei.jpg" alt="profile-user" class="rounded-circle w-32">
                     <!-- 用户名称 -->
                     <div class="d-sm-none d-lg-inline-block">${admin.adminname}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -221,7 +221,7 @@
                 <div class="dropdown">
                     <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="../index.html#">
                         <!-- 用户头像 -->
-                        <img alt="image" src="../../resources/static/assets/img/avatar/mifei.jpg" class=" avatar-md rounded-circle">
+                        <img alt="image" src="../assets/img/avatar/mifei.jpg" class=" avatar-md rounded-circle">
                         <span class="ml-2 d-lg-block">
                                         <!-- 用户名称 -->
                                         <span class="text-white app-sidebar__user-name mt-5">米菲</span><br>
@@ -531,45 +531,45 @@
 </div>
 
 <!--Jquery.min js-->
-<script src="../../resources/static/assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 
 <!--popper js-->
-<script src="../../resources/static/assets/js/popper.js"></script>
+<script src="../assets/js/popper.js"></script>
 
 <!--Tooltip js-->
-<script src="../../resources/static/assets/js/tooltip.js"></script>
+<script src="../assets/js/tooltip.js"></script>
 
 <!--Bootstrap.min js-->
-<script src="../../resources/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!--Jquery.nicescroll.min js-->
-<script src="../../resources/static/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
 
 <!--Scroll-up-bar.min js-->
-<script src="../../resources/static/assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+<script src="../assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
 
 <!--Sidemenu js-->
-<script src="../../resources/static/assets/plugins/toggle-menu/sidemenu.js"></script>
+<script src="../assets/plugins/toggle-menu/sidemenu.js"></script>
 
 <!--mCustomScrollbar js-->
-<script src="../../resources/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <!-- ECharts -->
-<script src="../../resources/static/assets/plugins/echarts/dist/echarts.js"></script>
+<script src="../assets/plugins/echarts/dist/echarts.js"></script>
 
 <!--Min Calendar -->
-<script src="../../resources/static/assets/plugins/fullcalendar/calendar.min.js"></script>
-<script src="../../resources/static/assets/plugins/fullcalendar/custom_calendar.js"></script>
+<script src="../assets/plugins/fullcalendar/calendar.min.js"></script>
+<script src="../assets/plugins/fullcalendar/custom_calendar.js"></script>
 
 <!--Morris js-->
-<script src="../../resources/static/assets/plugins/morris/morris.min.js"></script>
-<script src="../../resources/static/assets/plugins/morris/raphael.min.js"></script>
+<script src="../assets/plugins/morris/morris.min.js"></script>
+<script src="../assets/plugins/morris/raphael.min.js"></script>
 
 <!--Scripts js-->
-<script src="../../resources/static/assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
 
 <!--Dashboard js-->
-<script src="../../resources/static/assets/js/dashboard.js"></script>
-<script src="../../resources/static/assets/js/apexcharts.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+<script src="../assets/js/apexcharts.js"></script>
 </body>
 </html>
