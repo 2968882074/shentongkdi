@@ -24,6 +24,11 @@
         select
           twid, twname, twtime, state, code
         from shentong.totalwatehouse
+        <where>
+            <if test="twname!=null">
+                and twname like '%${where}%'
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 

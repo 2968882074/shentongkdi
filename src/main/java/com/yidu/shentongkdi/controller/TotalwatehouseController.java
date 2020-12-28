@@ -39,9 +39,9 @@ public class TotalwatehouseController {
         Map<String,Object> map=new HashMap<>();
         map.put("code", 0);
         map.put("mag", "");
-        //调用线路管理表服务接口类的统计方法
+        //调用接口类的统计方法
         map.put("count",totalwatehouseService.count(where));
-        //调用线路管理表服务接口类的分页查询以及模糊查询的方法
+        //调用接口类的分页查询以及模糊查询的方法
         map.put("data",totalwatehouseService.queryAllByLimit(page, limit,where));
         //返回map集合
         return map;
@@ -71,7 +71,7 @@ public class TotalwatehouseController {
     public boolean updateById(String json){
         //将数据转成json
         JSONObject jsonObject= JSONObject.fromObject(json);
-        //将线路管理的实体类装进json
+        //将实体类装进json
         Totalwatehouse total=(Totalwatehouse) JSONObject.toBean(jsonObject,Totalwatehouse.class);
         //输出实体的数据
         System.out.println(total.toString());
@@ -91,7 +91,7 @@ public class TotalwatehouseController {
     public boolean insert(String json){
         //将数据转成json
         JSONObject jsonObject= JSONObject.fromObject(json);
-        //将线路管理的实体类装进json
+        //将实体类装进json
         Totalwatehouse total=(Totalwatehouse) JSONObject.toBean(jsonObject,Totalwatehouse.class);
         //输出实体的数据
         System.out.println(total.toString());

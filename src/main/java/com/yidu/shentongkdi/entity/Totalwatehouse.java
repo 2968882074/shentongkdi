@@ -1,5 +1,7 @@
 package com.yidu.shentongkdi.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-12-28 14:56:39
  */
+@Component
 public class Totalwatehouse implements Serializable {
     private static final long serialVersionUID = -83450510768166476L;
     

@@ -26,6 +26,11 @@
         select
           oid, picid, seid, Weight, Amount, Amountstate, state
         from shentong.orders
+        <where>
+            <if test="picid!=null">
+                and picid like '%${where}%'
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 
