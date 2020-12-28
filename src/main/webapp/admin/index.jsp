@@ -16,32 +16,32 @@
     <title>申通物流后台系统</title>
 
     <!--Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="../../resources/static/assets/img/favicon.ico" type="image/x-icon"/>
 
     <!--Bootstrap.min css-->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/bootstrap/css/bootstrap.min.css">
 
     <!--Icons css-->
-    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="../../resources/static/assets/css/icons.css">
 
     <!--Style css-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../../resources/static/assets/css/style.css">
 
     <!--mCustomScrollbar css-->
-    <link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
 
     <!--Sidemenu css-->
-    <link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/toggle-menu/sidemenu.css">
 
     <!--Chartist css-->
-    <link rel="stylesheet" href="assets/plugins/chartist/chartist.css">
-    <link rel="stylesheet" href="assets/plugins/chartist/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/chartist/chartist.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/chartist/chartist-plugin-tooltip.css">
 
     <!--Full calendar css-->
-    <link rel="stylesheet" href="assets/plugins/fullcalendar/stylesheet1.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/fullcalendar/stylesheet1.css">
 
     <!--morris css-->
-    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link rel="stylesheet" href="../../resources/static/assets/plugins/morris/morris.css">
 
 
 </head>
@@ -53,14 +53,14 @@
 <div id="app">
     <div class="main-wrapper" >
         <nav class="navbar navbar-expand-lg main-navbar">
-            <a class="header-brand" href="index.html">
+            <a class="header-brand" href="../index.html">
                 <!-- logo图片 -->
-                <img src="assets/img/brand/website_logo.png" class="header-brand-img" alt="Kharna-Admin  logo">
+                <img src="../../resources/static/assets/img/brand/website_logo.png" class="header-brand-img" alt="Kharna-Admin  logo">
             </a>
             <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
-                    <li><a href="index.html#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
-                    <li><a href="index.html#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+                    <li><a href="../index.html#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+                    <li><a href="../index.html#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
                 </ul>
                 <!-- 搜索 -->
                 <div class="search-element">
@@ -69,16 +69,16 @@
                 </div>
             </form>
             <ul class="navbar-nav navbar-right">
-                <li class="dropdown dropdown-list-toggle"><a href="index.html#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+                <li class="dropdown dropdown-list-toggle"><a href="../index.html#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
                         <div class="dropdown-header">Messages
                             <div class="float-right">
-                                <a href="index.html#">View All</a>
+                                <a href="../index.html#">View All</a>
                             </div>
                         </div>
                         <div class="dropdown-list-content">
-                            <a href="index.html#" class="dropdown-item dropdown-item-unread">
-                                <img alt="image" src="assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                            <a href="../index.html#" class="dropdown-item dropdown-item-unread">
+                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-1.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -90,8 +90,8 @@
 
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item dropdown-item-unread">
-                                <img alt="image" src="assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                            <a href="../index.html#" class="dropdown-item dropdown-item-unread">
+                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-2.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -102,8 +102,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
-                                <img alt="image" src="assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                            <a href="../index.html#" class="dropdown-item">
+                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-4.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -114,8 +114,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
-                                <img alt="image" src="assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                            <a href="../index.html#" class="dropdown-item">
+                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-3.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -126,8 +126,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
-                                <img alt="image" src="assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
+                            <a href="../index.html#" class="dropdown-item">
+                                <img alt="image" src="../../resources/static/assets/img/avatar/avatar-5.jpeg.jpg" class="rounded-circle dropdown-item-img">
                                 <div class="dropdown-item-desc">
                                     <div class="dropdownmsg d-flex">
                                         <div class="">
@@ -141,45 +141,45 @@
                         </div>
                     </div>
                 </li>
-                <li class="dropdown dropdown-list-toggle"><a href="index.html#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+                <li class="dropdown dropdown-list-toggle"><a href="../index.html#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
                         <div class="dropdown-header">Notifications
                             <div class="float-right">
-                                <a href="index.html#">View All</a>
+                                <a href="../index.html#">View All</a>
                             </div>
                         </div>
                         <div class="dropdown-list-content">
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-users text-primary"></i>
                                 <div class="dropdown-item-desc">
                                     <b>So many Users Visit your template</b>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-exclamation-triangle text-danger"></i>
                                 <div class="dropdown-item-desc">
                                     <b>Error message occurred....</b>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-users text-warning"></i>
                                 <div class="dropdown-item-desc">
                                     <b> Adding new people</b>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-shopping-cart text-success"></i>
                                 <div class="dropdown-item-desc">
                                     <b>Your items Arrived</b>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-comment text-primary"></i>
                                 <div class="dropdown-item-desc">
                                     <b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
                                 </div>
                             </a>
-                            <a href="index.html#" class="dropdown-item">
+                            <a href="../index.html#" class="dropdown-item">
                                 <i class="fa fa-users text-primary"></i>
                                 <div class="dropdown-item-desc">
                                     <b>So many Users Visit your template</b>
@@ -189,13 +189,13 @@
                     </div>
                 </li>
                 <li class="dropdown dropdown-list-toggle">
-                    <a href="index.html#" class="nav-link nav-link-lg full-screen-link">
+                    <a href="../index.html#" class="nav-link nav-link-lg full-screen-link">
                         <i class="ion-arrow-expand"  id="fullscreen-button"></i>
                     </a>
                 </li>
-                <li class="dropdown"><a href="index.html#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                <li class="dropdown"><a href="../index.html#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                     <!-- 用户头像 -->
-                    <img src="assets/img/avatar/mifei.jpg" alt="profile-user" class="rounded-circle w-32">
+                    <img src="../../resources/static/assets/img/avatar/mifei.jpg" alt="profile-user" class="rounded-circle w-32">
                     <!-- 用户名称 -->
                     <div class="d-sm-none d-lg-inline-block">${admin.adminname}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -208,7 +208,7 @@
                         <a href="profile.html" class="dropdown-item has-icon">
                             <i class="ion ion-gear-a"></i>系统设置
                         </a>
-                        <a href="index.html#" class="dropdown-item has-icon">
+                        <a href="../index.html#" class="dropdown-item has-icon">
                             <i class="ion-ios-redo"></i>登出
                         </a>
                     </div>
@@ -219,9 +219,9 @@
         <aside class="app-sidebar">
             <div class="app-sidebar__user">
                 <div class="dropdown">
-                    <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="index.html#">
+                    <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="../index.html#">
                         <!-- 用户头像 -->
-                        <img alt="image" src="assets/img/avatar/mifei.jpg" class=" avatar-md rounded-circle">
+                        <img alt="image" src="../../resources/static/assets/img/avatar/mifei.jpg" class=" avatar-md rounded-circle">
                         <span class="ml-2 d-lg-block">
                                         <!-- 用户名称 -->
                                         <span class="text-white app-sidebar__user-name mt-5">米菲</span><br>
@@ -232,9 +232,9 @@
             </div>
             <ul class="side-menu">
                 <li class="slide">
-                    <a class="side-menu__item"  data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item"  data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
-                        <li><a class="slide-item"  href="index.html"><span>Dashboard 01</span></a></li>
+                        <li><a class="slide-item"  href="../index.html"><span>Dashboard 01</span></a></li>
                         <li><a class="slide-item" href="index2.html"><span>Dashboard 02</span></a></li>
                         <li><a class="slide-item" href="index3.html"><span>Dashboard 03</span></a></li>
                     </ul>
@@ -243,7 +243,7 @@
                     <a class="side-menu__item" href="widgets.html"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">Widgets</span></a>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">UI Elements</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">UI Elements</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="elements.html" class="slide-item"> Elements</a></li>
                         <li><a href="buttons.html" class="slide-item"> Buttons</a></li>
@@ -259,7 +259,7 @@
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">Icons</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">Icons</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="icons-ion.html" class="slide-item"> Ion Icons</a></li>
                         <li><a href="icons-fontawesome.html" class="slide-item"> Font Awesome</a></li>
@@ -274,14 +274,14 @@
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">Tables</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">Tables</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="table.html" class="slide-item">Basic Tables</a></li>
                         <li><a href="datatables.html" class="slide-item"> Data Tables</a></li>
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">Forms</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">Forms</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="formelements.html" class="slide-item"> Form Elements</a></li>
                         <li><a href="formadvanced.html" class="slide-item"> Advanced Form</a></li>
@@ -289,7 +289,7 @@
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-bar-chart"></i><span class="side-menu__label">Charts</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-bar-chart"></i><span class="side-menu__label">Charts</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="chartjs.html" class="slide-item">Chart Js</a></li>
                         <li><a href="flotcharts.html" class="slide-item"> Flot Charts</a></li>
@@ -301,14 +301,14 @@
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-map"></i><span class="side-menu__label">Maps</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-map"></i><span class="side-menu__label">Maps</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="maps.html" class="slide-item"> Google Maps</a></li>
                         <li><a href="vector-map.html" class="slide-item">Vector Maps</a></li>
                     </ul>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="index.html#"><i class="side-menu__icon fa fa-pie-chart"></i><span class="side-menu__label">Pages</span><i class="angle fa fa-angle-right"></i></a>
+                    <a class="side-menu__item" data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-pie-chart"></i><span class="side-menu__label">Pages</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="profile.html" class="slide-item"> Profile</a></li>
                         <li><a href="pricing-tables.html" class="slide-item"> Pricing Tables</a></li>
@@ -333,7 +333,7 @@
         <div class="app-content">
             <section class="section">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html#" class="text-muted">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html#" class="text-muted">Home</a></li>
                     <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li>
                 </ol>
 
@@ -531,45 +531,45 @@
 </div>
 
 <!--Jquery.min js-->
-<script src="assets/js/jquery.min.js"></script>
+<script src="../../resources/static/assets/js/jquery.min.js"></script>
 
 <!--popper js-->
-<script src="assets/js/popper.js"></script>
+<script src="../../resources/static/assets/js/popper.js"></script>
 
 <!--Tooltip js-->
-<script src="assets/js/tooltip.js"></script>
+<script src="../../resources/static/assets/js/tooltip.js"></script>
 
 <!--Bootstrap.min js-->
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../resources/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!--Jquery.nicescroll.min js-->
-<script src="assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../../resources/static/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
 
 <!--Scroll-up-bar.min js-->
-<script src="assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+<script src="../../resources/static/assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
 
 <!--Sidemenu js-->
-<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
+<script src="../../resources/static/assets/plugins/toggle-menu/sidemenu.js"></script>
 
 <!--mCustomScrollbar js-->
-<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../../resources/static/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <!-- ECharts -->
-<script src="assets/plugins/echarts/dist/echarts.js"></script>
+<script src="../../resources/static/assets/plugins/echarts/dist/echarts.js"></script>
 
 <!--Min Calendar -->
-<script src="assets/plugins/fullcalendar/calendar.min.js"></script>
-<script src="assets/plugins/fullcalendar/custom_calendar.js"></script>
+<script src="../../resources/static/assets/plugins/fullcalendar/calendar.min.js"></script>
+<script src="../../resources/static/assets/plugins/fullcalendar/custom_calendar.js"></script>
 
 <!--Morris js-->
-<script src="assets/plugins/morris/morris.min.js"></script>
-<script src="assets/plugins/morris/raphael.min.js"></script>
+<script src="../../resources/static/assets/plugins/morris/morris.min.js"></script>
+<script src="../../resources/static/assets/plugins/morris/raphael.min.js"></script>
 
 <!--Scripts js-->
-<script src="assets/js/scripts.js"></script>
+<script src="../../resources/static/assets/js/scripts.js"></script>
 
 <!--Dashboard js-->
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/apexcharts.js"></script>
+<script src="../../resources/static/assets/js/dashboard.js"></script>
+<script src="../../resources/static/assets/js/apexcharts.js"></script>
 </body>
 </html>
