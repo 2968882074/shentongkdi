@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.AdminDao">
+<mapper namespace="com.yidu.shentongkdi.dao.AdminDao">
 
-    <resultMap id="BaseResultMap" type="com.entity.Admin">
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Admin">
         <!--@Table admin-->
         <result property="adminid" column="adminid" jdbcType="INTEGER"/>
         <result property="adminname" column="adminname" jdbcType="VARCHAR"/>
