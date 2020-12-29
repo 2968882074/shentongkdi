@@ -38,8 +38,8 @@ public class AdminController {
         //判断是否成功
         if(login != null){
             request.getSession().setAttribute("admin",login);
-            return "true";
+            return "{\"state\":true}";
         }
-        return "false";
+        return "{\"state\":false}";
     }
 }
