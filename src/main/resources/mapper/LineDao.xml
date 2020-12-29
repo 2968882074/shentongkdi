@@ -9,6 +9,13 @@
         <result property="linename" column="linename" jdbcType="VARCHAR"/>
         <result property="linepath" column="linepath" jdbcType="VARCHAR"/>
     </resultMap>
+  <!-- 统计行数-->
+    <select id="count" resultType="int">
+        select
+         count(1) num
+        from shentong.line
+    </select>
+
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (Freight)表数据库访问层
+ * (Freight)货车线路表数据库访问层
  *
  * @author makejava
  * @since 2020-12-27 12:11:48
@@ -16,6 +16,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface FreightDao {
+    /**
+     * 统计行数
+     * @return
+     */
+    public int count();
 
     /**
      * 通过ID查询单条数据
@@ -32,7 +37,7 @@ public interface FreightDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Freight> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Freight> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("tlid") int tlid);
 
 
     /**

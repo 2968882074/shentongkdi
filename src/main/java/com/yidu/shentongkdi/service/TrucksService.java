@@ -10,6 +10,11 @@ import java.util.List;
  * @since 2020-12-27 12:12:12
  */
 public interface TrucksService {
+    /**
+     * 统计行数
+     * @return 实例对象
+     */
+    int count();
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +31,7 @@ public interface TrucksService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Trucks> queryAllByLimit(int offset, int limit);
+    List<Trucks> queryAllByLimit(int offset, int limit,String license);
 
     /**
      * 新增数据
