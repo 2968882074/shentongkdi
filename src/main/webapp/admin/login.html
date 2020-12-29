@@ -27,7 +27,7 @@
                 <div class='icon'>
                     <img alt="" src='../assets/img/user_icon_copy.png'>
                 </div>
-                <input name="adminname" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="kbcxy" />
+                <input name="adminname" placeholder='用户名' maxlength="16" type='text' autocomplete="off"/>
                 <div class='validation'>
                     <img alt="" src='../assets/img/tick.png'>
                 </div>
@@ -36,7 +36,7 @@
                 <div class='icon'>
                     <img alt="" src='../assets/img/lock_icon_copy.png'>
                 </div>
-                <input name="adminpass" placeholder='密码' maxlength="16" type='text' autocomplete="off">
+                <input name="adminpass" placeholder='密码' maxlength="16" type='password' autocomplete="off" value="" />
                 <div class='validation'>
                     <img alt="" src='../assets/img/tick.png'>
                 </div>
@@ -74,26 +74,12 @@
 <script type="text/javascript" src="../assets/js/Particleground.js"></script>
 <script type="text/javascript" src="../assets/js/jquery.mockjax.js"></script>
 <script type="text/javascript">
-    // $("#loginbutton").click(function(){
-    //     alert();
-    //     $.ajax({
-    //         url:"../admin/login",
-    //         data:$("#loginfrom").serialize(),
-    //         dataType:"json",
-    //         success:function(json){
-    //             window.location.href="../admin/index.jsp";
-    //         }
-    //     });
-    // })
-
     var canGetCookie = 0; //是否支持存储Cookie 0 不支持 1 支持
     var ajaxmockjax = 1; //是否启用虚拟Ajax的请求响 0 不启用  1 启用
+
     //默认账号密码
-
-    var truelogin = "kbcxy";
-    var truepwd = "1";
-
-    var CodeVal = 0;
+    var adminname = getCookie("adminname");
+    $("input[name=adminname]").val(adminname);
 
 
     var open = 0;
@@ -137,6 +123,21 @@
         }
     });
 
+
+    // 读取cookie
+    function getCookie(c_name) {
+        if (document.cookie.length > 0)     {
+            c_start = document.cookie.indexOf(c_name + "=")
+            if (c_start != -1){
+                c_start = c_start + c_name.length + 1
+                c_end = document.cookie.indexOf(";", c_start)
+                if (c_end == -1)
+                    c_end = document.cookie.length
+                return unescape(document.cookie.substring(c_start, c_end))
+            }
+        }
+        return ""
+    }
 
 
     //全屏
