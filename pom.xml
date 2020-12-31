@@ -87,6 +87,12 @@
             <version>2.3</version>
             <classifier>jdk15</classifier>
         </dependency>
+        <!--导入短信验证包-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

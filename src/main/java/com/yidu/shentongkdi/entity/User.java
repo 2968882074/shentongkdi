@@ -1,13 +1,16 @@
 package com.yidu.shentongkdi.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
- * (User)实体类
+ * (用户)实体类
  *
  * @author makejava
  * @since 2020-12-28 13:45:32
  */
+@Component
 public class User implements Serializable {
     private static final long serialVersionUID = 499511146029465221L;
     
@@ -31,6 +34,27 @@ public class User implements Serializable {
     
     private String nation;
 
+    public User(){
+
+    }
+
+    public User(String userpass, String uphone) {
+        this.userpass = userpass;
+        this.uphone = uphone;
+    }
+
+    public User(Integer userid, String username, String userpass, String uphone, String sex, String age, String chinaname, String chinald, String address, String nation) {
+        this.userid = userid;
+        this.username = username;
+        this.userpass = userpass;
+        this.uphone = uphone;
+        this.sex = sex;
+        this.age = age;
+        this.chinaname = chinaname;
+        this.chinald = chinald;
+        this.address = address;
+        this.nation = nation;
+    }
 
     public Integer getUserid() {
         return userid;

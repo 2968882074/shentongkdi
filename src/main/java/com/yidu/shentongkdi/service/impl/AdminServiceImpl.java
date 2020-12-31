@@ -19,7 +19,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-13 17:56:19
  */
-@Service("adminService")
+@Service
 public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminDao adminDao;

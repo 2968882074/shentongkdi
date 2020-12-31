@@ -1,35 +1,75 @@
 package com.yidu.shentongkdi.controller;
 
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.CommonResponse;
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.profile.DefaultProfile;
 import com.yidu.shentongkdi.entity.User;
-import com.yidu.shentongkdi.service.UserService;
+import com.yidu.shentongkdi.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
- * (User)表控制层
+ * (用户)表控制层
+ *
  *
  * @author makejava
  * @since 2020-12-28 13:45:32
  */
-@RestController
+@Controller
 @RequestMapping("user")
-public class UserController {
+public class UserController{
     /**
      * 服务对象
      */
-    @Resource
-    private UserService userService;
+    @Autowired
+    private UserServiceImpl userService;
+
+    @ResponseBody
+    @RequestMapping("denglu")
+    /**
+     * 登录
+     */
+    public String denglu(HttpServletRequest httpServletRequest,User user){
+        String msg="";
+        User users=userService.denglu(user);
+        System.out.println(users);
+        if (users==null){
+            return "0";
+        }
+        httpServletRequest.getSession().setAttribute("user",users);
+        return "1";
+    }
+
+
 
     /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
+     * 注册
+     * @param
+     * @param user
+     * @return
      */
-    @GetMapping("selectOne")
-    public User selectOne(Integer id) {
-        return this.userService.queryById(id);
+    @ResponseBody
+    @RequestMapping("zhuce")
+    public boolean zhuce(User user){
+        userService.add(user);
+        System.out.println(user.toString());
+        return true;
     }
+
+
+
+
 
 }
