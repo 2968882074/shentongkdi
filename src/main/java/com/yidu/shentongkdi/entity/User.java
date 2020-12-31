@@ -136,4 +136,20 @@ public class User implements Serializable {
         this.nation = nation;
     }
 
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", userpass='" + userpass + '\'' +
+                ", uphone='" + uphone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age='" + age + '\'' +
+                ", chinaname='" + chinaname + '\'' +
+                ", chinald='" + chinald + '\'' +
+                ", address='" + address + '\'' +
+                ", nation='" + nation + '\'' +
+                '}';
+    }
 }

@@ -10,6 +10,7 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.yidu.shentongkdi.entity.User;
 import com.yidu.shentongkdi.service.impl.UserServiceImpl;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -51,25 +52,17 @@ public class UserController{
         httpServletRequest.getSession().setAttribute("user",users);
         return "1";
     }
-
-
-
     /**
      * 注册
      * @param
-     * @param user
+     * @param
      * @return
      */
     @ResponseBody
     @RequestMapping("zhuce")
-    public boolean zhuce(User user){
+    public String zhuce(User user){
         userService.add(user);
-        System.out.println(user.toString());
-        return true;
+        //返回真
+        return "true";
     }
-
-
-
-
-
 }
