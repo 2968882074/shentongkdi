@@ -9,9 +9,9 @@ a {
 	height: 420px;
 	width:100%;
 	float: left;
-	background-image: url(../img/banner.png);
+	background-image: url(../img/beijin.png);
 }
-#headup<img{
+#headup>img{
 	float: left;
 }
 .headdawn{
@@ -55,7 +55,7 @@ a {
 	margin-top: 20px;
 	
 }
-#code{
+#codes{
 	width: 112px;
 	height: 50px;
 	line-height: 50px;
@@ -67,6 +67,9 @@ a {
 	color: #fff;
 	font-size: 12px;
 	border-radius: 5px;
+}
+a{
+	color:white;
 }
 .kk{
 	vertical-align: middle;

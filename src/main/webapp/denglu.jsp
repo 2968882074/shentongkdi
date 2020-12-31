@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" href="css/denglu.css" />
+		<link rel="stylesheet" href="html/css/denglu.css" />
 		
 	</head>
 	<body style="background-color:#f0f4f5;">
 		<div class="body">
 		<div id="headup">
-			<img style="margin-left: 400px;" src="img/logo.png" >
+			<img style="margin-left: 400px;" src="html/img/logos.png" >
 		</div>
 		<div class="headdawn">
 			<div class="left">
@@ -34,13 +34,13 @@
 					<span>还没有申通快递？</span>
 					<span style="color:#ee6a00">《服务条款》</span>
 					<span>| </span>
-					<span style="color:#ee6a00;cursor: pointer;"><a href="zhice.html"  style="color: #ee6a00;";>立即注册</a></span>
+					<span style="color:#ee6a00;cursor: pointer;"><a href="zhice.jsp"  style="color: #ee6a00;";>立即注册</a></span>
 				</p>
-				<img class="img" src="img/sort.png" />
+				<img class="img" src="html/img/sorts.png" />
 			</div>
 			<div class="right">
 				<p>
-					<img class="img2" src="img/wechat_official_account.jpg" />
+					<img class="img2" src="html/img/erwema.jpg" />
 				</p>
 				<p class="p">
 					扫描关注申通微信公众号
@@ -49,7 +49,7 @@
 		</div>
 		</div>
 	</body>
-	<script src="js/jquery-3.4.1.min.js"type="text/javascript"></script>
+	<script src="html/js/jquery-3.5.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		
 		function qwe(me){
