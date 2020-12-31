@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="cssss/iconfont.css" />
+	<link rel="stylesheet" href="css/league.css" />
+	<title>申通快递|会员中心|客户的满意,申通的追求!</title>
+	<link rel="icon" type="image/x-icon" href="imgtanxu/sto.ico" />
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<style>
+		a{
+			text-decoration: none;
+			color: #555;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div id="head">
+				<dl>
+					<dt>您好,185******19</dt>
+					<dt>退出</dt>
+				</dl>
+			</div>
+			<div id="head_up">
+				<dl id="head-t">
+					  <dt><a href="index.html"><img src="头部底部图片/申通快递.png" style="margin-top: 12px;"/></a></dt>
+				    <dt><a href="index1.html">首页</a></dt>
+			        <dt><a href="ship.html">在线寄件</a></dt>
+			        <dt><a href="waybill.html">运单查询</a></dt>
+			        <dt><a href="OrderGL.html">订单管理</a></dt>
+			        <dt><a href="user.html">账户管理</a></dt>
+			        <dt><a href="league.html">协议客户</a></dt>
+			        <dt><a href="league.html">网点申请</a></dt>
+				</dl>
+			</div>
+			<div id="head-c">
+				<div id="head-a">
+					<div id="include">
+						<ul id="content">
+							<li><i class="iconfont">&#xe66e;</i><span style="font-size: 14px;">加盟申请</span></li>
+							<li><i class="iconfont">&#xe670;</i><span>申请记录</span></li>
+						</ul>
+						<div id="gather">
+							<div id="application">
+								<div class="record">申请记录</div>
+								<ul>
+									<li>审批结果</li>
+									<li>管理员姓名<li>
+									<li>手机号</li>
+									<li>网点名称</li>
+									<li>所属网点</li>
+									<li>网点类型</li>
+									<li>申请时间</li>
+									<li>审批时间</li>
+								</ul>
+								<div id="data">
+									<span style="line-height: 100px;margin-left: 400px;">暂无数据</span>
+								</div>
+								<dl id="number">
+									<dt>共 0 条</dt>
+									<dt><b style="cursor: pointer;color: #C0C4CC; font-size: 14px;">
+											<</b>&nbsp;&nbsp;1 <b style="font-size: 14px;cursor: pointer;color: #C0C4CC;">&nbsp;&nbsp;>
+										</b></dt>
+									<dt>前往<input style="width: 46px;height: 28px;border-radius: 4px;border: 1px solid #DCDFE6;background-color: #FFF;">页</dt>
+								</dl>
+							</div>
+							<div id="league">
+								<div class="network-information">网点信息</div>
+								<dl class="league-s">
+									<dt>&nbsp;&nbsp;&nbsp;&nbsp;<span class="star">*</span>网点名称:<input type="text" required="required" /></dt>
+									<dt>&nbsp;&nbsp;&nbsp;&nbsp;<span class="star">*</span>
+										网点类型:<input readonly="readonly" id="site" style="cursor: pointer;color: #C0C4CC;font-size: 14px;" value="请选择">
+										<i class="iconfont" id="branch-c" onclick="showther()">&#xe649;</i>
+										<i class="iconfont" id="branch-i" onclick="showthei()">&#xe64a;</i>
+										<div id="branch">
+											<ul onclick="showthei()">
+												<li>独立网点</li>
+												<li>承包区网点</li>
+											</ul>
+										</div>
+									</dt>
+									<dt><span class="star">*</span>所属省区:
+										<input type="text" id="provinces" readonly="readonly" style="color: #C0C4CC;font-size: 14px;cursor: pointer;"
+										 value="请选择">
+										<i class="iconfont" id="branch-x" onclick="Selectprovince()">&#xe649;</i>
+										<i class="iconfont" id="branch-s" onclick="Selectprovinci()">&#xe64a;</i>
+										<div id="province">
+											<ul onclick="Selectprovinci()">
+												<li>河北省</li>
+												<li>山西省</li>
+												<li>辽宁省</li>
+												<li>吉林省</li>
+												<li>黑龙江省</li>
+												<li>江苏省</li>
+												<li>浙江省</li>
+												<li>安徽省</li>
+												<li>福建省</li>
+												<li>江西省</li>
+												<li>山东省</li>
+												<li>河南省</li>
+												<li>湖北省</li>
+												<li>湖南省</li>
+												<li>广东省</li>
+												<li>海南省</li>
+												<li>四川省</li>
+												<li>贵州省</li>
+												<li>云南省</li>
+												<li>陕西省</li>
+												<li>甘肃省</li>
+												<li>青海省</li>
+												<li>台湾省</li>
+												<li>内蒙古自治区</li>
+												<li>广西壮族自治区</li>
+												<li>西藏自治区</li>
+												<li>宁夏回族自治区</li>
+												<li>新疆维吾尔自治区</li>
+												<li>北京市</li>
+												<li>天津市</li>
+												<li>上海市</li>
+												<li>重庆市</li>
+												<li>香港特别行政区</li>
+												<li>澳门特别行政区</li>
+
+											</ul>
+										</div>
+									</dt>
+									<dt><span class="star">*</span>管理员姓名:<input></dt>
+									<dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="star">*</span>身份证号:<input></dt>
+									<dt>&nbsp;&nbsp;&nbsp;<span class="star">*</span>手机号:<input></dt>
+									<dt>&nbsp;&nbsp;&nbsp;&nbsp;<span class="star">*</span>查询电话:<input></dt>
+									<dt><span class="star">*</span>异常查件电话:<input></dt>
+									<dt><span class="star">*</span>办公地址:<input></dt>
+									<dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="star">*</span>邮编:<input></dt>
+									<dt>&nbsp;&nbsp;&nbsp;<span class="star">*</span>下一站编号:<input type="text" required="required" /></dt>
+								</dl>
+								<ul class="league-c">
+									<li><span>*</span>业务区域</li>
+									<li><input type="text" readonly="readonly" value="省" style="color: #C0C4CC;font-size: 14px;" onclick="sheng()">
+									<i class="iconfont">&#xe649;</i>
+									<i class="iconfont" style="display: none;">&#xe64a;</i></li>
+									<li><input type="text" readonly="readonly" value="市" style="color: #C0C4CC;font-size: 14px;" onclick="shi()">
+									<i class="iconfont">&#xe649;</i>
+									<i class="iconfont" style="display: none;">&#xe64a;</i></li>
+									<li><input type="text" readonly="readonly" value="区" style="color: #C0C4CC;font-size: 14px;" onclick="qu()">
+									<i class="iconfont">&#xe649;</i>
+									<i class="iconfont" style="display: none;">&#xe64a;</i></li>
+									<li><input type="text" readonly="readonly" value="街道" style="color: #C0C4CC;font-size: 14px;" onclick="jiedao()">
+									<i class="iconfont">&#xe649;</i>
+									<i class="iconfont" style="display: none;">&#xe64a;</i></li>
+								</ul>
+								<div id="present"> <span style="font-size: 14px;">提交</span></div>
+								<div id="present-c">
+									<span style="font-size: 14px;">重置</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="head-s">
+					<div id="content-c">
+						<img src="imgtanxu/icon_money.png" />
+						<div>代收货款</div>
+						<ul id="content-u">
+							<li><span>客户运单状态统计</span></li>
+							<li><span>客户运单状态明细</span></li>
+						</ul>
+					</div>
+					<div id="contract">
+						<div id="right-box">
+							<p id="right-boxs">客户编号:<input></p>
+							<dl id="right-boxx">
+								<dt>查询日期:&nbsp;&nbsp;<input type="date" value="2020-12-21"></dt>
+								<dt>至<input type="date"></dt>
+								<dt><span>查询</span></dt>
+							</dl>
+							<div id="below-box">
+								<dl>
+									<dt><img class="img" src="imgtanxu/icon_sum.png"> </dt> <dt></dt>
+									<dt><img class="img" src="imgtanxu/icon_send.png"> </dt> <dt></dt>
+									<dt><img class="img" src="imgtanxu/icon_bus.png"> </dt> <dt><img class="img" src="imgtanxu/icon_signed.png"> </dt> </dl>
+										 <span id="below-bos">总票数</span>
+										<span id="below-boss">运输中</span>
+										<span id="below-bosss">派件中</span>
+										<span id="below-bossss">已签收</span>
+										<span id="below-boz">0</span>
+										<span id="below-bozz">0</span>
+										<span id="below-bozzz">0</span>
+										<span id="below-bozzzz">0</span>
+										</span>
+							</div>
+						</div>
+						<div id="detail">
+							<ul id="detail-u">
+								<li>客户编号:<input></li>
+								<li>查询日期:&nbsp;&nbsp;<input type="date" value="2020-12-22"></li>
+								<li>至<input type="date" value="2020-12-23"></li>
+							</ul>
+							<dl id="detail-d">
+								<dt>运单编号:<input></dt>
+								<dt>订单编号:<input></dt>
+								<dt>物流状态:<input type="text" id="sdate" readonly="readonly" value="全部" style="cursor: pointer;">
+								</dt>
+								<i class="iconfont" id="status-c" onclick="Selectprovincss()">&#xe649;</i>
+								<i class="iconfont" id="status-s" onclick="Selectprovincc()">&#xe64a;</i>
+								<div id="delivery-status">
+									<ul onclick="Selectprovincc()">
+										<li>全部</li>
+										<li>已收件</li>
+										<li>运输中</li>
+										<li>派送中</li>
+										<li>已签收</li>
+									</ul>
+								</div>
+								<dt><span>查询</span></dt>
+							</dl>
+							<div id="text">
+								<dl>
+									<dt>客户名称</dt>
+									<dt>订单编号</dt>
+									<dt>运单编号</dt>
+									<dt>货款全额</dt>
+									<dt>物流状态</dt>
+									<dt>收件日期</dt>
+									<dt>收件网点</dt>
+									<dt>签收日期</dt>
+									<dt>签收网点</dt>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="top">
+			<dl>
+				<dt>客服热线</dt>
+				<dt>95543</dt>
+			</dl>
+			<ul>
+				<li><img src="imgtanxu/chat_code.jpg" /></li>
+				<li><img src="imgtanxu/qq_code.png" /></li>
+				<li><img src="imgtanxu/pay_code.png" /></li>
+			</ul>
+			<span>微信公众号</span>
+			<p>QQ公众号</p>
+			<i>支付宝服务窗</i>
+		</div>
+		<div id="top_top">
+			<p>© 2017.All RIGHT RESERVED.申通快递有限公司 版权所有</p>
+			<img src="imgtanxu/ghs.png" />
+			<span>沪ICP备13037807号-1</span>
+		</div>
+	</body>
+	<script>
+		$("#content>li").on("click", function() {
+			$("#content>li").click(function() {
+				$(this).css("color", "orange").siblings().css("color", "black");
+			});
+			$("#content>li").click(function() {
+				$(this).css("background-color", "#fef4ed").siblings().css("background-color", "white");
+			});
+
+			//显示指定的div
+			$("#gather>div:eq(" + $(this).index() + ")").show();
+			$("#gather>div:eq(" + $(this).index() + ")").siblings().hide();
+		});
+
+		$("#content-u>li").on("click", function() {
+			$("#content-u>li").click(function() {
+				$(this).css("color", "orange").siblings().css("color", "black");
+			});
+			$("#contract>div:eq(" + $(this).index() + ")").show();
+			$("#contract>div:eq(" + $(this).index() + ")").siblings().hide();
+		});
+		$("#head-t>dt").on("click", function() {
+			$("#head-t>dt").click(function() {
+				$(this).css("color", "orange").siblings().css("color", "black");
+			});
+			$("#head-c>div:eq(" + $(this).index() + ")").show();
+			$("#head-c>div:eq(" + $(this).index() + ")").siblings().hide();
+		});
+		//选择网点
+		function showther() {
+			//显示选择的网点
+			$("#branch").show();
+			//显示向上的图片
+			$("#branch-i").show();
+			//隐藏自己
+			$("#branch-c").hide();
+			$("#branch>ul>li").each(function(i, n) {
+				$(n).click(function() {
+					//console.log($(this).text());
+					//将得到的值设置到网点的输入框site
+					$("#site").val($(this).text());
+					$("#branch>ul>li").click(function() {
+						$(this).css("color", "orange").siblings().css("color", "black");
+					});
+				})
+			});
+		};
+		//隐藏显示网点文字图片
+		function showthei() {
+			//显示向下的图片
+			$("#branch-c").show();
+			//隐藏自己
+			$("#branch-i").hide();
+			//隐藏网点
+			$("#branch").hide();
+		};
+		//选择省区
+		function Selectprovince() {
+			$("#province").show();
+			$("#branch-x").hide();
+			$("#branch-s").show();
+			$("#province>ul>li").each(function(i, n) {
+				$(n).click(function() {
+					//将得到的值设置到省份的输入框provinces
+					$("#provinces").val($(this).text());
+				})
+			});
+		};
+		//隐藏显示省区文字图片
+		function Selectprovinci() {
+			//显示向下的图片
+			$("#branch-x").show();
+			//隐藏自己
+			$("#branch-s").hide();
+			//隐藏省区
+			$("#province").hide();
+		}
+
+
+
+		//显示物流状态
+		function Selectprovincss() {
+			//显示选择的物流状态
+			$("#delivery-status").show();
+			//显示向上的图片
+			$("#status-s").show();
+			//隐藏自己		 
+			$("#status-c").hide();
+			$("#delivery-status>ul>li").each(function(i, n) {
+				$(n).click(function() {
+					//console.log($(this).text());
+					//将得到的值设置到网点的输入框site
+					$("#sdate").val($(this).text());
+					$("#delivery-status>ul>li").click(function() {
+						$(this).css("color", "white").siblings().css("color", "black");
+					});
+					$("#delivery-status>ul>li").click(function() {
+						$(this).css("background-color", "#f46c00").siblings().css("background-color", "white");
+					});
+				});
+			});
+		}
+		//隐藏物流状态
+		function Selectprovincc() {
+			//隐藏选择的物流状态
+			$("#delivery-status").hide();
+			//显示向下的图片
+			$("#status-c").show();
+			//隐藏向上的图片	 		 
+			$("#status-s").hide();
+		}
+
+	
+	</script>
+</html>

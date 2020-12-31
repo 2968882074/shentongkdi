@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>申通快递|会员中心|客户的满意,申通的追求!</title>
+	<link rel="icon" type="image/x-icon" href="imgsheng/logo.ICO"/>
+	<link rel="stylesheet" href="css/user.css" />
+	<link rel="stylesheet" href="css/popup.css" />
+	<link rel="stylesheet" href="sheng/iconfont.css" />
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<style>
+		a{
+			text-decoration: none;
+	color: #555;
+		}
+	</style>
+	<body>
+		<div id="baks"></div>
+		<div id="popup">
+			<div id="popup_top">
+				<span id="font">添加地址</span>
+				<span id="button" onclick="tests()" style="cursor: pointer;">x</span>
+			</div>
+			<div id="fastentrydiv">
+				<a>寄件人智能录入</a>
+			</div>
+			
+			<p id="addplong">
+				<label>名字：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>手机号：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>座机号：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>省市区：</label>
+				<input type="text" />
+			</p>
+			<p id="addTar">
+				<label>详细地址：</label>
+				<textarea id="addTel" placeholder="xx路xx号xx小区x幢x单元xx"></textarea>
+			</p>
+			<div id="base">
+				<ul>
+				<li>设置默认地址</li>
+				<i class="iconfont" id="iconfontone" style="color:#FF00FF">&#xe606;</i>
+				<i class="icon iconfont" id="iconfonttwo" style="display: none; color:#9B9B9B">&#xe608;</i>
+				<li>寄件人地址</li>
+				<i class="iconfont" id="iconfonts" style="color: red;">&#xe606;</i>
+				<li>收件人地址</li>
+				<i class="iconfont" id="iconfontc" style="color: #9B9B9B;">&#xe606;</i>
+				</ul>
+			</div>
+			<p id="buttons">
+				<input type="reset" id="reset" value="重置" />
+				<input type="submit" id="submit" value="提交" />
+			</p>
+		</div>
+		<div id="head">
+			<dl>
+				<dt>您好,185******19</dt>
+				<dt>退出</dt>
+			</dl>
+		</div>
+		<div id="head_up">
+			<dl>
+				<dt><a href="index.html"><img src="imgsheng/logo.png" /></a></dt>
+				 <dt><a href="index1.html">首页</a></dt>
+			        <dt><a href="ship.html">在线寄件</a></dt>
+			        <dt><a href="waybill.html">运单查询</a></dt>
+			        <dt><a href="OrderGL.html">订单管理</a></dt>
+			        <dt><a href="user.html">账户管理</a></dt>
+			        <dt><a href="league.html">协议客户</a></dt>
+			        <dt><a href="league.html">网点申请</a></dt>
+			</dl>
+		</div>
+
+		<div id="center">
+			<div id="center_box">
+				<div id="left">
+					<div id="left_box">
+						<span>
+							<img src="imgsheng/user.png" />
+						</span>
+						<span>账户管理</span>
+					</div>
+					<ul>
+						<li style="color: orange;">基本信息</li>
+						<li>地址中心</li>
+						<li>账号绑定</li>
+						<li>月结客户</li>
+						<li>实名认证</li>
+						<li>我的订阅</li>
+					</ul>
+				</div>
+				
+				<!-- 第一个页面 -->
+				<div id="right" class="rights">
+					<div id="right_top">
+						<div id="right_box">
+							<span id="right_bod">个人信息</span>
+							<span id="ent">
+								<img src="imgsheng/edit.png" />
+							</span>
+							<span id="q" style="display: none;">
+								<a href="javascript:void(0)" id="key" style="color: #FFA500;">取消</a>
+								<a href="javascript:void(0)" style="color: #FFA500;">保存</a>
+							</span>
+						</div>
+					</div>
+					<div id="right_cent">
+					</div>
+					<div id="right_base">
+						<div id="base">
+							<div id="b_left">
+								<label>名字：</label>
+								<input id="check" type="text" />
+							</div>
+							<div id="b_right">
+								<label>生日：</label>
+								<input id="check" type="date" />
+							</div>
+						</div>
+
+						<div id="base">
+							<div id="b_left">
+								<label>手机：</label>
+								<input id="check" type="text" />
+							</div>
+							<div id="b_right">
+								<label style="line-height: 40px;">性别：</label>
+								<div style="float: right;" id="b_right_box">
+								<input id="checkone" readonly="readonly" style="border: none;" value="男" />
+								<i class="iconfont" id="branch-c" onclick="showther()">&#xe649;</i>
+								</div>
+								<div id="branch">
+									<ul>
+										<li>男</li>
+										<li>女</li>
+									</ul>
+								</div>
+									
+							</div>
+						</div>
+
+
+						<div id="base">
+							<div id="b_left">
+								<label id="font">省市区：</label>
+								<input id="check" type="text" />
+							</div>
+							<div id="dizhi">
+								
+							</div>
+							<div id="b_right">
+								<label id="fonts">详细地址：</label>
+								<textarea></textarea>
+							</div>
+						</div>
+					</div>
+					<div id="bottom">
+						<div id="bottom_top">
+							<div>验证信息</div>
+						</div>
+						<div id="bottom_base">
+							
+						</div>
+						<div id="bottom_top">
+							<div>密码设置</div>
+						</div>
+						<div id="bottom_base">
+							<p>
+								<span> 登陆后修改您的申通账号密码</span>
+								<a href="#">修改</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 第二个页面 -->
+				<div id="rightOne" class="rights" style="display: none ;">
+					<div id="rightOne_top">
+						<div id="rightOne_top_content">
+							<input id="text" type="text" style="cursor: pointer;" placeholder="请选择查询方式" />
+							<i class="iconfont" id="branch-c" onclick="showthers()">&#xe649;</i>
+							<div id="delivery-status">
+								<ul>
+									<li>请选择查询方式</li>
+									<li>姓名</li>
+									<li>手机号</li>
+								</ul>
+							</div>
+						</div>
+						<input id="seek" type="text" placeholder="请输入手机号或名称" />
+						<input id="button_one" type="button" value="搜索" />
+						<input id="button_two" onclick="test()" type="button" value="+新增地址" />
+					</div>
+					<div id="rightOne_center">
+						<ul>
+							<li>姓名</li>
+							<li>手机号</li>
+							<li>座机号</li>
+							<li>详细地址</li>
+							<li>类别</li>
+							<li>操作</li>
+						</ul>
+					</div>
+					<div id="rightOne_base">
+						
+					</div>
+				</div>
+				
+				<!-- 第三个页 -->
+				<div id="rightTwo" class="rights" style="display:none;">
+					<div id="rightTwo_top">
+						<span>账号绑定</span>
+					</div>
+					<div id="rightTwo_center">
+						<ul>
+							<li>
+								<div id="rightTwo_center_img">
+									<img src="imgsheng/wechat.png" />
+								</div>
+								<div id="righTwo_center_font">
+									<p style="color: #555;">微信账号</p>
+									<p style="color:#999999;">还没有绑定</p>
+								</div>
+								<div id="rightTwo_center_bottom">
+									<a>立即绑定</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<!-- 第四个页面 -->
+				<div id="rightThree" class="rights" style="display:none;">
+					<div id="rightThree_top">
+						<input id="rightThree_top_box" type="text" placeholder="可输入月结编号"/>
+						<input id="rightThree_top_box_buttom" type="button" value="搜索" />
+						
+						<input id="button_two" type="button" value="绑定月结客户" />
+						<input id="button_one" type="button" value="申请月结客户" />
+						</div>
+						<div id="rightThree_center">
+							<ul>
+								<li>月结卡号</li>
+								<li>月结客户编号</li>
+								<li>月结客户名称</li>
+								<li>合作网点名称</li>
+								<li>业务员</li>
+								<li>状态</li>
+								<li>是否开通电子面单服务</li>
+								<li>操作</li>
+							</ul>
+						</div>
+						<div id="rightThree_base">
+							
+						</div>
+				</div>
+				
+				<!-- 第五个页面 -->
+				<div id="rightFour" class="rights" style="display:none;">
+					<div id="title">
+						<span>根据国家邮政局最新规定，寄收快递必须实名制</span>
+					</div>
+					<div id="title">
+						<label>身份证正面照片   (上传照片不得大于1M)</label>
+					</div>
+					<div id="IMAGE">图片智能识别</div>
+					
+					<div id="rightFour_center">
+						<p id="addp">
+							<label>姓名：</label>
+							<input type="text" />
+							
+							<label>性别：</label>
+							<input id="texts" type="text" value="男" />
+							<i class="iconfont" id="branch-c" onclick="showtherc()">&#xe649;</i>
+						</p>
+						<div id="delivery-status">
+							<ul>
+								<li>男</li>
+								<li>女</li>
+							</ul>
+						</div>
+						<p id="addp">
+							<label>名族：</label>
+							<input type="text" />
+							
+							<label>出生年月：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>身份证号：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>家庭住址：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>详细信息：</label>
+							<input type="text" />
+						</p>
+					</div>
+					<div id="title">
+						<label>手机验证</label>
+					</div>
+					<div id="rightFour_base">
+						<p id="addplong">
+							<label>手机号：</label>
+							<input type="text" />
+						</p>
+						<p id="addp">
+							<label>验证码：</label>
+							<input type="text" />
+							
+							<input id="button" type="button" value="发送验证码" />
+						</p>
+						<div>
+							<input id="submitBox" value="提交" type="button" />
+						</div>
+					</div>
+				</div>
+				
+				<!-- 第六个 -->
+				<div id="rightFive" class="rights" style="display: none;">
+				<div id="rightFive_top">
+					<ul>
+						<li>运单号码</li>
+						<li>推送渠道</li>
+						<li>消息类型</li>
+						<li>操作</li>
+					</ul>
+				</div>
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<div id="top">
+			<dl>
+				<dt>客服热线</dt>
+				<dt>95543</dt>
+			</dl>
+			<ul>
+				<li><img src="imgsheng/qrcode_wechat.jpg" /></li>
+				<li><img src="imgsheng/qrcode_qq.png" /></li>
+				<li><img src="imgsheng/qrcode_alipay.png" /></li>
+			</ul>
+			<span>微信公众号</span>
+			<p>QQ公众号</p>
+			<i>支付宝服务窗</i>
+		</div>
+		<div id="top_top">
+			<p>© 2017.All RIGHT RESERVED.申通快递有限公司 版权所有</p>
+			<img src="imgsheng/勋章.png" />
+			<span>沪ICP备13037807号-1 </span>
+		</div>
+	</body>
+
+	<script>
+		//绑定事件,可以删除
+				$("#center #center_box #left ul li").on("click",function(){
+					//显示指定的div
+					$(".rights:eq("+$(this).index()+")").css("display","block");
+					$(".rights:eq("+$(this).index()+")").siblings().css("display","none");
+					$("#left").css("display","block");
+				});
+		
+		
+		
+		//第一个
+		$("#ent").click(function() {
+			$("#ent").hide();
+			$("#q").show();
+		});
+		$("#key").click(function() {
+			$("#q").hide();
+			$("#ent").show();
+		});
+		
+		$("#left li").click(function() {
+			$(this).css("color", "orange").siblings().css("color", "black");
+		});
+		
+		//选择性别
+		function showther(){
+			$("#branch").toggle();
+			$("#branch>ul>li").each(function(i,n){				
+			$(n).click(function(){
+				//将得到的值设置到国家的输入框checkone
+				$("#checkone").val($(this).text());
+				$("#branch").hide();
+			})	
+			});
+		};
+		
+		//第二个
+		function test(){
+			$("#popup").show();
+			$("#baks").show();
+		}
+		
+		function tests(){
+			$("#popup").hide();
+			$("#baks").hide();
+		}
+		//选择性别
+		function showthers(){
+			$("#delivery-status").toggle();
+			$("#delivery-status>ul>li").each(function(i,n){				
+			$(n).click(function(){
+				//将得到的值设置到国家的输入框checkone
+				$("#text").val($(this).text());
+				$("#delivery-status").hide();
+			})	
+			});
+		};
+		$("#iconfontone").click(function() {
+			$("#iconfontone").hide();
+			$("#iconfonttwo").show();
+		});
+		
+		$("#iconfonttwo").click(function() {
+			$("#iconfonttwo").hide();
+			$("#iconfontone").show();
+		});
+		
+		$("#base ul #iconfonts").click(function() {
+			$(this).css("color", "red");
+			$("#iconfontc").css("color", "#9B9B9B");
+		});
+		$("#base ul #iconfontc").click(function() {
+			$(this).css("color", "red");
+			$("#iconfonts").css("color", "#9B9B9B");
+		});
+		
+		//第五个
+		//选择性别
+		function showtherc(){
+			$("#rightFour #delivery-status").toggle();
+			$("#rightFour #delivery-status>ul>li").each(function(i,n){				
+			$(n).click(function(){
+				//将得到的值设置到国家的输入框checkone
+				$("#rightFour #texts").val($(this).text());
+				$("#rightFour #delivery-status").hide();
+			})	
+			});
+		};
+			
+			
+			
+	</script>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>底部</title>
+		<link rel="stylesheet" href="css/top.css" />
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	</head>
+	<body>
+		<div id="top">
+			<center>
+			<div id="top_up">
+				<div id="top_up_left">
+					<div id="top_up_left_img">
+						<img src="img/95533.png"/>
+					</div>
+					<div id="top_up_left_img_down">
+					<dl>
+					<dt><img src="img/home_weibo.png"/>
+					<div>
+						<img src="img/qrcode_weibo.jpg" />
+						<span>关注申通官方微博</span>
+					</div>
+					</dt>
+					<dt><img src="img/home_weixin.png"/>
+					<div>
+						<img src="img/qrcode_wechat.jpg"/>
+						<span>关注申通官方微信</span>
+					</div>
+					</dt>
+					<dt><img src="img/home_qq.png"/>
+					<div>
+						<img src="img/qrcode_qq.png" />
+						<span>关注申通qq公众号</span>
+					</div>
+					</dt>
+					<dt><img src="img/home_zhifubao.png"/>
+					<div>
+						<img src="img/qrcode_alipay.png" />
+						<span>关注申通支付服务</br>窗</span>
+					</div>
+					</dt>
+					<dt><img src="img/customerservice.png"/></dt>
+				</dl>
+			   <span>微博</span>
+				<span>微信</span>
+				<span>QQ</span>
+				<span>支付宝</span>
+				<span>在线客服</span>
+				</div>
+				</div>
+				<div id="top_up_right">
+					<dl>
+						<dt>关于我们</dt>
+						<dt>客户服务</dt>
+						<dt>产品服务</dt>
+						<dt>新闻资讯</dt>
+						<dt>投资者关系</dt>
+						<dt>公司简介</dt>
+						<dt>申行者</dt>
+						<dt>加入我们</dt>
+						<dt>客服热线9554</dt>
+						<dt>快件查询</dt>
+						<dt>运费查询</dt>
+						<dt>网点查询</dt>
+						<dt>投诉建议</dt>
+						<dt>国内时效产品</dt>
+						<dt>国际服务</dt>
+						<dt>增值业务</dt>
+						<dt>仓储服务</dt>
+						<dt>电商平台</dt>
+						<dt>公司动态</dt>
+						<dt>公司公告</dt>
+						<dt>行业新闻</dt>
+						<dt>公司治理</dt>
+						<dt>公司公告</dt>
+						<dt>财务信息</dt>
+						<dt>股票走势</dt>
+						<dt>投资者联络</dt>
+					</dl>
+				</div>
+			</div>
+			<div id="top_top">
+				<span><img src="img/底部.png" /></span>
+				<p> 申通快递有限公司：上海市青浦区北青公路6598弄25号   意邦国际写字楼   邮编：201706     版权所有：申通快递有限公司</br>
+                                                    沪ICP备13037807号-1</p>
+                 <dl>
+                 	<dt><img src="img/license.jpg"/></dt>
+                 	<dt><img src="img/wangjing_1.png"/></dt>
+                 	<dt><img src="img/gongshang_2.png"/></dt>
+                 	<dt><img src="img/shehuizhengxin_2.png"/></dt>
+                 </dl>
+			</div>
+			</center>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//显示关注微博二维码
+		$("#top_up_left_img_down>dl>dt:eq(0)").hover(
+			function() { //进
+				$("#top_up_left_img_down>dl>dt:eq(0)>div").stop(true).slideDown("fast");
+				$("#top_up_left_img_down>dl>dt:eq(0)>div").css("color", "#666666")
+			},
+			function() { //出
+				$("#top_up_left_img_down>dl>dt:eq(0)>div").stop(true).slideUp("fast");
+			});
+		$("#top_up_left_img_down>dl>dt:eq(0)").css("position", "relative");
+		$("#top_up_left_img_down>dl>dt:eq(0)>div").css({
+			"position": "absolute",
+			"top": "70px",
+			"left": "10px",
+			"width": "140px",
+	        "height": "169px",
+			"display": "none",
+			"background-color": "white",
+			"cursor": "pointer",
+			"z-index": "1",
+		});
+		//显示微信二维码
+		$("#top_up_left_img_down>dl>dt:eq(1)").hover(
+			function() { //进
+				$("#top_up_left_img_down>dl>dt:eq(1)>div").stop(true).slideDown("fast");
+				$("#top_up_left_img_down>dl>dt:eq(1)>div").css("color", "#666666")
+			},
+			function() { //出
+				$("#top_up_left_img_down>dl>dt:eq(1)>div").stop(true).slideUp("fast");
+			});
+		$("#top_up_left_img_down>dl>dt:eq(1)").css("position", "relative");
+		$("#top_up_left_img_down>dl>dt:eq(1)>div").css({
+			"position": "absolute",
+			"top": "70px",
+			"left": "40px",
+			"width": "140px",
+	        "height": "169px",
+			"display": "none",
+			"background-color": "white",
+			"cursor": "pointer",
+			"z-index": "1",
+		});
+		//显示qq二维码
+		$("#top_up_left_img_down>dl>dt:eq(2)").hover(
+			function() { //进
+				$("#top_up_left_img_down>dl>dt:eq(2)>div").stop(true).slideDown("fast");
+				$("#top_up_left_img_down>dl>dt:eq(2)>div").css("color", "#666666")
+			},
+			function() { //出
+				$("#top_up_left_img_down>dl>dt:eq(2)>div").stop(true).slideUp("fast");
+			});
+		$("#top_up_left_img_down>dl>dt:eq(2)").css("position", "relative");
+		$("#top_up_left_img_down>dl>dt:eq(2)>div").css({
+			"position": "absolute",
+			"top": "70px",
+			"left": "100px",
+			"width": "140px",
+	        "height": "169px",
+			"display": "none",
+			"background-color": "white",
+			"cursor": "pointer",
+			"z-index": "1",
+		});
+		//显示支付宝二维码
+		$("#top_up_left_img_down>dl>dt:eq(3)").hover(
+			function() { //进
+				$("#top_up_left_img_down>dl>dt:eq(3)>div").stop(true).slideDown("fast");
+				$("#top_up_left_img_down>dl>dt:eq(3)>div").css("color", "#666666")
+			},
+			function() { //出
+				$("#top_up_left_img_down>dl>dt:eq(3)>div").stop(true).slideUp("fast");
+			});
+		$("#top_up_left_img_down>dl>dt:eq(3)").css("position", "relative");
+		$("#top_up_left_img_down>dl>dt:eq(3)>div").css({
+			"position": "absolute",
+			"top": "70px",
+			"left": "150px",
+			"width": "140px",
+	        "height": "169px",
+			"display": "none",
+			"background-color": "white",
+			"cursor": "pointer",
+			"z-index": "1",
+		});
+	</script>
+</html>
