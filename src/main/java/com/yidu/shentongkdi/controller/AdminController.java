@@ -5,6 +5,7 @@ import com.yidu.shentongkdi.entity.Admin;
 import com.yidu.shentongkdi.entity.Menuinfo;
 import com.yidu.shentongkdi.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-13 17:56:20
  */
-@RestController
+@Controller
 @RequestMapping("admin")
 public class AdminController {
     /**

@@ -1,0 +1,118 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+a {
+	text-decoration: none;
+}
+#headup{
+	height: 420px;
+	width:100%;
+	float: left;
+	background-image: url(../img/banner.png);
+}
+#headup<img{
+	float: left;
+}
+.headdawn{
+	height: 572px;
+	width: 670px;
+	float: left;
+	margin-top: -225px;
+	margin-left: 600px;
+	border-radius: 8px;
+	background: #fff;
+}
+.left{
+	width: 392px;
+	height:  361px;
+	border-right: 1px dashed #dbdedf;
+	float: left;
+	margin-top: 34px;
+	margin-left: 34px;
+}
+.title{
+	width: 392px;
+	height: 21px;
+	cursor: pointer;
+}
+.inpt{
+	width: 392px;
+	height: 120px;	
+	margin-top: 38px;
+	padding-bottom: 24px;
+}
+.inpt input{
+	width: 350px;
+	height: 50px;
+	background: #f0f4f5;
+	border: none;
+	text-indent: 12px;
+	border-radius: 6px;
+	font-size: 12px;
+}
+.inpt02{
+	margin-top: 20px;
+	
+}
+#code{
+	width: 112px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #ee6900;
+	border: none;
+	outline: none;
+	margin-left: 9px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.kk{
+	vertical-align: middle;
+}
+.wjmm{
+	width: 100%;
+	height: 16px;
+	padding-left: 297px;
+	margin-top: 190px;
+}
+.LoginBtn{
+	width: 350px;
+	height: 50px;
+	background: #ee6900;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	margin-top: 10px;
+}
+.p1{
+	margin-top: 25px;
+}
+.img{
+	margin-right: 100px;
+	margin-top: -20px;
+	float: right;
+	
+}
+.right{
+	float: left;
+	margin-top: 34px;
+	width: 240px;
+	height: 237px;
+}
+.img2{
+	width: 156px;
+	height: 156px;
+	margin-top: 52px;
+	float: right;
+	margin-right: 40px;
+}
+.p{
+	margin-top:215px;
+	margin-left: 30px;
+	color:#757575;
+}

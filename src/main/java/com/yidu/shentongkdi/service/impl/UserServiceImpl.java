@@ -3,21 +3,25 @@ package com.yidu.shentongkdi.service.impl;
 import com.yidu.shentongkdi.entity.User;
 import com.yidu.shentongkdi.dao.UserDao;
 import com.yidu.shentongkdi.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * (User)表服务实现类
+ * (用户)表服务实现类
  *
  * @author makejava
  * @since 2020-12-28 13:45:32
  */
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Autowired
     private UserDao userDao;
+
+    @Override
+    public User denglu(User user) {
+        return this.userDao.denglu(user);
+    }
 
     /**
      * 通过ID查询单条数据
@@ -49,8 +53,8 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User insert(User user) {
-        this.userDao.insert(user);
+    public User add(User user) {
+        userDao.add(user);
         return user;
     }
 

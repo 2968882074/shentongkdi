@@ -12,7 +12,6 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-13 17:56:18
  */
-
 public interface AdminDao {
 
     /**

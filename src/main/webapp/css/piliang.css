@@ -1,0 +1,862 @@
+@charset "utf-8";
+
+body { font-family: 微软雅黑; font-size:12px;-webkit-text-size-adjust:none}
+input,
+select,
+textarea { font-family: 宋体; }
+
+
+.clearfix { 
+  *zoom: 1; 
+} 
+.clearfix:before, 
+
+.clearfix:after {
+  display: table; 
+  line-height: 0; 
+  content: ""; 
+} 
+.clearfix:after { 
+  clear: both; 
+} 
+
+*{ margin:0; padding:0}
+html,body,.wrap{ height:100%;}
+body>.wrap{height:auto; min-height:100%;}
+li{list-style:none}
+a{text-decoration:none!important;cursor:pointer}
+a:hover{text-decoration:none!important}
+input[type=text],button{outline:none}
+ul::after{content:"";display:block;clear:both}
+ul{margin:0}
+.wrap { width: 100%; margin: 0 auto; position: relative;  }
+.f_left{float:left!important}
+.f_right{float:right!important}
+p{margin:0}
+
+.header{
+    width:100%;
+    background:#f0f4f5;
+    height:30px;
+    border-bottom:1px solid #f2f3f5;
+    line-height:30px;
+    color:#9b9b9b;
+}
+.header a{
+    color:#9b9b9b;
+}
+.headerTop{
+    width:1000px;
+    margin:0 auto;
+    text-align:right;
+}
+.Nav{
+    width:100%;
+    background:#fff;
+    height:90px;
+}
+.NavBox{
+    width:1000px;
+    margin:0 auto;
+    height:100%;
+}
+.NavBox .Login{
+    float:left;
+}
+.NavBox .Login img{
+    margin-top:15px;
+}
+.NavBox .navList{
+    float:left;
+    margin-left:24px;
+    line-height:90px;
+}
+.NavBox .navList ul li{
+    float:left;
+    font-size:16px;
+    margin: 0 23px;
+}
+.NavBox .navList ul li a{
+    color:#555555;
+}
+
+.copyright{
+    color:#757575;
+    padding-right: 20px;
+}
+.records{
+    line-height: 20px;
+    color:#ed6a00;
+}
+.records > img {
+    vertical-align: bottom;
+}
+.websitenInfo{
+    padding-right:100px;
+  
+    color:#757575;
+    margin-top:80px;
+ 
+}
+.websitenInfo a{
+ margin-right:100px;
+    color:#ed6a00;
+}
+.browser{
+    font-size:14px;
+    color:#555;
+    font-weight:bold;
+    text-align:center;
+    display:none;
+    margin-top:38px;
+}
+.browser p{
+    margin:10px  6px;
+}
+.downLoad{
+    padding:10px 100px;
+    text-align:center;
+    display:inline-block;
+    background:#ff6e05;
+    border-radius:4px;
+    color:#fff;
+}
+.downLoad:hover{color:#fff;}
+.imges{
+   
+    width:500px;
+    height:40px;
+    margin-left:600px;
+
+}
+.tips{
+    width:300px;
+    height:20px;
+    margin-left:700px;
+}
+.tips .a {
+        margin-bottom:-200px;
+    }
+
+
+
+
+
+ 
+ 
+ @charset "utf-8";
+ 
+ /*sendRes.css
+ 2017-04-18 刘佳康创建
+    */
+ 
+ input {
+     outline: none;
+ }
+ 
+ .banner {
+     width: 100%;
+   background-image: url(../zaixian/banner.png);
+     border-image-repeat: initial;
+     height: 300px;
+ }
+ 
+ .alert {
+     width: 100%;
+     height: 50px;
+     background: #f3fffb;
+     line-height: 50px;
+ }
+ 
+ .alertBox {
+     width: 1000px;
+     margin: 0 auto;
+ }
+ 
+ .alertContent {
+     width: 90%;
+     margin: 0 auto;
+     color: #2ea5ab;
+     text-align: center;
+     font-size: 14px;
+ }
+ 
+ .content {
+     width: 100%;
+     background: #f0f4f5;
+     padding-top: 29px;
+ }
+ 
+ .sendUser {
+     width: 1000px;
+     margin: 0 auto;
+     height: 285px;
+     background: #fff;
+ }
+ 
+     .sendUser .title {
+         width: 40px;
+         height: 100%;
+         background: #ee6900;
+         font-size: 16px;
+         color: #fff;
+         text-align: center;
+         line-height: 20px;
+         *line-height: 20px;
+         float: left;
+     }
+ 
+ .SendUserInfo .line {
+     padding-top: 22px;
+ }
+ 
+ .sendUser .left {
+     float: left;
+     margin-left: 42px;
+     margin-right: 36px;
+ }
+ 
+     .sendUser .left input {
+         width: 278px;
+         height: 38px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         text-indent: 9px;
+         font-size: 14px;
+         line-height: 38px;
+         *line-height: 38px;
+     }
+ 
+     .sendUser .left select {
+         width: 278px;
+         height: 38px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         text-indent: 9px;
+         font-size: 14px;
+         line-height: 38px;
+         *line-height: 38px;
+     }
+ 
+ .sendUser label {
+     font-size: 14px;
+     color: #555555;
+     width: 75px;
+     display: inline-block;
+     text-align: right;
+ }
+ 
+ .sendUser .right {
+     float: left;
+ }
+ 
+     .sendUser .right input {
+         width: 388px;
+         height: 38px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         text-indent: 9px;
+         font-size: 14px;
+         line-height: 38px;
+     }
+ 
+     .sendUser .right select {
+         width: 388px;
+         height: 38px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         text-indent: 9px;
+         font-size: 14px;
+         line-height: 18px;
+     }
+ 
+ .putUser {
+     width: 1000px;
+     margin: 0 auto;
+     height: 460px;
+     background: #fff;
+     margin-top: 22px;
+ }
+ 
+     .putUser .title {
+         width: 40px;
+         height: 100%;
+         background: #25c2e3;
+         font-size: 16px;
+         color: #fff;
+         text-align: center;
+         line-height: 20px;
+         float: left;
+     }
+ 
+ .putUserInfo .line {
+     padding-top: 22px;
+ }
+ 
+     .putUserInfo .line .left {
+         float: left;
+         margin-left: 42px;
+         margin-right: 36px;
+     }
+ 
+         .putUserInfo .line .left input {
+             width: 278px;
+             height: 38px;
+             border: 1px solid #ededed;
+             border-radius: 4px;
+             text-indent: 9px;
+             font-size: 14px;
+             line-height: 18px;
+         }
+ 
+ 
+     .putUserInfo .line label {
+         font-size: 14px;
+         color: #555555;
+         width: 75px;
+         display: inline-block;
+         text-align: right;
+     }
+ 
+ .putUserInfo .right {
+     width: 960px;
+     height: 420px;
+     overflow: auto;
+     overflow-x: auto;
+     float: left;
+ }
+ 
+     .putUserInfo .right input {
+         width: 388px;
+         height: 38px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         text-indent: 9px;
+         font-size: 14px;
+         line-height: 38px;
+     }
+ 
+ 
+ .goodsType {
+     font-size: 14px;
+     margin-top: 19px;
+     height: 37px;
+     line-height: 37px;
+ }
+ 
+     .goodsType label {
+         width: 75px;
+         display: inline-block;
+         color: #555;
+         margin-left: 47px;
+     }
+ 
+     .goodsType span {
+         font-size: 12px;
+         color: #757575;
+         margin-right: 18px;
+     }
+ 
+     .goodsType input {
+         width: 20px;
+         height: 20px;
+         border-radius: 25%;
+         outline: none;
+         vertical-align: middle;
+         margin-right: 6px;
+         line-height: 20px;
+     }
+ 
+     .goodsType a {
+         float: right;
+         width: 111px;
+         height: 37px;
+         border-radius: 4px;
+         display: inline-block;
+         line-height: 37px;
+         text-align: center;
+         background: #ee6900;
+         color: #fff;
+         margin-right: 53px;
+     }
+ 
+         .goodsType a:hover {
+             background: #f46c00;
+         }
+ 
+ .predictLine {
+     margin-top: 18px;
+ }
+ 
+     .predictLine .left {
+         float: left;
+         font-size: 14px;
+         color: #555;
+         margin-left: 20px;
+     }
+ 
+         .predictLine .left input {
+             width: 278px;
+             height: 38px;
+             border: 1px solid #ededed;
+             border-radius: 4px;
+             text-indent: 9px;
+             line-height: 38px;
+         }
+ 
+     .predictLine .right {
+         float: left;
+         font-size: 14px;
+         color: #555;
+         margin-left: 41px;
+     }
+ 
+         .predictLine .right input {
+             width: 388px;
+             height: 38px;
+             border: 1px solid #ededed;
+             border-radius: 4px;
+             text-indent: 9px;
+             line-height: 38px;
+         }
+ 
+ .remark {
+     width: 1000px;
+     height: 206px;
+     background: #fff;
+     margin: 0 auto;
+     margin-top: 22px;
+ }
+ 
+     .remark .title {
+         width: 40px;
+         height: 100%;
+         color: #fff;
+         font-size: 14px;
+         background: #666465;
+         text-align: center;
+         float: left;
+     }
+ 
+ .remarkContent {
+     float: left;
+ }
+ 
+ .time .date {
+     width: 178px;
+     height: 38px;
+     border: 1px solid #ededed;
+     border-radius: 4px;
+     text-indent: 9px;
+     color: #757575;
+     font-size: 12px;
+     line-height: 38px;
+ }
+ 
+ .remarkContent .time {
+     font-size: 14px;
+     color: #555;
+     padding-top: 20px;
+ }
+ 
+     .remarkContent .time label {
+         margin-left: 21px;
+     }
+ 
+ .remarkInput {
+     font-size: 14px;
+     color: #555;
+     margin-top: 23px;
+ }
+ 
+     .remarkInput label {
+         margin-left: 50px;
+         vertical-align: top;
+     }
+ 
+     .remarkInput textarea {
+         width: 795px;
+         height: 87px;
+         outline: none;
+         resize: none;
+         border-radius: 4px;
+         border: 1px solid #ededed;
+         padding-top: 12px;
+         text-indent: 6px;
+         color: #757575;
+     }
+ 
+ .protocol {
+     text-align: center;
+     height: 25px;
+     line-height: 25px;
+     margin-top: 10px;
+ }
+ 
+     .protocol input {
+         width: 18px;
+         height: 18px;
+         border: 1px solid #ededed;
+         border-radius: 4px;
+         vertical-align: text-top;
+         line-height: 18px;
+     }
+ 
+     .protocol span {
+         height: 25px;
+         line-height: 25px;
+         display: inline-block;
+     }
+ 
+ .submitBtn {
+     text-align: center;
+     margin-top: 14px;
+     padding-bottom: 78px;
+ }
+ 
+     .submitBtn input {
+         width: 350px;
+         height: 50px;
+         border: none;
+         outline: none;
+         background: #ee6900;
+         color: #fff;
+         text-align: center;
+         line-height: 50px;
+         font-size: 16px;
+         border-radius: 6px;
+         cursor: pointer;
+     }
+ 
+         .submitBtn input:hover {
+             background: #f46c00;
+         }
+ 
+ .a_title {
+     font-size: 16px;
+     font-weight: bold;
+     color: #555;
+     padding-bottom: 25px;
+ }
+ 
+ .a_content {
+     font-size: 12px;
+     color: #555;
+     line-height: 20px;
+     padding-bottom: 20px;
+ }
+ 
+ .agreement p {
+     width: 96%;
+     margin: 0 auto;
+ }
+ 
+ .agreement {
+     display: none;
+ }
+ 
+     .agreement .cut {
+         margin-bottom: 40px;
+         font-size: 12px;
+         color: #555;
+         line-height: 20px;
+     }
+ /*覆盖控件*/
+ .city-picker-span {
+     display: none;
+ }
+ 
+ .clearfix {
+     *zoom: 1;
+ }
+ 
+     .clearfix:before,
+     .clearfix:after {
+         display: table;
+         line-height: 0;
+         content: "";
+     }
+ 
+     .clearfix:after {
+         clear: both;
+     }
+ 
+ .order_text_img {
+     float: left;
+     margin-left: -80px;
+     margin-top: 2px;
+ }
+ 
+ .ordertype {
+     width: 1000px;
+     margin: 0 auto;
+     height: 50px;
+     background: #fff;
+     text-align: center;
+     margin-bottom: 20px;
+ }
+ 
+     .ordertype .title {
+         width: 40px;
+         height: 100%;
+         background: #2ea5ab;
+         font-size: 16px;
+         color: #fff;
+         text-align: center;
+         line-height: 20px;
+         *line-height: 20px;
+         float: left;
+     }
+ 
+ .signalorder {
+     font-size: 28px;
+     color: #ee6900;
+     width: 175px;
+     display: inline-block;
+     text-align: center;
+     margin-left: -50px;
+     background: #cec9c9;
+     padding: 1px;
+     margin: 3px;
+ }
+ 
+ table {
+     text-align: center;
+ }
+ 
+ .titleName {
+     width: 140px;
+     height: 50px;
+     border-right: 1px solid #e5e5e5;
+ }
+ 
+ .titlecheck {
+     width: 50px;
+     height: 50px;
+     border-right: 1px solid #e5e5e5;
+ }
+ 
+ table .titleBox {
+     background: #f5f5f5;
+ }
+ 
+ .titleTel {
+     width: 140px;
+     height: 50px;
+     border-right: 1px solid #e5e5e5;
+ }
+ 
+ .titleAddress {
+     width: 250px;
+     height: 50px;
+     border-right: 1px solid #e5e5e5;
+ }
+ 
+ .titleOperate {
+     width: 156px;
+     height: 50px;
+ }
+ 
+ .tableName {
+     height: 83px;
+ }
+ 
+ .tableName, .tableTel, .tableAddress, .tablelOperate {
+     border-bottom: 1px dashed #ededed;
+     color: #555;
+ }
+ 
+ .tableAddress {
+     line-height: 24px;
+     text-align: center;
+ }
+ 
+ .addresColor {
+     color: #ed6c00;
+ }
+ 
+ .create_order_more_page_box {
+     font-size: 2px;
+     text-align: center;
+     margin-top: 30px;
+ }
+ 
+     .create_order_more_page_box a:hover, .create_order_more_page_box a.cur {
+         background: #008bf6;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 0;
+     }
+ 
+     .create_order_more_page_box a {
+         display: inline-block;
+         width: 30px;
+         height: 25px;
+         line-height: 25px;
+         float: inherit;
+         margin: 0 10px 0 0;
+         color: #666;
+         border: 1px solid #ccc;
+     }
+ 
+ .submitBox {
+     margin-top: 40px;
+ }
+ 
+ .downloadExcel {
+     background-color: #ee6900;
+     color: #ffffff;
+     padding: 5px 10px 5px 10px;
+     border-radius: 5px;
+     margin-top: 60px;
+ }
+ 
+ .downloadTip {
+     font-size: 18px;
+     font-weight: 600;
+     color: #ee6900;
+     /*margin-right:150px;*/
+     margin-top: 60px;
+     padding-right: 100px;
+     padding-left: 20px;
+ }
+ 
+ .buttonExcel {
+     text-align: left;
+     width: 960px;
+     height: 30px;
+     margin-top: 10px;
+     /*margin-right: 20px;*/
+ }
+ 
+ .fastentrydiv {
+     margin-bottom: 15px;
+ }
+ 
+ .fastentry {
+     color: #ee6900;
+     margin-left: 120px;
+ }
+ 
+ .Fastentry {
+     display: none;
+ }
+ 
+ .Fastentrycontent {
+     text-align: center;
+     line-height: 30px;
+ }
+ 
+ .radiobutoon {
+     width: 120px;
+ }
+ 
+ .fasttitle {
+     margin-bottom: 20px;
+     margin-top: -5px;
+     text-align: center;
+ }
+ 
+ .submitBtnfast {
+     text-align: center;
+     margin-top: 30px;
+ }
+ 
+     .submitBtnfast input {
+         width: 100px;
+         height: 30px;
+         border: none;
+         outline: none;
+         background: #ee6900;
+         color: #fff;
+         font-size: 16px;
+         border-radius: 6px;
+         cursor: pointer;
+     }
+ 
+         .submitBtnfast input:hover {
+             background: #f46c00;
+         }
+ 
+ .Fastentrycontentarer {
+     width: 550px;
+     height: 78px;
+     resize: none;
+     border: 1px solid #ededed;
+     border-radius: 4px;
+     outline: none;
+     text-indent: 0.5em;
+     padding-top: 10px;
+     border-radius: 4px;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ .foot_slide {
+    padding: 20px 32px;
+    margin: 0 auto;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.code {
+    font-size: 12px;
+}
+.aaa{    
+    margin-left:1px;
+}
+.code span {
+   display: inline-block;
+   margin: 0px 30px;
+   
+}
+.kefu{
+    width:100px;
+    font-size:20px;
+    font-weight:800;
+ }
+.dibu {
+    background: #f0f4f5;
+}
+.dibu-content {
+    padding: 8px 0;
+    padding-right: 70px;
+    border-bottom: 1px solid #f2f3f5;
+    color: #9b9b9b;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
