@@ -8,6 +8,7 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,7 +29,19 @@ public class Yz {
 
     @ResponseBody
     @RequestMapping("yzm")
-    public String yzm(String uphone){
+    public String yzm( String uphones){
+        //生成一个四位数的随机验证码
+        str="";//0123456789
+        for (int i = 0; i <4 ; i++) {
+            str+=(int)Math.floor(Math.random()*10);
+        }
+        sendMsg(uphones,str);
+        System.out.println("uphones="+uphones);
+        return "true";
+    }
+    @ResponseBody
+    @RequestMapping("yzms")
+    public String yzms(String uphone){
         //生成一个四位数的随机验证码
         str="";//0123456789
         for (int i = 0; i <4 ; i++) {
@@ -46,6 +59,17 @@ public class Yz {
         response.setContentType("text/html;charset=UTF-8");
         if(code.equals(str)){
             return "牛逼,注册成功！直接为大哥跳到登录！";
+
+        }else {
+            return "臭小子，验证码错了！";
+        }
+    }
+    @ResponseBody
+    @RequestMapping("yzyzms")
+    public String yzs(String code, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        if(code.equals(str)){
+            return "好大哥登录成功！将为您跳到主页！";
 
         }else {
             return "臭小子，验证码错了！";

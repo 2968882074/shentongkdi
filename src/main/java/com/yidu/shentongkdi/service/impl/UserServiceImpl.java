@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User denglu(User user) {
-        return null;
+        return this.userDao.denglu(user);
     }
 
     /**

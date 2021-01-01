@@ -19,7 +19,7 @@
          select
           userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
         from yyy.user
-        where uphone = #{uphone} and userpass=#{userpass}
+        where uphone = #{uphone}
     </select>
 
     <!--查询单个-->

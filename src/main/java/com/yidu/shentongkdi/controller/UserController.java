@@ -37,11 +37,12 @@ public class UserController{
     @Autowired
     private UserServiceImpl userService;
 
-    @ResponseBody
-    @RequestMapping("denglu")
+
     /**
      * 登录
      */
+    @ResponseBody
+    @RequestMapping("denglu")
     public String denglu(HttpServletRequest httpServletRequest,User user){
         String msg="";
         User users=userService.denglu(user);
