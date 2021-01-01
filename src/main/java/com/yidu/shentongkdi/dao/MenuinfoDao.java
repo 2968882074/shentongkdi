@@ -1,7 +1,10 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.Menuinfo;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,6 +13,9 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-29 16:16:03
  */
+
+@Mapper
+@Repository
 public interface MenuinfoDao {
 
     /**
