@@ -4,12 +4,19 @@ import com.yidu.shentongkdi.entity.User;
 import java.util.List;
 
 /**
- * (User)表服务接口
+ * (用户)表服务接口
  *
  * @author makejava
  * @since 2020-12-28 13:45:32
  */
 public interface UserService {
+    /**
+     * 登录
+     * @param user
+     * @return
+     */
+    User denglu(User user);
+
 
     /**
      * 通过ID查询单条数据
@@ -34,7 +41,7 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    User insert(User user);
+    User add(User user);
 
     /**
      * 修改数据
