@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.User">
+        <!--@Table user-->
+        <result property="userid" column="userid" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="userpass" column="userpass" jdbcType="VARCHAR"/>
+        <result property="uphone" column="uphone" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="VARCHAR"/>
+        <result property="chinaname" column="chinaName" jdbcType="VARCHAR"/>
+        <result property="chinald" column="chinald" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="nation" column="nation" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="denglu" resultMap="BaseResultMap">
+         select
+          userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
+        from yyy.user
+        where uphone = #{uphone} and userpass=#{userpass}
+    </select>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
+        from yyy.user
+        where userid = #{userid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
+        from yyy.user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
+        from yyy.user
+        <where>
+            <if test="userid != null">
+                and userid = #{userid}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="userpass != null and userpass != ''">
+                and userpass = #{userpass}
+            </if>
+            <if test="uphone != null and uphone != ''">
+                and uphone = #{uphone}
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+            <if test="chinaname != null and chinaname != ''">
+                and chinaName = #{chinaname}
+            </if>
+            <if test="chinald != null and chinald != ''">
+                and chinald = #{chinald}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="nation != null and nation != ''">
+                and nation = #{nation}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="add" keyProperty="userid" useGeneratedKeys="true">
+        insert into yyy.user(username, userpass, uphone, sex, age, chinaName, chinald, address, nation)
+        values (#{username}, #{userpass}, #{uphone}, #{sex}, #{age}, #{chinaname}, #{chinald}, #{address}, #{nation})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update yyy.user
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="userpass != null and userpass != ''">
+                userpass = #{userpass},
+            </if>
+            <if test="uphone != null and uphone != ''">
+                uphone = #{uphone},
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test="age != null and age != ''">
+                age = #{age},
+            </if>
+            <if test="chinaname != null and chinaname != ''">
+                chinaName = #{chinaname},
+            </if>
+            <if test="chinald != null and chinald != ''">
+                chinald = #{chinald},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="nation != null and nation != ''">
+                nation = #{nation},
+            </if>
+        </set>
+        where userid = #{userid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from yyy.user where userid = #{userid}
+    </delete>
+
+</mapper>

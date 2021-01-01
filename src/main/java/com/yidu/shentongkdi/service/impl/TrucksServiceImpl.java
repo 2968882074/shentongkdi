@@ -20,6 +20,15 @@ public class TrucksServiceImpl implements TrucksService {
     private TrucksDao trucksDao;
 
     /**
+     * 统计行数
+     * @return 实例对象
+     */
+    @Override
+    public int count() {
+        return this.trucksDao.count();
+    }
+
+    /**
      * 通过ID查询单条数据
      *
      * @param trid 主键
@@ -38,8 +47,8 @@ public class TrucksServiceImpl implements TrucksService {
      * @return 对象列表
      */
     @Override
-    public List<Trucks> queryAllByLimit(int offset, int limit) {
-        return this.trucksDao.queryAllByLimit(offset, limit);
+    public List<Trucks> queryAllByLimit(int offset, int limit,String license) {
+        return this.trucksDao.queryAllByLimit(offset, limit,license);
     }
 
     /**

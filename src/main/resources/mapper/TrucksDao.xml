@@ -11,6 +11,12 @@
         <result property="vehiclemodel" column="vehicleModel" jdbcType="VARCHAR"/>
         <result property="control" column="control" jdbcType="VARCHAR"/>
     </resultMap>
+    <!-- 统计行数-->
+    <select id="count" resultType="int">
+        select
+         count(1) num
+        from shentong.trucks
+    </select>
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
@@ -25,6 +31,11 @@
         select
           trid, VehicleChoice, license, commonCarrier, vehicleModel, control
         from shentong.trucks
+        <where>
+            <if test="license!=null">
+                and license like '%${license}%'
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 

@@ -1,0 +1,393 @@
+.NavBox .Login img {
+    margin-top: 15px;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    display: inline-block;
+    border: none;
+}.header {
+    width: 100%;
+    background: #f0f4f5;
+    height: 30px;
+    border-bottom: 1px solid #f2f3f5;
+    line-height: 30px;
+    color: #9b9b9b;
+}
+.headerTop {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: right;
+}
+.headerTop {
+    text-align: right;
+}
+.header {
+    line-height: 30px;
+    color: #9b9b9b;
+}
+.header a {
+    color: #9b9b9b;
+}
+.header {
+    line-height: 30px;
+    color: #9b9b9b;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.headerTop {
+    text-align: right;
+}
+.header {
+    line-height: 30px;
+    color: #9b9b9b;
+}
+body {
+    line-height: 24px;
+    font: 14px Helvetica Neue,Helvetica,PingFang SC,微软雅黑,Tahoma,Arial,sans-serif;
+        line-height: normal;
+}
+.Nav {
+    width: 100%;
+    background: #fff;
+    height: 90px;
+}
+.NavBox {
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+.NavBox .Login {
+    float: left;
+}
+.NavBox .navList {
+    float: left;
+    margin-left: 24px;
+    line-height: 90px;
+}
+.NavBox .navList ul li {
+    float: left;
+    font-size: 16px;
+    margin: 0 23px;
+}
+li {
+    list-style: none;
+}
+a:hover {
+    color: #777;
+}
+a:active, a:hover {
+    outline: 0;
+}
+a:hover {
+    text-decoration: none !important;
+}
+.NavBox .navList ul li a {
+    color: #555555;
+}
+a {text-decoration: none}
+.banner {
+    width: 100%;
+    background: url(../../img/zhuyei/shouye/banner.png) no-repeat center center #e2f5fb;
+    height: 270px;
+}
+.user {
+    width: 1000px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.userBoxBg {
+    width: 100%;
+    background: #fff;
+    opacity: 0.5;
+    position: absolute;
+    height: 160px;
+}
+.userBox {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+}
+.userBox .userHeadImg {
+    float: left;
+    width: 394px;
+    height: 102px;
+}
+.userBox .userHeadImg .left {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.headImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+.userBox .userHeadImg .right {
+    float: left;
+}
+.userBox .userHeadImg .right .userName {
+    font-size: 16px;
+    color: #555555;
+    margin-top: 66px;
+    margin-bottom: 10px;
+}
+.userBox .userHeadImg .right .userOperate a {
+    color: #ed6a00;
+}
+
+
+.userBox .userInfo {
+    float: left;
+    height: 102px;
+    border-left: 1px solid #ededed;
+    margin-left: 75px;
+    margin-top: 30px;
+}
+.userBox .userInfo .Info {
+    margin-left: 78px;
+    margin-top: 16px;
+}
+.layui-progress-big, .layui-progress-big .layui-progress-bar {
+    height: 15px;
+    line-height: 15px;
+    width: 150px;
+}
+
+
+.layui-bg-orange {
+    background-color: rgb(237, 105, 0);
+}
+
+.layui-progress-bar {
+    position: absolute;
+    width: 0;
+    max-width: 100%;
+    height: 6px;
+    border-radius: 20px;
+    text-align: right;
+  
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+.layui-progress {
+    position: relative;
+   
+    border-radius: 20px;
+    background-color: #fff;
+}
+.scheduleAlert {
+    margin-left: 6px;
+    color: #757575;
+    float: right;
+    margin-right: -50px;
+    margin-top: -15px;
+}
+.IndexContent {
+    width: 1000px;
+    margin: 0 auto;
+        margin-top: 0px;
+    background: #fff;
+    border: 1px solid #f1f2f4;
+    margin-top: 19px;
+}
+.order {
+    width: 400px;
+    height: 238px;
+    border-radius: 6px 0 0 6px;
+    background: #fe8a4d;
+    float: left;
+}
+.orderTitle {
+    padding-top: 15px;
+    margin-left: 30px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    width: 65px;
+    padding-bottom: 5px;
+}
+.orderTxt textarea {
+    width: 340px;
+    height: 112px;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-left: 30px;
+    outline: none;
+    padding-top: 14px;
+    text-indent: 16px;
+    resize: none;
+    overflow: auto;
+    border: none;
+}
+button, input, optgroup, option, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+}
+.orderBtn a {
+    width: 92px;
+    height: 34px;
+    display: block;
+    background: #ffe99d;
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center;
+    color: #ee6900;
+    border-radius: 15px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 8px;
+}
+.sendRes {
+    margin-left: 21px;
+    float: left;
+}
+.sendResBox {
+    width: 289px;
+    border-right: 1px solid #ededed;
+    height: 162px;
+    margin-top: 38px;
+      text-align: center;
+}
+    
+a {
+    color: #333;
+}
+.sendResTitle {
+    font-size: 16px;
+    color: #555555;
+}
+.price {
+    width: 289px;
+    float: left;
+    height: 162px;
+    padding-top: 38px;
+    text-align: center;
+}
+.orderList {
+    width: 1000px;
+    margin: 0 auto;
+        margin-top: 0px;
+    background: #fff;
+    margin-top: 20px;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+}
+.listnav {
+    width: 940px;
+    margin: 0 auto;
+    padding-top: 26px;
+}
+.listnav ul li {
+    float: left;
+    font-size: 16px;
+}
+.on {
+    color: #ee6900;
+}
+.orderNo {
+    width: 940px;
+    margin: 0 auto;
+}
+.orderNo table {
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding-bottom: 25px;
+}
+.orderTableTitle {
+    height: 54px;
+    background: #f5f5f5;
+}
+.orderTableTitle td {
+    border-right: 1px solid #e8e8e8;
+}
+.footer {
+    border-top: 1px solid #ededed;
+    background: #fff;
+}
+.foot_slide {
+    padding: 20px 32px;
+    margin: 0 auto;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.kefu {
+    width: 100px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.code {
+    font-size: 12px;
+}
+.code span {
+    display: inline-block;
+    margin: 0px 30px;
+    width: 100px;
+    height: 100px;
+}
+.aaa {
+    margin-left: 1px;
+}
+.dibu {
+    background: #f0f4f5;
+}
+.dibu-content {
+    padding: 8px 0;
+        padding-right: 0px;
+    padding-right: 70px;
+    border-bottom: 1px solid #f2f3f5;
+    color: #9b9b9b;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.copyright {
+    color: #757575;
+    padding-right: 20px;
+}
+.records {
+    line-height: 20px;
+    color: #ed6a00;
+}
+.records > img {
+    vertical-align: bottom;
+}
