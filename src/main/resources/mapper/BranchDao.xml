@@ -24,12 +24,22 @@
         from shentong.branch
         where brid = #{brid}
     </select>
-
+    <!--统计-->
+    <select id="count" resultType="int">
+        select
+          count(*)
+        from shentong.branch
+    </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BranchMap">
         select
           brid, branchName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress
         from shentong.branch
+        <where>
+            <if test="branchName!=null">
+                branchName like "%"#{branchName}#"%"
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 

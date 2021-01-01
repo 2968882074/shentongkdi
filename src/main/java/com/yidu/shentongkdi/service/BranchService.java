@@ -25,9 +25,10 @@ public interface BranchService {
      *
      * @param offset 查询起始位置
      * @param limit  查询条数
-     * @return 对象列表
+     * @param branchName 查询网点名
+     * @return实例对象
      */
-    List<Branch> queryAllByLimit(int offset, int limit);
+    List<Branch> queryAllByLimit(int offset, int limit,String branchName);
 
     /**
      * 新增数据
@@ -53,4 +54,9 @@ public interface BranchService {
      */
     boolean deleteById(Integer brid);
 
+    /**
+     * 统计
+      * @return 总行数
+     */
+    int count();
 }

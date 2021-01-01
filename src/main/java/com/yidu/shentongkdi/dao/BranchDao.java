@@ -1,9 +1,12 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.Branch;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 
 /**
  * 网点信息表数据库访问层
@@ -11,6 +14,8 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-28 14:53:14
  */
+@Mapper
+@Repository
 public interface BranchDao {
 
     /**
@@ -28,7 +33,7 @@ public interface BranchDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Branch> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Branch> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit, String branchName);
 
 
     /**
