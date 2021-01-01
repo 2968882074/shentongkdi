@@ -309,7 +309,7 @@ line-height: 14px;
 	height: 91px;
 	float: right;
 	margin-top: -535px;
-	margin-right: 170px;
+	margin-right: 40px;
 	border-radius: 5px;
 }
 #center_center_top_right_top_top dl{
@@ -357,6 +357,7 @@ color: #515a6e;
 	background: #ED6900;
 	margin-top: 5px;
 	padding-left: 20px;
+	cursor: pointer;
 }
 #center_center_top_right_center_down{
 	border: 1px solid red;
@@ -402,6 +403,7 @@ color: #515a6e;
     color: #FFFFFF;
     border: none;
     border-radius: 2px;
+	cursor: pointer;
 }
 #center_center_top_right_right_top_head span{
 		font-size: 14px;

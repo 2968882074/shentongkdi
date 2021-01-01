@@ -3,7 +3,7 @@
 	margin: 0px;
 }
 html,body,#app{
-background-color: #f0f4f5;
+	background-color: #f0f4f5;
 }
 #head {
 	width: 100%;
@@ -182,14 +182,14 @@ ul li {
 	margin-left: 51px;
 }
 
-#league dl {
+#league .league-s {
 	width: 800px;
 	height: 500px;
 	margin-top: -85px;
 	margin-left: 40px;
 }
 
-#league dl dt {
+#league .league-s dt {
 	vertical-align: middle;
 	float: left;
 	font-size: 16px;
@@ -261,7 +261,7 @@ ul li {
 	line-height: 30px;
 	border-bottom: 1px solid #9B9B9B;
 	cursor: pointer;
-	
+
 }
 #league dl dt input {
 	border: 1px solid #C0C4CC;
@@ -288,7 +288,7 @@ ul li {
 	margin-left: -2px;
 	margin-top: -91px;
 	height: 92px;
-	
+
 }
 
 .league-c li input {
@@ -306,12 +306,12 @@ ul li {
 	cursor: pointer;
 }
 #pull-down{
-		border: 1px solid #C0C4CC;
-		border-radius: 4px;
-		height: 40px;
-		width: 152px;
-		display:inline-block;
-	}
+	border: 1px solid #C0C4CC;
+	border-radius: 4px;
+	height: 40px;
+	width: 152px;
+	display:inline-block;
+}
 #present {
 	width: 69px;
 	height: 39px;
@@ -320,9 +320,9 @@ ul li {
 	line-height: 32px;
 	color: #FFF;
 	background-color: #F08C48;
-	margin-top: 1px;
+	margin-top: 28px;
 	margin-left: 656px;
-	
+
 }
 
 #present:hover {
@@ -360,7 +360,7 @@ ul li {
 	border: none;
 	width: 200px;
 	height: 763px;
-	background-color: #fff;	
+	background-color: #fff;
 	list-style: none;
 	font-size: 14px;
 	margin-top: 20px;
@@ -368,17 +368,17 @@ ul li {
 
 }
 #content-c>div {
-margin-top: -31px;
-margin-left: 57px;
-font-size: 18px;
-color: #555;
-font-family: 微软雅黑;
--webkit-text-size-adjust: none;
+	margin-top: -31px;
+	margin-left: 57px;
+	font-size: 18px;
+	color: #555;
+	font-family: 微软雅黑;
+	-webkit-text-size-adjust: none;
 
 
 }
 #content-c>img{
-margin-left: 14px;
+	margin-left: 14px;
 }
 #content-u{
 	margin-top:31px;
@@ -417,11 +417,11 @@ margin-left: 14px;
 }
 
 #right-box {
-width: 750px;
-height: 130px;
-background-color: #fff;
-margin-left: 217px;
-margin-top: -783px;
+	width: 750px;
+	height: 130px;
+	background-color: #fff;
+	margin-left: 217px;
+	margin-top: -783px;
 
 }
 
@@ -639,20 +639,20 @@ margin-top: -783px;
 	background-color: #fff;
 	margin-left:  217px;
 	margin-top: -781px;
-border: 1px solid white;
-display: none;
+	border: 1px solid white;
+	display: none;
 
 
 }
 
 #detail-u {
-width: 725px;
-height: 42px;
-margin-left: 11px;
-margin-top: 6px;
-font-family: 微软雅黑;
-font-size: 12px;
--webkit-text-size-adjust: none;
+	width: 725px;
+	height: 42px;
+	margin-left: 11px;
+	margin-top: 6px;
+	font-family: 微软雅黑;
+	font-size: 12px;
+	-webkit-text-size-adjust: none;
 }
 
 #detail-u>li {
@@ -674,13 +674,13 @@ font-size: 12px;
 }
 
 #detail-d {
-width: 835px;
-height: 45px;
-margin-left: 11px;
-margin-top: 17px;
-font-family: 微软雅黑;
-font-size: 12px;
--webkit-text-size-adjust: none;
+	width: 835px;
+	height: 45px;
+	margin-left: 11px;
+	margin-top: 17px;
+	font-family: 微软雅黑;
+	font-size: 12px;
+	-webkit-text-size-adjust: none;
 
 }
 
@@ -750,7 +750,7 @@ font-size: 12px;
 	margin-left: -31px;
 	margin-top: 12px;
 	cursor: pointer;
-	
+
 }
 #status-s{
 	float: left;
@@ -782,7 +782,7 @@ font-size: 12px;
 	border-bottom: 1px solid #e5e5e5;
 	background: #f5f5f5;
 	margin-top: 16px;
-	
+
 }
 
 #text>dl {
@@ -791,7 +791,7 @@ font-size: 12px;
 	background: #f5f5f5;
 	margin-left: 369px;
 	margin-left: 2px;
-	
+
 }
 
 #text dl dt {
