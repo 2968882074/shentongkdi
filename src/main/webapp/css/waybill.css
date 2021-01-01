@@ -21,14 +21,13 @@ body{
 #center_head span{
 	font-size: 18px;
 	color: #555;
-	margin-left: 10px;
 	float: left;
-	margin-left: 10px;
+	margin-left: -200px;
 	margin-top: 25px;
 }
 #center_head p img{
 	float: left;
-	margin-left: 10px;
+	margin-left: -240px;
 	margin-top: 20px;
 }
 #center_center{
