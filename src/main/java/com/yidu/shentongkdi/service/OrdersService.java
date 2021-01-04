@@ -14,7 +14,7 @@ public interface OrdersService {
      * 统计行数
      * @return 实例对象
      */
-    public int count(String where);
+    public int count(Orders orders);
     /**
      * 通过ID查询单条数据
      *
@@ -30,7 +30,7 @@ public interface OrdersService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Orders> queryAllByLimit(int offset, int limit,String where);
+    List<Orders> queryAllByLimit(int offset, int limit,Orders orders);
 
     /**
      * 新增数据
@@ -54,6 +54,11 @@ public interface OrdersService {
      * @param oid 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer oid);
-
+    int deleteById(Integer oid);
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    int deleteByIds(String[] arrid);
 }

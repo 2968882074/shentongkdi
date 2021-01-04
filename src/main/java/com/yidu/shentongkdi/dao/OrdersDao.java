@@ -20,7 +20,7 @@ public interface OrdersDao {
      * 统计行数
      * @return 实例对象
      */
-    public int count(String where);
+    public int count(Orders orders);
 
     /**
      * 通过ID查询单条数据
@@ -37,7 +37,7 @@ public interface OrdersDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Orders> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("where") String where);
+    List<Orders> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Orders orders);
 
 
     /**
@@ -71,5 +71,11 @@ public interface OrdersDao {
      * @return 影响行数
      */
     int deleteById(Integer oid);
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    int deleteByIds(String[] arrid);
 
 }

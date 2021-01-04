@@ -85,4 +85,29 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
+    public Orders() {
+    }
+
+    public Orders(Integer oid, Integer picid, Integer seid, Double weight, Double amount, Integer amountstate, Integer state) {
+        this.oid = oid;
+        this.picid = picid;
+        this.seid = seid;
+        this.weight = weight;
+        this.amount = amount;
+        this.amountstate = amountstate;
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "oid=" + oid +
+                ", picid=" + picid +
+                ", seid=" + seid +
+                ", weight=" + weight +
+                ", amount=" + amount +
+                ", amountstate=" + amountstate +
+                ", state=" + state +
+                '}';
+    }
 }
