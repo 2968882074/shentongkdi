@@ -1,18 +1,16 @@
 package com.yidu.shentongkdi.entity;
 
-import org.springframework.stereotype.Controller;
-
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * (Admin)实体类
  *
  * @author makejava
- * @since 2020-12-13 17:56:17
+ * @since 2020-12-29 13:51:42
  */
-@Controller
 public class Admin implements Serializable {
-    private static final long serialVersionUID = -74133084323957476L;
+    private static final long serialVersionUID = 827990816352582174L;
     
     private Integer adminid;
     
@@ -22,7 +20,11 @@ public class Admin implements Serializable {
     
     private String compellation;
     
+    private String adminimg;
+    
     private Integer state;
+
+    private List<Roleinfo> rolelist;
 
 
     public Integer getAdminid() {
@@ -57,6 +59,14 @@ public class Admin implements Serializable {
         this.compellation = compellation;
     }
 
+    public String getAdminimg() {
+        return adminimg;
+    }
+
+    public void setAdminimg(String adminimg) {
+        this.adminimg = adminimg;
+    }
+
     public Integer getState() {
         return state;
     }
@@ -65,4 +75,24 @@ public class Admin implements Serializable {
         this.state = state;
     }
 
+    public List<Roleinfo> getRolelist() {
+        return rolelist;
+    }
+
+    public void setRolelist(List<Roleinfo> rolelist) {
+        this.rolelist = rolelist;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminid=" + adminid +
+                ", adminname='" + adminname + '\'' +
+                ", adminpass='" + adminpass + '\'' +
+                ", compellation='" + compellation + '\'' +
+                ", adminimg='" + adminimg + '\'' +
+                ", state=" + state +
+                ", rolelist=" + rolelist +
+                '}';
+    }
 }

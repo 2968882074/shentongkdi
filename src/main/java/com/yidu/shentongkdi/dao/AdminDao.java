@@ -2,7 +2,9 @@ package com.yidu.shentongkdi.dao;
 
 
 import com.yidu.shentongkdi.entity.Admin;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,6 +14,9 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-13 17:56:18
  */
+
+@Mapper
+@Repository
 public interface AdminDao {
 
     /**
