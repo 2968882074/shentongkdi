@@ -4,12 +4,17 @@ import com.yidu.shentongkdi.entity.Freight;
 import java.util.List;
 
 /**
- * (Freight)表货车线路表服务接口
+ * (Freight)货车线路表服务接口
  *
  * @author makejava
  * @since 2020-12-27 12:11:48
  */
 public interface FreightService {
+    /**
+     * 统计行数
+     * @return
+     */
+    public int count();
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +31,7 @@ public interface FreightService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Freight> queryAllByLimit(int offset, int limit);
+    List<Freight> queryAllByLimit(int offset, int limit,int tlid);
 
     /**
      * 新增数据

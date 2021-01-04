@@ -2,7 +2,9 @@ package com.yidu.shentongkdi.service;
 
 
 import com.yidu.shentongkdi.entity.Admin;
+import com.yidu.shentongkdi.entity.Menuinfo;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -11,6 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-12-13 17:56:19
  */
+
 public interface AdminService {
 
     /**
@@ -36,6 +39,13 @@ public interface AdminService {
      * @return
      */
     Admin login(Admin admin);
+
+    /**
+     * 将各个角色的权限合并在一起
+     * @param admin
+     * @return
+     */
+    List<Menuinfo> merge(Admin admin);
 
     /**
      * 新增数据

@@ -2,11 +2,16 @@ package com.yidu.shentongkdi.controller;
 
 import com.yidu.shentongkdi.entity.Line;
 import com.yidu.shentongkdi.service.LineService;
+import com.yidu.shentongkdi.service.impl.LineServiceImpl;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,10 +25,10 @@ import java.util.Map;
 @RequestMapping("line")
 public class LineController {
     /**
-     * 服务对象
+     * 服务对象线路管理表
      */
-    @Resource
-    private LineService lineService;
+    @Autowired
+    private LineServiceImpl lineService;
 
     /**
      * 模糊查询以及分页查询
@@ -42,7 +47,7 @@ public class LineController {
         //调用线路管理表服务接口类的统计方法
         map.put("count",lineService.count());
         //调用线路管理表服务接口类的分页查询以及模糊查询的方法
-        map.put("data",lineService.queryAllByLimit(page, limit,linename));
+        map.put("data",lineService.queryAllByLimit((page-1)*limit, limit,linename));
         //返回map集合
         return map;
 
@@ -57,7 +62,9 @@ public class LineController {
     @RequestMapping("update")
     public String update(Line line){
         System.out.println("line.toString() = " + line.toString());
+        //调用线路管理表服务接口类的修改方法
         Line update=lineService.update(line);
+        //成功返回真
         return "true";
     }
 
@@ -103,15 +110,24 @@ public class LineController {
 
     /**
      * 根据线路管理表的id删除线路管理表的信息
-     * @param lid 线路管理表id
      * @return 成功返回真
      */
      @ResponseBody
     @RequestMapping("delete")
-    public boolean delete(int lid){
-         //调用线路管理表的实现接口类的删除方法
-        boolean delete=lineService.deleteById(lid);
-        //返回真
-        return true;
+    public String delete(String lid){
+         String [] lids=lid.split("-");
+         //循环删除线路管理表中的信息
+         for (int i = 0; i < lids.length; i++) {
+             try{
+                 //调用线路管理表的实现接口类的删除方法
+                 lineService.deleteById(Integer.parseInt(lids[i]));
+             }catch (Exception e){
+                 e.printStackTrace();
+                 //返回的数据转成json格式
+                 return "{\"state\":false}";
+             }
+         }
+         //返回真
+         return "{\"state\":true}";
      }
 }

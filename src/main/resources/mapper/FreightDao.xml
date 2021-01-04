@@ -8,7 +8,12 @@
         <result property="trid" column="trid" jdbcType="INTEGER"/>
         <result property="lid" column="lid" jdbcType="INTEGER"/>
     </resultMap>
-
+    <!-- 统计行数-->
+    <select id="count" resultType="int">
+        select
+         count(1) num
+        from shentong.freight
+    </select>
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
@@ -22,6 +27,11 @@
         select
           tlid, trid, lid
         from shentong.freight
+        <where>
+            <if test="tlid!=null">
+                and tlid like '%${tlid}%'
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 
