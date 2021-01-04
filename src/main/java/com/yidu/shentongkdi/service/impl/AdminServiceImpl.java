@@ -54,6 +54,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Menuinfo> merge(Admin admin) {
+        //创建集合,存放过滤后权限
         HashSet<Menuinfo> menuset = new HashSet<>();
 
         //遍历用户的角色
@@ -65,21 +66,38 @@ public class AdminServiceImpl implements AdminService {
             }
         }
 
-        //二级权限
+        //一级权限
+        //创建权限列表,存放权限
         List<Menuinfo> menulist = new ArrayList<>();
+        //遍历menuset,取出权限
         for (Menuinfo menuinfo : menuset) {
+            //判断权限的上级为空,说明是一级权限
             if(menuinfo.getPrevid() == null){
+                //添加到列表
                 menulist.add(menuinfo);
-                menuset.remove(menuinfo);
-                for (Menuinfo menuinfo1 : menuset) {
-                    if(menuinfo1.getPrevid().equals(menuinfo.getMenuid())){
-                        menuinfo.getMenulist().add(menuinfo1);
-                    }
-                }
-
             }
         }
 
+        //把一级权限从menuset中删除
+        menuset.removeAll(menulist);
+        
+        
+        //遍历一级权限
+        for (Menuinfo menuinfo : menulist) {
+            //遍历权限列表
+            for (Menuinfo menuinfo1 : menuset) {
+                //判断一级权限ID为权限的父级ID
+                if(menuinfo.getMenuid().equals(menuinfo1.getPrevid())){
+                    //判断一级权限的子权限列表为空时,开辟空间
+                    if(menuinfo.getMenulist() == null) menuinfo.setMenulist(new ArrayList<>());
+                    //将权限添加到一级权限的子权限列表
+                    menuinfo.getMenulist().add(menuinfo1);
+                }
+            }
+        }
+
+
+        //返回权限列表
         return menulist;
     }
 

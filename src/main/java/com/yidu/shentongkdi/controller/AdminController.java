@@ -7,6 +7,7 @@ import com.yidu.shentongkdi.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -35,6 +36,7 @@ public class AdminController {
     HttpServletRequest request;
 
 
+    @ResponseBody
     @RequestMapping("login")
     public String login(Admin admin,HttpServletResponse response){
         //调用登录
