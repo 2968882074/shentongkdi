@@ -65,4 +65,25 @@ public class Totalwatehouse implements Serializable {
         this.code = code;
     }
 
+    public Totalwatehouse() {
+    }
+
+    public Totalwatehouse(Integer twid, String twname, String twtime, Integer state, String code) {
+        this.twid = twid;
+        this.twname = twname;
+        this.twtime = twtime;
+        this.state = state;
+        this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return "Totalwatehouse{" +
+                "twid=" + twid +
+                ", twname='" + twname + '\'' +
+                ", twtime='" + twtime + '\'' +
+                ", state=" + state +
+                ", code='" + code + '\'' +
+                '}';
+    }
 }

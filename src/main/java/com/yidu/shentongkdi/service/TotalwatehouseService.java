@@ -14,7 +14,7 @@ public interface TotalwatehouseService {
      * 统计行数
      * @return 实例对象
      */
-    public int count(String where);
+    public int count(Totalwatehouse totalwatehouse);
 
     /**
      * 通过ID查询单条数据
@@ -31,7 +31,7 @@ public interface TotalwatehouseService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Totalwatehouse> queryAllByLimit(int offset, int limit,String where);
+    List<Totalwatehouse> queryAllByLimit(int offset, int limit,Totalwatehouse totalwatehouse);
 
     /**
      * 新增数据
@@ -55,6 +55,11 @@ public interface TotalwatehouseService {
      * @param twid 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer twid);
-
+    int deleteById(Integer twid);
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    int deleteByIds(String[] arrid);
 }

@@ -12,6 +12,13 @@
         <result property="amountstate" column="Amountstate" jdbcType="INTEGER"/>
         <result property="state" column="state" jdbcType="INTEGER"/>
     </resultMap>
+    <!-- 统计行数 -->
+    <select id="count" resultType="int">
+        select
+          count(1)
+        from shentong.orders
+        where  oid = #{oid}
+    </select>
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
@@ -26,11 +33,6 @@
         select
           oid, picid, seid, Weight, Amount, Amountstate, state
         from shentong.orders
-        <where>
-            <if test="picid!=null">
-                and picid like '%${where}%'
-            </if>
-        </where>
         limit #{offset}, #{limit}
     </select>
 
@@ -99,6 +101,13 @@
     <!--通过主键删除-->
     <delete id="deleteById">
         delete from shentong.orders where oid = #{oid}
+    </delete>
+    <!--删除多个-->
+    <delete id="deleteByIds" parameterType="java.lang.String">
+        delete from shentong.orders where oid in
+        <foreach collection="array" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
     </delete>
 
 </mapper>

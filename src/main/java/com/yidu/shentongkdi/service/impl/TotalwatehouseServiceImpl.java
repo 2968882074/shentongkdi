@@ -20,8 +20,8 @@ public class TotalwatehouseServiceImpl implements TotalwatehouseService {
     private TotalwatehouseDao totalwatehouseDao;
 
     @Override
-    public int count(String where) {
-        return this.totalwatehouseDao.count(where);
+    public int count(Totalwatehouse totalwatehouse) {
+        return this.totalwatehouseDao.count(totalwatehouse);
     }
 
     /**
@@ -43,8 +43,9 @@ public class TotalwatehouseServiceImpl implements TotalwatehouseService {
      * @return 对象列表
      */
     @Override
-    public List<Totalwatehouse> queryAllByLimit(int offset, int limit,String where) {
-        return this.totalwatehouseDao.queryAllByLimit(offset, limit,where);
+    public List<Totalwatehouse> queryAllByLimit(int offset, int limit,Totalwatehouse totalwatehouse) {
+       offset-=1;
+        return this.totalwatehouseDao.queryAllByLimit(offset, limit,totalwatehouse);
     }
 
     /**
@@ -78,7 +79,16 @@ public class TotalwatehouseServiceImpl implements TotalwatehouseService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer twid) {
-        return this.totalwatehouseDao.deleteById(twid) > 0;
+    public int deleteById(Integer twid) {
+        return this.totalwatehouseDao.deleteById(twid);
+    }
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    @Override
+    public int deleteByIds(String[] arrid) {
+        return  this.totalwatehouseDao.deleteByIds(arrid);
     }
 }

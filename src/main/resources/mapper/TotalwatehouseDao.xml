@@ -10,7 +10,13 @@
         <result property="state" column="state" jdbcType="INTEGER"/>
         <result property="code" column="code" jdbcType="VARCHAR"/>
     </resultMap>
-
+    <!-- 统计行数 -->
+    <select id="count" resultType="int">
+        select
+          count(1)
+        from shentong.totalwatehouse
+        where twname = #{twname}
+    </select>
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
@@ -24,11 +30,6 @@
         select
           twid, twname, twtime, state, code
         from shentong.totalwatehouse
-        <where>
-            <if test="twname!=null">
-                and twname like '%${where}%'
-            </if>
-        </where>
         limit #{offset}, #{limit}
     </select>
 
@@ -86,5 +87,11 @@
     <delete id="deleteById">
         delete from shentong.totalwatehouse where twid = #{twid}
     </delete>
-
+    <!--删除多个-->
+    <delete id="deleteByIds" parameterType="java.lang.String">
+        delete from shentong.totalwatehouse where twid in
+        <foreach collection="array" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -20,8 +20,8 @@ public class OrdersServiceImpl implements OrdersService {
     private OrdersDao ordersDao;
 
     @Override
-    public int count(String where) {
-        return this.ordersDao.count(where);
+    public int count(Orders orders) {
+        return this.ordersDao.count(orders);
     }
 
     /**
@@ -43,8 +43,9 @@ public class OrdersServiceImpl implements OrdersService {
      * @return 对象列表
      */
     @Override
-    public List<Orders> queryAllByLimit(int offset, int limit,String where) {
-        return this.ordersDao.queryAllByLimit(offset, limit,where);
+    public List<Orders> queryAllByLimit(int offset, int limit,Orders orders) {
+        offset-=1;
+        return this.ordersDao.queryAllByLimit(offset, limit,orders);
     }
 
     /**
@@ -78,7 +79,16 @@ public class OrdersServiceImpl implements OrdersService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer oid) {
-        return this.ordersDao.deleteById(oid) > 0;
+    public int deleteById(Integer oid) {
+        return this.ordersDao.deleteById(oid);
+    }
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    @Override
+    public int deleteByIds(String[] arrid) {
+        return this.ordersDao.deleteByIds(arrid);
     }
 }
