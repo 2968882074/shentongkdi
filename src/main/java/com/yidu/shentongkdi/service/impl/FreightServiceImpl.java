@@ -20,6 +20,15 @@ public class FreightServiceImpl implements FreightService {
     private FreightDao freightDao;
 
     /**
+     * 统计
+     * @return
+     */
+    @Override
+    public int count() {
+        return this.freightDao.count();
+    }
+
+    /**
      * 通过ID查询单条数据
      *
      * @param tlid 主键
@@ -38,8 +47,8 @@ public class FreightServiceImpl implements FreightService {
      * @return 对象列表
      */
     @Override
-    public List<Freight> queryAllByLimit(int offset, int limit) {
-        return this.freightDao.queryAllByLimit(offset, limit);
+    public List<Freight> queryAllByLimit(int offset, int limit,int tlid) {
+        return this.freightDao.queryAllByLimit(offset, limit,tlid);
     }
 
     /**

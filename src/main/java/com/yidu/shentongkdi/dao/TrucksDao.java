@@ -16,6 +16,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface TrucksDao {
+    /**
+     * 统计行数
+     * @return 实例对象
+     */
+    int count();
 
     /**
      * 通过ID查询单条数据
@@ -32,7 +37,7 @@ public interface TrucksDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Trucks> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Trucks> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("license") String license);
 
 
     /**

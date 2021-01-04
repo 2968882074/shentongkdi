@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>申通快递|会员中心|客户的满意,申通的追求!</title>
+	<link rel="icon" type="image/x-icon"  href="imgsheng/logo.ICO"/>
+	<link rel="stylesheet" href="css/userfour.css" />
+	<link rel="stylesheet" href="css/iconfont.css" />
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<body>
+		<div id="head">
+			<dl>
+				<dt>您好,185******19</dt>
+				<dt>退出</dt>
+			</dl>
+		</div>
+		<div id="head_up">
+			<dl>
+				<dt><img src="imgsheng/logo.png" /></dt>
+				<dt>首页</dt>
+				<dt>在线寄件</dt>
+				<dt>运单查询</dt>
+				<dt>订单管理</dt>
+				<dt>账户管理</dt>
+				<dt>协议客户</dt>
+				<dt>网点申请</dt>
+			</dl>
+		</div>
+
+		<div id="center">
+			<div id="center_box">
+				<div id="left">
+					<div id="left_box">
+						<span>
+							<img src="imgsheng/user.png" />
+						</span>
+						<span>账户管理</span>
+					</div>
+					<ul>
+						<a style="text-decoration: none !important;" href="n.html"><li>基本信息</li></a>
+						<li>地址中心</li>
+						<li>账号绑定</li>
+						<li>月结客户</li>
+						<li>实名认证</li>
+						<li>我的订阅</li>
+					</ul>
+				</div>
+				<div id="rightFour">
+					<div id="title">
+						<span>根据国家邮政局最新规定，寄收快递必须实名制</span>
+					</div>
+					<div id="title">
+						<label>身份证正面照片   (上传照片不得大于1M)</label>
+					</div>
+					<div id="IMAGE">图片智能识别</div>
+					
+					<div id="rightFour_center">
+						<p id="addp">
+							<label>姓名：</label>
+							<input type="text" />
+							
+							<label>性别：</label>
+							<input id="texts" type="text" value="男" />
+							<i class="iconfont" id="branch-c" onclick="showther()">&#xe649;</i>
+						</p>
+						<div id="delivery-status">
+							<ul>
+								<li>男</li>
+								<li>女</li>
+							</ul>
+						</div>
+						<p id="addp">
+							<label>名族：</label>
+							<input type="text" />
+							
+							<label>出生年月：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>身份证号：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>家庭住址：</label>
+							<input type="text" />
+						</p>
+						<p id="addplong">
+							<label>详细信息：</label>
+							<input type="text" />
+						</p>
+					</div>
+					<div id="title">
+						<label>手机验证</label>
+					</div>
+					<div id="rightFour_base">
+						<p id="addplong">
+							<label>手机号：</label>
+							<input type="text" />
+						</p>
+						<p id="addp">
+							<label>验证码：</label>
+							<input type="text" />
+							
+							<input id="button" type="button" value="发送验证码" />
+						</p>
+						<div>
+							<input id="submitBox" value="提交" type="button" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div id="top">
+			<dl>
+				<dt>客服热线</dt>
+				<dt>95543</dt>
+			</dl>
+			<ul>
+				<li><img src="imgsheng/qrcode_wechat.jpg" /></li>
+				<li><img src="imgsheng/qrcode_qq.png" /></li>
+				<li><img src="imgsheng/qrcode_alipay.png" /></li>
+			</ul>
+			<span>微信公众号</span>
+			<p>QQ公众号</p>
+			<i>支付宝服务窗</i>
+		</div>
+		<div id="top_top">
+			<p>© 2017.All RIGHT RESERVED.申通快递有限公司 版权所有</p>
+			<img src="imgsheng/勋章.png" />
+			<span>沪ICP备13037807号-1 </span>
+		</div>
+	</body>
+
+	<script>
+		$("#center_box #left li").click(function() {
+			$(this).css("color", "orange").siblings().css("color", "black");
+		});
+		
+		//选择性别
+		function showther(){
+			$("#delivery-status").toggle();
+			$("#delivery-status>ul>li").each(function(i,n){				
+			$(n).click(function(){
+				//将得到的值设置到国家的输入框checkone
+				$("#texts").val($(this).text());
+				$("#rightFour_center #delivery-status").hide();
+			})	
+			});
+		};
+	</script>
+</html>
+

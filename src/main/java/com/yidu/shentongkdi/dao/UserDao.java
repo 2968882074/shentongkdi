@@ -1,16 +1,23 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
- * (User)表数据库访问层
+ * (用户)表数据库访问层
  *
  * @author makejava
  * @since 2020-12-28 13:45:32
  */
+@Mapper
+@Repository
 public interface UserDao {
+
+    public User denglu(User user);
 
     /**
      * 通过ID查询单条数据
@@ -44,7 +51,7 @@ public interface UserDao {
      * @param user 实例对象
      * @return 影响行数
      */
-    int insert(User user);
+    int add(User user);
 
     /**
      * 修改数据

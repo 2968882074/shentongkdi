@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>申通快递|会员中心|客户的满意,申通的追求!</title>
+	<link rel="icon" type="image/x-icon"  href="imgsheng/logo.ICO"/>
+	<link rel="stylesheet" href="css/userone.css" />
+	<link rel="stylesheet" href="css/iconfont.css" />
+	<link rel="stylesheet" href="css/popup.css" />
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<body>
+		<div id="baks"></div>
+		<div id="popup">
+			<div id="popup_top">
+				<span id="font">添加地址</span>
+				<span id="button" onclick="tests()" style="cursor: pointer;">x</span>
+			</div>
+			<div id="fastentrydiv">
+				<a>寄件人智能录入</a>
+			</div>
+			
+			<p id="addplong">
+				<label>名字：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>手机号：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>座机号：</label>
+				<input type="text" />
+			</p>
+			<p id="addplong">
+				<label>省市区：</label>
+				<input type="text" />
+			</p>
+			<p id="addTar">
+				<label>详细地址：</label>
+				<textarea id="addTel" placeholder="xx路xx号xx小区x幢x单元xx"></textarea>
+			</p>
+			<div id="base">
+				<ul>
+				<li>设置默认地址</li>
+				<i class="iconfont" id="iconfontone" style="color:#FF00FF">&#xe606;</i>
+				<i class="icon iconfont" id="iconfonttwo" style="display: none; color:#9B9B9B">&#xe608;</i>
+				<li>寄件人地址</li>
+				<i class="iconfont" id="iconfonts" style="color: red;">&#xe606;</i>
+				<li>收件人地址</li>
+				<i class="iconfont" id="iconfontc" style="color: #9B9B9B;">&#xe606;</i>
+				</ul>
+			</div>
+			<p id="buttons">
+				<input type="reset" id="reset" value="重置" />
+				<input type="submit" id="submit" value="提交" />
+			</p>
+		</div>
+		
+		
+		
+		
+		
+		<div id="head">
+			<dl>
+				<dt>您好,185******19</dt>
+				<dt>退出</dt>
+			</dl>
+		</div>
+		<div id="head_up">
+			<dl>
+				<dt><img src="imgsheng/logo.png" /></dt>
+				<dt>首页</dt>
+				<dt>在线寄件</dt>
+				<dt>运单查询</dt>
+				<dt>订单管理</dt>
+				<dt>账户管理</dt>
+				<dt>协议客户</dt>
+				<dt>网点申请</dt>
+			</dl>
+		</div>
+
+		<div id="center">
+			<div id="center_box">
+				<div id="left">
+					<div id="left_box">
+						<span>
+							<img src="imgsheng/user.png" />
+						</span>
+						<span>账户管理</span>
+					</div>
+					<ul>
+						<li>基本信息</li>
+						<li>地址中心</li>
+						<li>账号绑定</li>
+						<li>月结客户</li>
+						<li>实名认证</li>
+						<li>我的订阅</li>
+					</ul>
+				</div>
+				
+				<div id="rightOne">
+					<div id="rightOne_top">
+						<div id="rightOne_top_content">
+							<input id="text" type="text" style="cursor: pointer;" placeholder="请选择查询方式" />
+							<i class="iconfont" id="branch-c" onclick="showther()">&#xe649;</i>
+							<div id="delivery-status">
+								<ul>
+									<li>请选择查询方式</li>
+									<li>姓名</li>
+									<li>手机号</li>
+								</ul>
+							</div>
+						</div>
+						<input id="seek" type="text" placeholder="请输入手机号或名称" />
+						<input id="button_one" type="button" value="搜索" />
+						<input id="button_two" onclick="test()" type="button" value="+新增地址" />
+					</div>
+					<div id="rightOne_center">
+						<ul>
+							<li>姓名</li>
+							<li>手机号</li>
+							<li>座机号</li>
+							<li>详细地址</li>
+							<li>类别</li>
+							<li>操作</li>
+						</ul>
+					</div>
+					<div id="rightOne_base">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="top">
+			<dl>
+				<dt>客服热线</dt>
+				<dt>95543</dt>
+			</dl>
+			<ul>
+				<li><img src="imgsheng/qrcode_wechat.jpg" /></li>
+				<li><img src="imgsheng/qrcode_qq.png" /></li>
+				<li><img src="imgsheng/qrcode_alipay.png" /></li>
+			</ul>
+			<span>微信公众号</span>
+			<p>QQ公众号</p>
+			<i>支付宝服务窗</i>
+		</div>
+		<div id="top_top">
+			<p>© 2017.All RIGHT RESERVED.申通快递有限公司 版权所有</p>
+			<img src="imgsheng/勋章.png" />
+			<span>沪ICP备13037807号-1 </span>
+		</div>
+	</body>
+
+	<script>		
+		function test(){
+			$("#popup").show();
+			$("#baks").show();
+		}
+		
+		function tests(){
+			$("#popup").hide();
+			$("#baks").hide();
+		}
+		
+		
+		$("#center_box #left li").click(function() {
+			$(this).css("color", "orange").siblings().css("color", "black");
+		});
+		
+		//选择性别
+		function showther(){
+			$("#delivery-status").toggle();
+			$("#delivery-status>ul>li").each(function(i,n){				
+			$(n).click(function(){
+				//将得到的值设置到国家的输入框checkone
+				$("#text").val($(this).text());
+				$("#delivery-status").hide();
+			})	
+			});
+		};
+		$("#iconfontone").click(function() {
+			$("#iconfontone").hide();
+			$("#iconfonttwo").show();
+		});
+		
+		$("#iconfonttwo").click(function() {
+			$("#iconfonttwo").hide();
+			$("#iconfontone").show();
+		});
+		
+		$("#base ul #iconfonts").click(function() {
+			$(this).css("color", "red");
+			$("#iconfontc").css("color", "#9B9B9B");
+		});
+		$("#base ul #iconfontc").click(function() {
+			$(this).css("color", "red");
+			$("#iconfonts").css("color", "#9B9B9B");
+		});
+	</script>
+</html>
