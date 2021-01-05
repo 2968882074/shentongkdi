@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/x-icon" href="imgtanxu/sto.ico" />
+		<link rel="stylesheet" href="css/Agreement.css" />
+		<link rel="icon" type="image/x-icon" href="imgtanxu/sto.ico" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<title>申通快递|会员中心|客户的满意,申通的追求!</title>
+	</head>
+	<style>
+		a{
+			text-decoration: none;
+			color: #555;
+		}
+	</style>
+	<body>
+		<div id="app">
+		<div id="head">
+			<dl>
+				<dt>您好,185******19</dt>
+				<dt>退出</dt>
+			</dl>
+		</div>
+		<div id="head_up">
+			<dl id="head-t">
+				<dt><a href="index.html"><img src="头部底部图片/申通快递.png" style="margin-top: 12px;"/></a></dt>
+				<dt><a href="index1.html">首页</a></dt>
+				<dt><a href="ship.html">在线寄件</a></dt>
+				<dt><a href="waybill.html">运单查询</a></dt>
+				<dt><a href="OrderGL.html">订单管理</a></dt>
+				<dt><a href="user.html">账户管理</a></dt>
+				<dt><a href="Agreement.html">协议客户</a></dt>
+				<dt><a href="league.html">网点申请</a></dt>
+			</dl>
+		</div>
+		<div id="head-s">
+			<div id="content-c">
+				<img src="imgtanxu/icon_money.png" />
+				<div>代收货款</div>
+				<ul id="content-u">
+					<li><span>客户运单状态统计</span></li>
+					<li><span>客户运单状态明细</span></li>
+				</ul>
+			</div>
+			<div id="contract">
+				<div id="right-box">
+					<p id="right-boxs">客户编号:<input></p>
+					<dl id="right-boxx">
+						<dt>查询日期:&nbsp;&nbsp;<input type="date" value="2020-12-21"></dt>
+						<dt>至<input type="date"></dt>
+						<dt><span>查询</span></dt>
+					</dl>
+					<div id="below-box">
+						<dl>
+							<dt><img class="img" src="imgtanxu/icon_sum.png"> </dt> <dt></dt>
+							<dt><img class="img" src="imgtanxu/icon_send.png"> </dt> <dt></dt>
+							<dt><img class="img" src="imgtanxu/icon_bus.png"> </dt> <dt><img class="img" src="imgtanxu/icon_signed.png"> </dt> </dl>
+								 <span id="below-bos">总票数</span>
+								<span id="below-boss">运输中</span>
+								<span id="below-bosss">派件中</span>
+								<span id="below-bossss">已签收</span>
+								<span id="below-boz">0</span>
+								<span id="below-bozz">0</span>
+								<span id="below-bozzz">0</span>
+								<span id="below-bozzzz">0</span>
+								</span>
+					</div>
+				</div>
+				<div id="detail">
+					<ul id="detail-u">
+						<li>客户编号:<input></li>
+						<li>查询日期:&nbsp;&nbsp;<input type="date" value="2020-12-22"></li>
+						<li>&nbsp;至<input type="date" value="2020-12-23"></li>
+					</ul>
+					<dl id="detail-d">
+						<dt>运单编号:<input></dt>
+						<dt>订单编号:<input></dt>
+						<dt>物流状态:<input type="text" id="sdate" readonly="readonly" value="全部" style="cursor: pointer;">
+						</dt>
+						<i class="iconfont" id="status-c" onclick="Selectprovincss()">&#xe649;</i>
+						<i class="iconfont" id="status-s" onclick="Selectprovincc()">&#xe64a;</i>
+						<div id="delivery-status">
+							<ul onclick="Selectprovincc()">
+								<li>全部</li>
+								<li>已收件</li>
+								<li>运输中</li>
+								<li>派送中</li>
+								<li>已签收</li>
+							</ul>
+						</div>
+						<dt><span>查询</span></dt>
+					</dl>
+					<div id="text">
+						<dl>
+							<dt>客户名称</dt>
+							<dt>订单编号</dt>
+							<dt>运单编号</dt>
+							<dt>货款全额</dt>
+							<dt>物流状态</dt>
+							<dt>收件日期</dt>
+							<dt>收件网点</dt>
+							<dt>签收日期</dt>
+							<dt>签收网点</dt>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="top">
+			<dl>
+				<dt>客服热线</dt>
+				<dt>95543</dt>
+			</dl>
+			<ul>
+				<li><img src="imgtanxu/chat_code.jpg" /></li>
+				<li><img src="imgtanxu/qq_code.png" /></li>
+				<li><img src="imgtanxu/pay_code.png" /></li>
+			</ul>
+			<span>微信公众号</span>
+			<p>QQ公众号</p>
+			<i>支付宝服务窗</i>
+		</div>
+		<div id="top_top">
+			<p>© 2017.All RIGHT RESERVED.申通快递有限公司 版权所有</p>
+			<img src="imgtanxu/ghs.png" />
+			<span>沪ICP备13037807号-1</span>
+		</div>
+	</body>
+	<script>
+		$("#content-u>li").on("click", function() {
+			$("#content-u>li").click(function() {
+				$(this).css("color", "orange").siblings().css("color", "black");
+			});
+			$("#contract>div:eq(" + $(this).index() + ")").show();
+			$("#contract>div:eq(" + $(this).index() + ")").siblings().hide();
+		}); 
+		//显示物流状态
+			function Selectprovincss() {
+				//显示选择的物流状态
+				$("#delivery-status").show();
+				//显示向上的图片
+				$("#status-s").show();
+				//隐藏自己		 
+				$("#status-c").hide();
+				$("#delivery-status>ul>li").each(function(i, n) {
+					$(n).click(function() {
+						//console.log($(this).text());
+						//将得到的值设置到网点的输入框site
+						$("#sdate").val($(this).text());
+						$("#delivery-status>ul>li").click(function() {
+							$(this).css("color", "white").siblings().css("color", "black");
+						});
+						$("#delivery-status>ul>li").click(function() {
+							$(this).css("background-color", "#f46c00").siblings().css("background-color", "white");
+						});
+					});
+				});
+			} 
+			//隐藏物流状态
+			function Selectprovincc() {
+				//隐藏选择的物流状态
+				$("#delivery-status").hide();
+				//显示向下的图片
+				$("#status-c").show();
+				//隐藏向上的图片	 		 
+				$("#status-s").hide();
+			}
+	</script>
+</html>
