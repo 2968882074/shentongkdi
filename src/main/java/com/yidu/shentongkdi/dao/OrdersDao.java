@@ -1,6 +1,6 @@
 package com.yidu.shentongkdi.dao;
 
-import com.yidu.shentongkdi.entity.User;
+import com.yidu.shentongkdi.entity.Orders;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -8,31 +8,27 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (用户)表数据库访问层
+ * (Orders)表数据库访问层
  *
  * @author makejava
- * @since 2020-12-28 13:45:32
+ * @since 2020-12-28 14:56:39
  */
 @Mapper
 @Repository
-public interface UserDao {
-
-
+public interface OrdersDao {
     /**
      * 统计行数
      * @return 实例对象
      */
-    public int count();
-
-    public User denglu(User user);
+    public int count(Orders orders);
 
     /**
      * 通过ID查询单条数据
      *
-     * @param userid 主键
+     * @param oid 主键
      * @return 实例对象
      */
-    User queryById(Integer userid);
+    Orders queryById(Integer oid);
 
     /**
      * 查询指定行数据
@@ -41,38 +37,45 @@ public interface UserDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<User> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("username") String username);
+    List<Orders> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Orders orders);
+
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param user 实例对象
+     * @param orders 实例对象
      * @return 对象列表
      */
-    List<User> queryAll(User user);
+    List<Orders> queryAll(Orders orders);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param orders 实例对象
      * @return 影响行数
      */
-    int add(User user);
+    int insert(Orders orders);
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param orders 实例对象
      * @return 影响行数
      */
-    int update(User user);
+    int update(Orders orders);
 
     /**
      * 通过主键删除数据
      *
-     * @param userid 主键
+     * @param oid 主键
      * @return 影响行数
      */
-    int deleteById(Integer userid);
+    int deleteById(Integer oid);
+    /**
+     * 通过主键删除多条数据
+     * @param arrid 主键
+     * @return 影响行数
+     */
+    int deleteByIds(String[] arrid);
 
 }
