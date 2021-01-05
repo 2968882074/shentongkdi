@@ -7,12 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 /**
- * 网点信息表数据库访问层
+ * (Branch)网点信息表表数据库访问层
  *
  * @author makejava
- * @since 2020-12-28 14:53:14
+ * @since 2021-01-05 09:56:35
  */
 @Mapper
 @Repository
@@ -33,7 +32,7 @@ public interface BranchDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Branch> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit, String branchName);
+    List<Branch> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,String branchName);
 
 
     /**
@@ -83,5 +82,9 @@ public interface BranchDao {
      * @return 影响行数
      */
     int deleteById(Integer brid);
-
+    /**
+     * 统计
+     * @return
+     */
+    int count();
 }

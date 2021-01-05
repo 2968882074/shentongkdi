@@ -5,18 +5,20 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 /**
- * 网点信息实体类
+ * (Branch)网点信息表实体类
  *
  * @author makejava
- * @since 2020-12-28 14:53:13
+ * @since 2021-01-05 09:56:35
  */
 @Component
 public class Branch implements Serializable {
-    private static final long serialVersionUID = 151708037832273021L;
+    private static final long serialVersionUID = 195937698217968585L;
 
     private Integer brid;
 
     private String branchname;
+
+    private String brname;
 
     private String brpone;
 
@@ -53,6 +55,14 @@ public class Branch implements Serializable {
 
     public void setBranchname(String branchname) {
         this.branchname = branchname;
+    }
+
+    public String getBrname() {
+        return brname;
+    }
+
+    public void setBrname(String brname) {
+        this.brname = brname;
     }
 
     public String getBrpone() {

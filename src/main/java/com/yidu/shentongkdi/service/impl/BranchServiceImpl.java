@@ -9,10 +9,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 网点信息表服务实现类
+ * (Branch)网点信息表表服务实现类
  *
  * @author makejava
- * @since 2020-12-28 14:53:14
+ * @since 2021-01-05 09:56:35
  */
 @Service("branchService")
 public class BranchServiceImpl implements BranchService {
@@ -29,19 +29,18 @@ public class BranchServiceImpl implements BranchService {
     public Branch queryById(Integer brid) {
         return this.branchDao.queryById(brid);
     }
+
     /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
      * @param limit  查询条数
-     *  @param branchName 查询网点名称
      * @return 对象列表
      */
     @Override
-    public List<Branch> queryAllByLimit(int offset, int limit, String branchName) {
-        return this.queryAllByLimit(offset,limit,branchName);
+    public List<Branch> queryAllByLimit(int offset, int limit,String branchName) {
+        return this.branchDao.queryAllByLimit(offset, limit,branchName);
     }
-
 
     /**
      * 新增数据
@@ -68,18 +67,18 @@ public class BranchServiceImpl implements BranchService {
     }
 
     /**
-     * 删除网点信息
-     * @param brid 主键 网点信息id
-     * @return
+     * 通过主键删除数据
+     *
+     * @param brid 主键
+     * @return 是否成功
      */
     @Override
     public boolean deleteById(Integer brid) {
-
         return this.branchDao.deleteById(brid) > 0;
     }
 
     @Override
     public int count() {
-        return this.count();
+        return this.branchDao.count();
     }
 }

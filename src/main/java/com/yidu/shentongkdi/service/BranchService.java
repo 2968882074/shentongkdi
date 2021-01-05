@@ -5,10 +5,10 @@ import com.yidu.shentongkdi.entity.Branch;
 import java.util.List;
 
 /**
- * 网点信息表服务接口
+ * (Branch)网点信息表表服务接口
  *
  * @author makejava
- * @since 2020-12-28 14:53:14
+ * @since 2021-01-05 09:56:35
  */
 public interface BranchService {
 
@@ -25,10 +25,9 @@ public interface BranchService {
      *
      * @param offset 查询起始位置
      * @param limit  查询条数
-     * @param branchName 查询网点名
-     * @return实例对象
+     * @return 对象列表
      */
-    List<Branch> queryAllByLimit(int offset, int limit,String branchName);
+    List<Branch> queryAllByLimit(int offset, int limit, String branchName);
 
     /**
      * 新增数据
@@ -56,7 +55,7 @@ public interface BranchService {
 
     /**
      * 统计
-      * @return 总行数
+     * @return
      */
-    int count();
+   int count();
 }
