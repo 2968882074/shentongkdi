@@ -10,6 +10,8 @@ import java.util.List;
  * @since 2020-12-28 13:45:32
  */
 public interface UserService {
+    int count();
+
     /**
      * 登录
      * @param user
@@ -33,7 +35,9 @@ public interface UserService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<User> queryAllByLimit(int offset, int limit);
+    List<User> queryAllByLimit(int offset, int limit, String username);
+
+
 
     /**
      * 新增数据

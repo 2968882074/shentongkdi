@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.AdminDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Admin">
+        <!--@Table admin-->
+        <result property="adminid" column="adminid" jdbcType="INTEGER"/>
+        <result property="adminname" column="adminname" jdbcType="VARCHAR"/>
+        <result property="adminpass" column="adminpass" jdbcType="VARCHAR"/>
+        <result property="compellation" column="compellation" jdbcType="VARCHAR"/>
+        <result property="adminimg" column="adminimg" jdbcType="VARCHAR"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+        <collection property="rolelist" ofType="com.yidu.shentongkdi.entity.Roleinfo">
+            <result property="roleid" column="roleid" jdbcType="INTEGER"/>
+            <result property="rolename" column="rolename" jdbcType="VARCHAR"/>
+            <result property="rolegroup" column="rolegroup" jdbcType="INTEGER"/>
+            <result property="rolestate" column="rolestate" jdbcType="INTEGER"/>
+            <collection property="menulist" ofType="com.yidu.shentongkdi.entity.Menuinfo">
+                <result property="menuid" column="menuid" jdbcType="VARCHAR"/>
+                <result property="title" column="title" jdbcType="VARCHAR"/>
+                <result property="menustate" column="menustate" jdbcType="INTEGER"/>
+                <result property="url" column="url" jdbcType="VARCHAR"/>
+                <result property="previd" column="previd" jdbcType="VARCHAR"/>
+                <result property="iconcls" column="iconCls" jdbcType="VARCHAR"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          adminid, adminname, adminpass, compellation, adminimg, state
+        from shentong.admin
+        where adminid = #{adminid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          adminid, adminname, adminpass, compellation, adminimg, state
+        from shentong.admin
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          adminid, adminname, adminpass, compellation, adminimg, state
+        from shentong.admin
+        <where>
+            <if test="adminid != null">
+                and adminid = #{adminid}
+            </if>
+            <if test="adminname != null and adminname != ''">
+                and adminname = #{adminname}
+            </if>
+            <if test="adminpass != null and adminpass != ''">
+                and adminpass = #{adminpass}
+            </if>
+            <if test="compellation != null and compellation != ''">
+                and compellation = #{compellation}
+            </if>
+            <if test="adminimg != null and adminimg != ''">
+                and adminimg = #{adminimg}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <select id="login" resultMap="BaseResultMap">
+        select a.*,r.*,m.* from admin as a,adminrole as ar,roleinfo as r,rolemenu as rm,menuinfo as m where a.adminname=#{adminname} and a.adminpass=#{adminpass} and a.adminid=ar.adminid and ar.roleid=r.roleid and r.roleid=rm.roleid and rm.menuid=m.menuid;
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="adminid" useGeneratedKeys="true">
+        insert into shentong.admin(adminname, adminpass, compellation, adminimg, state)
+        values (#{adminname}, #{adminpass}, #{compellation}, #{adminimg}, #{state})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.admin
+        <set>
+            <if test="adminname != null and adminname != ''">
+                adminname = #{adminname},
+            </if>
+            <if test="adminpass != null and adminpass != ''">
+                adminpass = #{adminpass},
+            </if>
+            <if test="compellation != null and compellation != ''">
+                compellation = #{compellation},
+            </if>
+            <if test="adminimg != null and adminimg != ''">
+                adminimg = #{adminimg},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+        </set>
+        where adminid = #{adminid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.admin where adminid = #{adminid}
+    </delete>
+
+</mapper>

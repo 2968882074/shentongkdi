@@ -99,12 +99,12 @@ a {
 	margin-left: 30px;
 	color:#757575;
 }
-#inpt03{
+.inpt03{
 	margin-top: 20px;
 	display: none;
 	
 }
-#code{
+#codes{
 	width: 112px;
 	height: 50px;
 	line-height: 50px;

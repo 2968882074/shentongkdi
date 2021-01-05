@@ -18,9 +18,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * 统计行数
+     * @return 实例对象
+     */
+    @Override
+    public int count() {
+        return  this.userDao.count();
+    }
+
     @Override
     public User denglu(User user) {
-        return null;
+        return this.userDao.denglu(user);
     }
 
     /**
@@ -36,15 +45,16 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 查询多条数据
-     *
      * @param offset 查询起始位置
      * @param limit 查询条数
-     * @return 对象列表
+     * @param username
+     * @return
      */
     @Override
-    public List<User> queryAllByLimit(int offset, int limit) {
-        return this.userDao.queryAllByLimit(offset, limit);
+    public List<User> queryAllByLimit(int offset, int limit, String username) {
+        return userDao.queryAllByLimit(offset,limit,username);
     }
+
 
     /**
      * 新增数据

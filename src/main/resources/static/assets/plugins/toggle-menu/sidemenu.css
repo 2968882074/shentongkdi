@@ -308,7 +308,6 @@
 	width: 230px;
 	max-height: 100%;
 	z-index: 1000;
-	background: linear-gradient(#11ffbc,#5d61bf,#c57dff,#ff7eee) !important;
 	-webkit-box-shadow: 0 2px 17px 2px rgba(233, 226, 230, .7);
 	box-shadow: 0 2px 17px 2px rgba(233, 226, 230, .7);
 	-webkit-transition: left 0.3s ease, width 0.3s ease;
@@ -316,7 +315,7 @@
 	transition: left 0.3s ease, width 0.3s ease;
 }
 
-@-webkit-keyframe go {
+/*@-webkit-keyframe go {
 　0% {
     background-position: 0% 0%;
   }
@@ -328,7 +327,7 @@
   100% {
     background-position: 0% 100%;
   }
-}
+}*/
 
 .app-sidebar::-webkit-scrollbar {
 	width: 6px;

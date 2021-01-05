@@ -38,6 +38,10 @@ public class User implements Serializable {
 
     }
 
+    public User(String uphone) {
+        this.uphone = uphone;
+    }
+
     public User(String userpass, String uphone) {
         this.userpass = userpass;
         this.uphone = uphone;

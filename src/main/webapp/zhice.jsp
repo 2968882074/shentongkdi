@@ -71,7 +71,7 @@
 			obj.onclick=function () {
 			//ajax
 			var xhr=new XMLHttpRequest();
-			xhr.open("get","getCode/yzm?uphone="+document.getElementById("uphone").value,true);//true表示异步请求
+			xhr.open("get","getCode/yzms?uphone="+document.getElementById("uphone").value,true);//true表示异步请求
 			//监听请求的状态
 			xhr.onreadystatechange=function(){
 				if(xhr.readyState==4&&xhr.status==200){
