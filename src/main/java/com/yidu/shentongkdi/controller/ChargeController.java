@@ -1,75 +1,43 @@
 package com.yidu.shentongkdi.controller;
 
-import com.aliyuncs.CommonRequest;
-import com.aliyuncs.CommonResponse;
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.profile.DefaultProfile;
+import com.yidu.shentongkdi.entity.Charge;
 import com.yidu.shentongkdi.entity.User;
-import com.yidu.shentongkdi.service.impl.UserServiceImpl;
-import net.sf.json.JSON;
+import com.yidu.shentongkdi.service.ChargeService;
+import com.yidu.shentongkdi.service.impl.ChargeServiceImpl;
 import net.sf.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * (用户)表控制层
- *
+ * (Charge)表控制层
  *
  * @author makejava
- * @since 2020-12-28 13:45:32
+ * @since 2021-01-04 15:37:33
  */
 @Controller
-@RequestMapping("user")
-public class UserController{
+@RequestMapping("charge")
+public class ChargeController {
     /**
      * 服务对象
      */
-    @Autowired
-    private UserServiceImpl userService;
-
+    @Resource
+    private ChargeServiceImpl chargeService;
 
     /**
-     * 登录
+     * 通过主键查询单条数据
+     *
+     * @param id 主键
+     * @return 单条数据
      */
-    @ResponseBody
-    @RequestMapping("denglu")
-    public String denglu(HttpServletRequest httpServletRequest,User user){
-        String msg="";
-        User users=userService.denglu(user);
-        System.out.println(users);
-        if (users==null){
-            return "0";
-        }
-        httpServletRequest.getSession().setAttribute("user",users);
-        return "1";
+    @GetMapping("selectOne")
+    public Charge selectOne(Integer id) {
+        return this.chargeService.queryById(id);
     }
-    /**
-     * 注册
-     * @param
-     * @param
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping("zhuce")
-    public String zhuce(User user){
-        userService.add(user);
-        System.out.println(user.toString());
-        //返回真
-        return "true";
-    }
+
     /**
      * 新增
      * @param
@@ -82,11 +50,11 @@ public class UserController{
         //将数据转成json
         JSONObject jsonObject= JSONObject.fromObject(json);
         //将线路管理的实体类装进json
-        User user=(User) JSONObject.toBean(jsonObject,User.class);
+        Charge charge=(Charge) JSONObject.toBean(jsonObject,Charge.class);
         //调用输出线路管理实体的数据
-        System.out.println(user.toString());
+        System.out.println(charge.toString());
         //调用线路管理实现接口类的新增方法
-        userService.add(user);
+        chargeService.insert(charge);
         //返回真
         return true;
     }
@@ -102,11 +70,11 @@ public class UserController{
         //将数据转成json
         JSONObject jsonObject= JSONObject.fromObject(json);
         //将线路管理的实体类装进json
-        User user=(User) JSONObject.toBean(jsonObject,User.class);
+        Charge charge=(Charge) JSONObject.toBean(jsonObject,Charge.class);
         //调用输出线路管理实体的数据
-        System.out.println(user.toString());
+        System.out.println(charge.toString());
         //调用线路管理实现接口类的新增方法
-        userService.update(user);
+        chargeService.update(charge);
         //返回真
         return true;
     }
@@ -116,20 +84,20 @@ public class UserController{
      * 模糊查询以及分页查询
      * @param page 页数
      * @param limit 行数
-     * @param username 线路管理的名字
+     * @param chargename 线路管理的名字
      * @return 成功返回真
      */
     @ResponseBody
     @RequestMapping("selectAll")
-    public Map<String,Object> selectAll(int page,int  limit,String username){
+    public Map<String,Object> selectAll(int page, int  limit, String chargename){
         //创建一个map集合对象
         Map<String,Object> map=new HashMap<>();
         map.put("code", 0);
         map.put("mag", "");
         //调用线路管理表服务接口类的统计方法
-        map.put("count",userService.count());
+        map.put("count",chargeService.count());
         //调用线路管理表服务接口类的分页查询以及模糊查询的方法
-        map.put("data",userService.queryAllByLimit((page-1)*limit, limit,username));
+        map.put("data",chargeService.queryAllByLimit((page-1)*limit, limit,chargename));
         //返回map集合
         return map;
     }
@@ -140,13 +108,13 @@ public class UserController{
      */
     @ResponseBody
     @RequestMapping("delete")
-    public String delete(String userid){
-        String [] userids=userid.split("-");
+    public String delete(String chid){
+        String [] charges=chid.split("-");
         //循环删除线路管理表中的信息
-        for (int i = 0; i < userids.length; i++) {
+        for (int i = 0; i < charges.length; i++) {
             try{
                 //调用线路管理表的实现接口类的删除方法
-                userService.deleteById(Integer.parseInt(userids[i]));
+                chargeService.deleteById(Integer.parseInt(charges[i]));
             }catch (Exception e){
                 e.printStackTrace();
                 //返回的数据转成json格式
@@ -156,5 +124,4 @@ public class UserController{
         //返回真
         return "{\"state\":true}";
     }
-
 }

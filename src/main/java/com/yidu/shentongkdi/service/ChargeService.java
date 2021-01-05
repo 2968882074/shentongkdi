@@ -1,32 +1,25 @@
 package com.yidu.shentongkdi.service;
 
-import com.yidu.shentongkdi.entity.User;
+import com.yidu.shentongkdi.entity.Charge;
 import java.util.List;
 
 /**
- * (用户)表服务接口
+ * (Charge)表服务接口
  *
  * @author makejava
- * @since 2020-12-28 13:45:32
+ * @since 2021-01-04 15:37:33
  */
-public interface UserService {
+public interface ChargeService {
+
     int count();
-
-    /**
-     * 登录
-     * @param user
-     * @return
-     */
-    User denglu(User user);
-
 
     /**
      * 通过ID查询单条数据
      *
-     * @param userid 主键
+     * @param chid 主键
      * @return 实例对象
      */
-    User queryById(Integer userid);
+    Charge queryById(Integer chid);
 
     /**
      * 查询多条数据
@@ -35,32 +28,30 @@ public interface UserService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<User> queryAllByLimit(int offset, int limit, String username);
-
-
+    List<Charge> queryAllByLimit(int offset, int limit,String chargename);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param charge 实例对象
      * @return 实例对象
      */
-    User add(User user);
+    Charge insert(Charge charge);
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param charge 实例对象
      * @return 实例对象
      */
-    User update(User user);
+    Charge update(Charge charge);
 
     /**
      * 通过主键删除数据
      *
-     * @param userid 主键
+     * @param chid 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer userid);
+    boolean deleteById(Integer chid);
 
 }
