@@ -15,6 +15,12 @@
         <result property="address" column="address" jdbcType="VARCHAR"/>
         <result property="nation" column="nation" jdbcType="VARCHAR"/>
     </resultMap>
+
+    <!-- 统计行数-->
+    <select id="count" resultType="int">
+        select count(1) num from yyy.user
+    </select>
+
     <select id="denglu" resultMap="BaseResultMap">
          select
           userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
@@ -35,6 +41,11 @@
         select
           userid, username, userpass, uphone, sex, age, chinaName, chinald, address, nation
         from yyy.user
+        <where>
+        <if test="username!=null">
+            and username like '%${username}%'
+        </if>
+    </where>
         limit #{offset}, #{limit}
     </select>
 
@@ -122,5 +133,7 @@
     <delete id="deleteById">
         delete from yyy.user where userid = #{userid}
     </delete>
+
+
 
 </mapper>
