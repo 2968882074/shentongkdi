@@ -24,7 +24,7 @@
     </tr>
     </thead>
 </table>
-<script src="../js/jquery-3.5.1.min.js" ></script>
+<script src="../js/jquery-3.4.1.min.js" ></script>
 <script src="../layui/layui.all.js"></script>
 
 <script>
