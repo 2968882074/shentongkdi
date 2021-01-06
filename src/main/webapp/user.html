@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/popup.css" />
 	<link rel="stylesheet" href="sheng/iconfont.css" />
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/address-picker.js" type="text/javascript"></script>
 	<style>
 		a{
 			text-decoration: none;
@@ -38,7 +39,7 @@
 			</p>
 			<p id="addplong">
 				<label>省市区：</label>
-				<input type="text" />
+				<input type="text" id="sendFullAddress" data-toggle="city-picker" name="sendFullAddress" />
 			</p>
 			<p id="addTar">
 				<label>详细地址：</label>
@@ -74,7 +75,7 @@
 			        <dt><a href="waybill.html">运单查询</a></dt>
 			        <dt><a href="OrderGL.html">订单管理</a></dt>
 			        <dt><a href="user.html">账户管理</a></dt>
-			        <dt><a href="league.html">协议客户</a></dt>
+			        <dt><a href="Agreement.html">协议客户</a></dt>
 			        <dt><a href="league.html">网点申请</a></dt>
 			</dl>
 		</div>
@@ -151,7 +152,7 @@
 						<div id="base">
 							<div id="b_left">
 								<label id="font">省市区：</label>
-								<input id="check" type="text" />
+								<input id="checks" type="text"  data-toggle="city-picker" name="checks" />
 							</div>
 							<div id="dizhi">
 								
@@ -459,8 +460,35 @@
 			})	
 			});
 		};
-			
-			
+
+
+		//目的地地址显示
+		var address_pickers;
+		$(document).ready(function () {
+			address_pickers = new addressPicker({
+				id: "checks",
+				level: 3,
+			});
+			address_pickers.on("click", function () {
+				$("#checks").val(address_pickers.getTotalValueAsText());
+
+			});
+		});
+
+
+
+		//始发地址显示
+		var address_picker;
+		$(document).ready(function () {
+			address_picker = new addressPicker({
+				id: "sendFullAddress",
+				level: 3,
+			});
+			address_picker.on("click", function () {
+				$("#sendFullAddress").val(address_picker.getTotalValueAsText());
+
+			});
+		});
 			
 	</script>
 </html>

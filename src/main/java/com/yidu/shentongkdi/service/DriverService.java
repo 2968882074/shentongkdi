@@ -1,24 +1,24 @@
 package com.yidu.shentongkdi.service;
 
-import com.yidu.shentongkdi.entity.Branch;
+import com.yidu.shentongkdi.entity.Driver;
 
 import java.util.List;
 
 /**
- * (Branch)网点信息表服务接口
+ * (Driver)货车司机表服务接口
  *
  * @author makejava
- * @since 2021-01-06 08:56:18
+ * @since 2021-01-04 15:09:18
  */
-public interface BranchService {
+public interface DriverService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param brid 主键
+     * @param tcid 主键
      * @return 实例对象
      */
-    Branch queryById(Integer brid);
+    Driver queryById(Integer tcid);
 
     /**
      * 查询多条数据
@@ -27,35 +27,35 @@ public interface BranchService {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Branch> queryAllByLimit(int offset, int limit,String branchName);
+    List<Driver> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
      *
-     * @param branch 实例对象
+     * @param driver 实例对象
      * @return 实例对象
      */
-    Branch insert(Branch branch);
+    Driver insert(Driver driver);
 
     /**
      * 修改数据
      *
-     * @param branch 实例对象
+     * @param driver 实例对象
      * @return 实例对象
      */
-    Branch update(Branch branch);
+    Driver update(Driver driver);
 
     /**
      * 通过主键删除数据
      *
-     * @param brid 主键
+     * @param tcid 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer brid);
+    boolean deleteById(Integer tcid);
     /**
      * 统计
-     * @return
+     * @return 总行数
      */
-    int count ();
+    int count();
 
 }

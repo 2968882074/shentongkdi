@@ -1,6 +1,6 @@
 package com.yidu.shentongkdi.dao;
 
-import com.yidu.shentongkdi.entity.Branch;
+import com.yidu.shentongkdi.entity.Driver;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -8,22 +8,22 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (Branch)网点信息表数据库访问层
+ * (Driver)货车司机表数据库访问层
  *
  * @author makejava
- * @since 2021-01-06 08:56:17
+ * @since 2021-01-04 15:09:18
  */
 @Mapper
 @Repository
-public interface BranchDao {
+public interface DriverDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param brid 主键
+     * @param tcid 主键
      * @return 实例对象
      */
-    Branch queryById(Integer brid);
+    Driver queryById(Integer tcid);
 
     /**
      * 查询指定行数据
@@ -32,61 +32,59 @@ public interface BranchDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Branch> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,String branchName);
+    List<Driver> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param branch 实例对象
+     * @param driver 实例对象
      * @return 对象列表
      */
-    List<Branch> queryAll(Branch branch);
+    List<Driver> queryAll(Driver driver);
 
     /**
      * 新增数据
      *
-     * @param branch 实例对象
+     * @param driver 实例对象
      * @return 影响行数
      */
-    int insert(Branch branch);
+    int insert(Driver driver);
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）
      *
-     * @param entities List<Branch> 实例对象列表
+     * @param entities List<Driver> 实例对象列表
      * @return 影响行数
      */
-    int insertBatch(@Param("entities") List<Branch> entities);
+    int insertBatch(@Param("entities") List<Driver> entities);
 
     /**
      * 批量新增或按主键更新数据（MyBatis原生foreach方法）
      *
-     * @param entities List<Branch> 实例对象列表
+     * @param entities List<Driver> 实例对象列表
      * @return 影响行数
      */
-    int insertOrUpdateBatch(@Param("entities") List<Branch> entities);
+    int insertOrUpdateBatch(@Param("entities") List<Driver> entities);
 
     /**
      * 修改数据
      *
-     * @param branch 实例对象
+     * @param driver 实例对象
      * @return 影响行数
      */
-    int update(Branch branch);
+    int update(Driver driver);
 
     /**
      * 通过主键删除数据
      *
-     * @param brid 主键
+     * @param tcid 主键
      * @return 影响行数
      */
-    int deleteById(Integer brid);
-
+    int deleteById(Integer tcid);
     /**
      * 统计
      * @return
      */
-    int count ();
-
+    int count();
 }

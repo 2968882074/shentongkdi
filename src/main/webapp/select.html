@@ -11,6 +11,9 @@
 		 <link rel="shortcut icon" href="img/logo.ICO" type="image/x-icon" />
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
 		  <script src="js/address-picker.js" type="text/javascript"></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/china-main-city-map.js" charset="utf-8"></script>
 	</head>
 	<body>
 		<a name="up"></a>
@@ -242,11 +245,11 @@
 							<dt>目的地</dt>
 							<dt><img src="查询物流图片/下箭头.png" style="width: 8px;height: 5px;position: relative; top:-20px;"/></dt>
 							
-							<dt><input type="text" name="shulaing" placeholder="1"/></dt>
+							<dt><input type="text" id="wup" placeholder="1" value="1"/></dt>
 							<dt>物品重量</dt>
 							<dt style="position: relative; top:40px;">KG</dt>
-							<dt><img src="查询物流图片/gray_down1.png" style="width: 38px;height: 18px;position: relative; top:-30px;"/></dt>
-							<dt><img src="查询物流图片/gray_down2.png" style="width: 38px;height: 18px;position: relative; top:-10px;"/></dt>
+							<dt><img src="查询物流图片/gray_down1.png" style="width: 38px;height: 18px;position: relative; top:-30px;" id="adds"/></dt>
+							<dt><img src="查询物流图片/gray_down2.png" style="width: 38px;height: 18px;position: relative; top:-10px;" id="subtract"/></dt>
 							
 							<dt><input type="date" value="2020/12/22" placeholder="请选择寄件日期"/></dt>
 							<dt>寄件日期</dt>
@@ -290,7 +293,7 @@
 					</div>
 					<center>
 					<div id="center_center_top_right_center_down">
-						<iframe src="baidu.html"></iframe>
+						<div id="main" style="width:717px;height:481px;"></div>
 					</div>
 					</center>
 				</div>
@@ -622,28 +625,55 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		//加
+		$("#adds").click(function(){
+			//1.取出数量
+			//取出兄弟级标签的值
+			var cs=$("#center_center_top_yunfu_right #wup").val();
+			//alert($(this).siblings("#order>input").val());
+			//取出兄弟级标签的值。解析成整形然后加1
+			var num=parseInt($("#center_center_top_yunfu_right #wup").val())+1;
+			//设置值
+			$("#center_center_top_yunfu_right #wup").val(num);
+		});
+		//减
+
+		$("#subtract").click(function(){
+			//1.取出数量
+			//取出兄弟级标签的值
+			var cs=$("#center_center_top_yunfu_right #wup").val();
+			//alert($(this).siblings("#order>input").val());
+			//取出兄弟级标签的值。解析成整形然后加1
+			var num=parseInt($("#center_center_top_yunfu_right #wup").val())-1;
+			if(num>=1){
+				//设置值
+				$("#center_center_top_yunfu_right #wup").val(num);
+			}
+
+		});
+		//始发地址显示
 		 var address_picker;
     $(document).ready(function () {
         address_picker = new addressPicker({
             id: "sendFullAddress",
             level: 3,
-
-
         });
         address_picker.on("click", function () {
             $("#sendFullAddress").val(address_picker.getTotalValueAsText());
 
         });
     });
+		//目的地地址显示
+		var address_pickers;
      $(document).ready(function () {
-        address_picker = new addressPicker({
+        address_pickers = new addressPicker({
             id: "shengqu",
             level: 3,
 
 
         });
-        address_picker.on("click", function () {
-            $("#shengqu").val(address_picker.getTotalValueAsText());
+        address_pickers.on("click", function () {
+            $("#shengqu").val(address_pickers.getTotalValueAsText());
 
         });
     });
@@ -955,5 +985,99 @@
 			//隐藏网点
 			$("#branch2").hide();
 		};
+
+
+
+		//显示地图
+
+		var myChart = echarts.init(document.getElementById('main'));
+		//存储切换的每一级地图信息
+		var mapStack = [];
+		var timeFn = null;
+		var curMap = {};
+		//初始化地图
+		loadMap('100000', 'china');
+		/**
+		 绑定用户切换地图区域事件
+		 cityMap对象存储着地图区域名称和区域的信息(name-code)
+		 当mapCode有值,说明可以切换到下级地图
+		 同时保存上级地图的编号和名称
+		 */
+		myChart.on('mapselectchanged', function(params) {
+			clearTimeout(timeFn);
+			//由于单击事件和双击事件冲突，故单击的响应事件延迟250毫秒执行
+			timeFn = setTimeout(function(){
+				var name = params.batch[0].name;
+				var mapCode = cityMap[name];
+				if (!mapCode) {
+					alert('无此区域地图显示');
+					return;
+				}
+				loadMap(mapCode, name);
+				//将上一级地图信息压入mapStack
+				mapStack.push({
+					mapCode: curMap.mapCode,
+					mapName: curMap.mapName
+				});
+			}, 250);
+		});
+		/**
+		 绑定双击事件，并加载上一级地图
+		 */
+		myChart.on('dblclick', function(params) {
+			//当双击事件发生时，清除单击事件，仅响应双击事件
+			clearTimeout(timeFn);
+			var map = mapStack.pop();
+			if (!mapStack.length && !map) {
+				alert('已经到达最上一级地图了');
+				return;
+			}
+			loadMap(map.mapCode, map.mapName);
+		});
+		/**
+		 加载地图：根据地图所在省市的行政编号，
+		 获取对应的json地图数据，然后向echarts注册该区域的地图
+		 最后加载地图信息
+		 @params {String} mapCode:地图行政编号,for example['中国':'100000', '湖南': '430000']
+		 @params {String} mapName: 地图名称
+		 */
+		function loadMap(mapCode, mapName) {
+			$.getJSON('data/' + mapCode + '.json', function (data) {
+				if (data) {
+					echarts.registerMap(mapName, data);
+					var option = {
+						tooltip: {
+							trigger: 'item',
+							formatter: '{b}'
+						},
+						series: [
+							{
+								name: '',
+								type: 'map',
+								mapType: mapName,
+								selectedMode : 'multiple',
+								label: {
+									normal: {
+										show: true
+									},
+									emphasis: {
+										show: true
+									}
+								},
+								data:[
+								]
+							}
+						]
+					};
+					myChart.setOption(option);
+					curMap = {
+						mapCode: mapCode,
+						mapName: mapName
+					};
+				} else {
+					alert('无法加载该地图');
+				}
+			});
+		}
 	</script>
 </html>
