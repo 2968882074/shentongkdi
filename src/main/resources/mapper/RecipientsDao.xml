@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace=".dao.RecipientsDao">
 
-    <resultMap id="BaseResultMap" type=".entity.Recipients">
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Recipients">
         <!--@Table recipients-->
         <result property="reid" column="reid" jdbcType="INTEGER"/>
         <result property="rename" column="reName" jdbcType="VARCHAR"/>
