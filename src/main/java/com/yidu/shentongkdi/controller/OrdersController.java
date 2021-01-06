@@ -1,9 +1,7 @@
 package com.yidu.shentongkdi.controller;
 
 import com.yidu.shentongkdi.entity.Orders;
-import com.yidu.shentongkdi.entity.Totalwatehouse;
 import com.yidu.shentongkdi.service.OrdersService;
-import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

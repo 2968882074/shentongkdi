@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.RecipientsDao">
+
+    <resultMap id="BaseResultMap" type=".entity.Recipients">
+        <!--@Table recipients-->
+        <result property="reid" column="reid" jdbcType="INTEGER"/>
+        <result property="rename" column="reName" jdbcType="VARCHAR"/>
+        <result property="rephone" column="rephone" jdbcType="VARCHAR"/>
+        <result property="readdress" column="readdress" jdbcType="VARCHAR"/>
+        <result property="redetailedaddress" column="redetailedAddress" jdbcType="VARCHAR"/>
+        <result property="relandline" column="relandline" jdbcType="VARCHAR"/>
+        <result property="reweight" column="reweight" jdbcType="INTEGER"/>
+        <result property="retype" column="retype" jdbcType="VARCHAR"/>
+        <result property="repredicttime" column="repredictTime" jdbcType="VARCHAR"/>
+        <result property="repredictprice" column="repredictprice" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+        from shentong.recipients
+        where reid = #{reid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+        from shentong.recipients
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+        from shentong.recipients
+        <where>
+            <if test="reid != null">
+                and reid = #{reid}
+            </if>
+            <if test="rename != null and rename != ''">
+                and reName = #{rename}
+            </if>
+            <if test="rephone != null and rephone != ''">
+                and rephone = #{rephone}
+            </if>
+            <if test="readdress != null and readdress != ''">
+                and readdress = #{readdress}
+            </if>
+            <if test="redetailedaddress != null and redetailedaddress != ''">
+                and redetailedAddress = #{redetailedaddress}
+            </if>
+            <if test="relandline != null and relandline != ''">
+                and relandline = #{relandline}
+            </if>
+            <if test="reweight != null">
+                and reweight = #{reweight}
+            </if>
+            <if test="retype != null and retype != ''">
+                and retype = #{retype}
+            </if>
+            <if test="repredicttime != null and repredicttime != ''">
+                and repredictTime = #{repredicttime}
+            </if>
+            <if test="repredictprice != null and repredictprice != ''">
+                and repredictprice = #{repredictprice}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="reid" useGeneratedKeys="true">
+        insert into shentong.recipients(reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice)
+        values (#{rename}, #{rephone}, #{readdress}, #{redetailedaddress}, #{relandline}, #{reweight}, #{retype}, #{repredicttime}, #{repredictprice})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.recipients
+        <set>
+            <if test="rename != null and rename != ''">
+                reName = #{rename},
+            </if>
+            <if test="rephone != null and rephone != ''">
+                rephone = #{rephone},
+            </if>
+            <if test="readdress != null and readdress != ''">
+                readdress = #{readdress},
+            </if>
+            <if test="redetailedaddress != null and redetailedaddress != ''">
+                redetailedAddress = #{redetailedaddress},
+            </if>
+            <if test="relandline != null and relandline != ''">
+                relandline = #{relandline},
+            </if>
+            <if test="reweight != null">
+                reweight = #{reweight},
+            </if>
+            <if test="retype != null and retype != ''">
+                retype = #{retype},
+            </if>
+            <if test="repredicttime != null and repredicttime != ''">
+                repredictTime = #{repredicttime},
+            </if>
+            <if test="repredictprice != null and repredictprice != ''">
+                repredictprice = #{repredictprice},
+            </if>
+        </set>
+        where reid = #{reid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.recipients where reid = #{reid}
+    </delete>
+
+</mapper>
