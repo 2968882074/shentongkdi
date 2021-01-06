@@ -25,9 +25,8 @@ public class BranchController {
      */
     @Autowired
     private BranchService branchService;
-
     /**
-     *分页查询以及模糊查询
+     *网点信息的分页查询以及模糊查询
      * @param page 页数
      * @param limit 行数
      * @param branchName 网点名称
@@ -77,14 +76,18 @@ public class BranchController {
     public String delete(String  brid) {
         //调用网点信息Service类的删除方法
         String []ids=brid.split("-");
+        //循环删除网点信息表的信息
         for (int j = 0; j <ids.length ; j++) {
             try {
+                //调用网点信息Service类的删除方法
                 branchService.deleteById(Integer.parseInt(ids[j]));
             } catch (NumberFormatException e) {
                 e.printStackTrace();
+                //返回的数据转成json数据
                 return "{\"state\":false}";
             }
         }
+        //返回的真
         return "{\"state\":true}";
     }
     /**

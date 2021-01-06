@@ -9,10 +9,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * (Branch)网点信息表表服务实现类
+ * (Branch)网点信息表服务实现类
  *
  * @author makejava
- * @since 2021-01-05 09:56:35
+ * @since 2021-01-06 08:56:18
  */
 @Service("branchService")
 public class BranchServiceImpl implements BranchService {
@@ -29,6 +29,8 @@ public class BranchServiceImpl implements BranchService {
     public Branch queryById(Integer brid) {
         return this.branchDao.queryById(brid);
     }
+
+
 
     /**
      * 查询多条数据

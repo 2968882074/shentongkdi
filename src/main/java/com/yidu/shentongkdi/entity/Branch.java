@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 /**
- * (Branch)网点信息表实体类
+ * (Branch)实体类
  *
  * @author makejava
- * @since 2021-01-05 09:56:35
+ * @since 2021-01-06 08:56:17
  */
 @Component
 public class Branch implements Serializable {
-    private static final long serialVersionUID = 195937698217968585L;
+    private static final long serialVersionUID = -50611654598710783L;
 
     private Integer brid;
 
@@ -39,6 +39,8 @@ public class Branch implements Serializable {
     private String brnumberpone;
 
     private String workaddress;
+
+    private Integer userid;
 
 
     public Integer getBrid() {
@@ -143,6 +145,14 @@ public class Branch implements Serializable {
 
     public void setWorkaddress(String workaddress) {
         this.workaddress = workaddress;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
 }

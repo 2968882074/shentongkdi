@@ -95,6 +95,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">用户id</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userid" required lay-verify="required" placeholder="请输入办公地址" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -143,20 +149,21 @@
             , title: '网点信息管理数据表'
             , cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                , {field: 'brid', title: '网点id', width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'branchname', title: '网点名称',  width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'brname', title: '管理员姓名',  width: 105, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'brpone', title: '查询电话',  width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'postcode', title: '邮编', width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'business', title: '业务区域',  width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'branchtype', title: '网点类型', width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'idnumber', title: '身份证号',width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'unusualpone', title: '异常查件电话',  width:100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'nextnumber', title: '下一站编号',  width:100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'subordinate', title: '所属省区',  width:100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'brnumberpone', title: '手机号',  width:100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                ,{field: 'workaddress', title: '办公地址',  width:100, fixed:'left', unresize: true, sort: true,align : 'center'}
-                ,{fixed: 'right', title: '操作', toolbar: '#barDemo', width: 180,align : 'center'}
+                , {field: 'brid', title: '网点id', width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'branchname', title: '网点名称',  width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'brname', title: '管理员姓名',  width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'brpone', title: '查询电话',  width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'postcode', title: '邮编', width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'business', title: '业务区域',  width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'branchtype', title: '网点类型', width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'idnumber', title: '身份证号',width: 92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'unusualpone', title: '异常查件电话',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'nextnumber', title: '下一站编号',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'subordinate', title: '所属省区',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'brnumberpone', title: '手机号',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                ,{field: 'workaddress', title: '办公地址',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                ,{field: 'userid', title: '用户id',  width:92, fixed:'left', unresize: true, sort: true,align : 'center'}
+                ,{fixed: 'right', title: '操作', toolbar: '#barDemo', width: 187,align : 'center'}
             ]]
             , page: true
         });
@@ -275,6 +282,7 @@
                     ,"subordinate": data.subordinate
                     ,"brnumberpone": data.brnumberpone
                     ,"workaddress": data.workaddress
+                    ,"userid":data.userid
                 });
 
                 layer.open({

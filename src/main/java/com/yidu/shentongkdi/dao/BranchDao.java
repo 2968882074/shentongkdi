@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (Branch)网点信息表表数据库访问层
+ * (Branch)网点信息表数据库访问层
  *
  * @author makejava
- * @since 2021-01-05 09:56:35
+ * @since 2021-01-06 08:56:17
  */
 @Mapper
 @Repository
@@ -82,9 +82,11 @@ public interface BranchDao {
      * @return 影响行数
      */
     int deleteById(Integer brid);
+
     /**
      * 统计
      * @return
      */
-    int count();
+    int count ();
+
 }
