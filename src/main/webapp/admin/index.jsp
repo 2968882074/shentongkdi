@@ -50,7 +50,27 @@
         .layui-nav{
             width: 100% !important;
             background-color:white !important;
+
         }
+
+        .layui-nav .layui-nav-mored, .layui-nav-itemed>a .layui-nav-more {
+            margin-top: -9px;
+            border-style: dashed dashed solid;
+            border-color: transparent transparent black !important;
+        }
+
+        .layui-nav-more{
+            border-top-color: black !important;
+        }
+
+        .layui-nav-item a{
+            color: black !important;
+        }
+
+        .layui-nav-item a:hover{
+            color: white !important;
+        }
+
         .tab-close {
             position: absolute;
             right: -2px;
@@ -68,12 +88,11 @@
 
         .wh100 {
             width: 100%;
-            height: 100%;
         }
     </style>
 </head>
 
-<body class="app ">
+<body class="app " onresize="iframesize()">
 
 <div id="spinner"></div>
 
@@ -466,11 +485,7 @@
             </div>
         </div>
 
-        <footer class="main-footer">
-            <div class="text-center">
-                Copyright &copy; feifan
-            </div>
-        </footer>
+
 
     </div>
 </div>
@@ -522,12 +537,13 @@
 <script src="../assets/plugins/layui/layui.all.js" ></script>
 
 <script>
+
     var element = layui.element;
     var method = {
         tabAdd:function (url,name,id) {
             element.tabAdd('tab',{
                 title:name+'<a href="javascript:;" class="tab-close"><i class="layui-icon layui-icon-close"></i></a>',
-                content:'<iframe class="wh100" frameborder="0" src="' + url + '"></iframe>',
+                content:'<iframe class="wh100"  frameborder="0" src="' + url + '"></iframe>',
                 id: id
             });
             //为关闭按钮绑定事件
@@ -544,6 +560,7 @@
         }
     };
 
+
     //绑定点击事件
     $('.tab-active').click(function(){
         //获取属性值
@@ -555,6 +572,8 @@
         } else {
             method.tabAdd(url, name, id);
         }
+        /*调整iframe高度*/
+        iframesize();
     });
 
     function checkTab(id) {
@@ -566,6 +585,11 @@
                 }
             })
         return open;
+    }
+    /*iframe自适应*/
+    function iframesize() {
+        var iframeheight =$(window).height()-200;
+        $(".wh100").height(iframeheight);
     }
 </script>
 </body>

@@ -41,7 +41,6 @@ public class AdminController {
     public String login(Admin admin,HttpServletResponse response){
         //调用登录
         Admin login = adminService.login(admin);
-        System.out.println(login);
         //判断是否成功
         if(login != null){
             //将用户信息存入session
@@ -49,12 +48,7 @@ public class AdminController {
             //得到集中好的权限
             List<Menuinfo> merge = adminService.merge(login);
             //将权限存入session
-            request.getSession().setAttribute("menuset",merge);
-
-
-            for (Menuinfo menuinfo : merge) {
-                System.out.println(menuinfo);
-            }
+            request.getSession().setAttribute("menulist",merge);
 
             //设置cookie
             Cookie cookie = new Cookie("loginstate","true");
