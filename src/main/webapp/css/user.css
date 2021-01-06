@@ -63,7 +63,7 @@
 	background-color: #F0F4F5;
 	overflow: auto;
 	float: right;
-	margin-right: 255px;
+	margin-right: 130px;
 }
 
 #center_box #left{
@@ -162,6 +162,13 @@
 	margin-left: -15px;
 }
 #right_base #base #b_left #check{
+	width: 210px;
+	height: 40px;
+	border: 1px #ededed solid;
+	text-indent: 0.5em;
+	border-radius: 6px;
+}
+#right_base #base #b_left #checks{
 	width: 210px;
 	height: 40px;
 	border: 1px #ededed solid;

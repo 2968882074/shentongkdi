@@ -24,7 +24,12 @@
         <div class="layui-form-item">
             <label class="layui-form-label">车辆选择</label>
             <div class="layui-input-inline">
-                <input type="text" name="vehiclechoice" required lay-verify="required" placeholder="请输入车辆选择" autocomplete="off" class="layui-input">
+                <select name="vehiclechoice" lay-filter="aihao">
+                    <option value="">车辆选择</option>
+                    <option value="1">货车</option>
+                    <option value="2" >火车</option>
+                    <option value="3">货车</option>
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
@@ -36,13 +41,10 @@
         <div class="layui-form-item">
             <label class="layui-form-label">承运商</label>
             <div class="layui-input-inline">
-                <input type="text" name="commoncarrier" required lay-verify="required" placeholder="请输入承运商" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">车型</label>
-            <div class="layui-input-inline">
-                <input type="text" name="vehiclemodel" required lay-verify="required" placeholder="请输入车型" autocomplete="off" class="layui-input">
+                <select name="commoncarrier" lay-filter="aihao">
+                    <option value="">承运商选择</option>
+                    <option value="申通快递">申通快递</option>
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
@@ -104,7 +106,6 @@
                 , {field: 'vehiclechoice', title: '车辆选择', width: 200, edit: 'text',align : 'center'}
                 , {field: 'license', title: '车牌号', width: 200, edit: 'text',align : 'center'}
                 , {field: 'commoncarrier', title: '承运商', width: 200, edit: 'text', sort: true,align : 'center'}
-                , {field: 'vehiclemodel', title: '车型', width: 200, edit: 'text', sort: true,align : 'center'}
                 , {field: 'control', title: '吨控', width: 200, edit: 'text', sort: true,align : 'center'}
                 , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 280,align : 'center'}
             ]]

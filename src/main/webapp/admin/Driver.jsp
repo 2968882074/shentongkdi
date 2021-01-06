@@ -9,44 +9,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>线路管理列表</title>
-    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css"  media="all">
+    <title>网点信息管理列表</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
 </head>
 <body>
 <div id="lineDiv" style="display:none;width:320px;margin-top:10px">
     <form id=myFrom class="layui-form" lay-filter="formTest">
         <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <input name="tcid" readonly="readonly" required="required"   class="layui-input" type="hidden">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">货车id</label>
+            <div class="layui-input-inline">
+                <input type="text" name="trid" required lay-verify="required" placeholder="请输入网点名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">司机id</label>
+            <div class="layui-input-inline">
+                <input type="text" name="chanuffeurid" required lay-verify="required" placeholder="请输入管理员姓名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
 
-            <div class="layui-input-inline">
-                <input name="lid" readonly="readonly" required="required"   class="layui-input" type="hidden">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">线路类型</label>
-            <div class="layui-input-inline">
-                <select name="line" lay-filter="aihao">
-                    <option value="">线路类型</option>
-                    <option value="1">全部</option>
-                    <option value="2" >干线</option>
-                    <option value="3">周边</option>
-                    <option value="4">省内</option>
-                    <option value="5" >临时</option>
-                    <option value="6">市内</option>
-                </select>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">线路名称</label>
-            <div class="layui-input-inline">
-                <input type="text" name="linename" required lay-verify="required" placeholder="请输入线路名称" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">路径</label>
-            <div class="layui-input-inline">
-                <input type="text" name="linepath" required lay-verify="required" placeholder="请输入路径" autocomplete="off" class="layui-input">
-            </div>
-        </div>
+
+
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
@@ -65,9 +53,9 @@
         <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="add"><i class="layui-icon"></i></button>
         <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="deleteid"><i class="layui-icon"></i></button>
     </div>
-    线路名称：
+    网点名称：
     <div class="layui-inline">
-        <input class="layui-input" name="linename" id="linename" autocomplete="off" placeholder="请输入线路名称">
+        <input class="layui-input" name="branchname" id="branchnames" autocomplete="off" placeholder="请输入网点名称">
     </div>
     <button class="layui-btn" data-type="reload" lay-event="search">搜索</button>
 </script>
@@ -76,8 +64,8 @@
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
-<script src="layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
-<script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script>
     layui.use(['table','layer','form'], function() {
         var table = layui.table;
@@ -86,21 +74,20 @@
         var url="";
         table.render({
             elem: '#test'
-            , url: 'line/selectAll'
+            , url: '../driver/selectAll'
             , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                 title: '提示'
                 , layEvent: 'LAYTABLE_TIPS'
                 , icon: 'layui-icon-tips'
             }]
-            , title: '线路管理数据表'
+            , title: '网点信息管理数据表'
             , cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                , {field: 'lid', title: '线路id', width: 300, fixed: 'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'line', title: '线路类型', width: 300, edit: 'text',align : 'center'}
-                , {field: 'linename', title: '线路名称', width: 300, edit: 'text',align : 'center'}
-                , {field: 'linepath', title: '路径', width: 300, edit: 'text', sort: true,align : 'center'}
-                , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 280,align : 'center'}
+                , {field: 'tcid', title: '货车司机id', width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'trid', title: '货车id',  width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'chanuffeurid', title: '司机id',  width: 100, fixed:'left', unresize: true, sort: true,align : 'center'}
+                ,{fixed: 'right', title: '操作', toolbar: '#barDemo', width: 180,align : 'center'}
             ]]
             , page: true
         });
@@ -111,7 +98,7 @@
             var json=JSON.stringify(data.field);
             $.ajax({
                 type: "POST",
-                url: "line/"+url,
+                url: "driver/"+url,
                 data:"json="+json,
                 dataType:"text",
                 success: function(msg){
@@ -128,13 +115,13 @@
             var checkStatus = table.checkStatus(obj.config.id);
             switch(obj.event){
                 case 'add':
-                    url="insert";
+                    url="../../driver/insert";
                     //清空表单
                     $("#myFrom")[0].reset();
-
                     layer.open({
                         type:1,
                         title:'新增用户',
+                        offse:'200px',
                         area: ['400px','400px'],
                         shadeClose: true,
                         shade: false,
@@ -144,16 +131,16 @@
                     break;
                 case 'search':
                     //得到输入框的值
-                    var value=$("#linename").val();
+                    var value=$("#branchnames").val();
                     //执行重载
                     table.reload('test', {
-                        url : "line/selectAll?linename="+value
-                        ,page : {
+                       // url:"../driver/selectAll?branchName="+value,
+                        page : {
                             curr : 1
                             //重新从第 1 页开始
                         }
                     });
-                    $("#linename").val(value);//刷新值会被消除，则需要重新设定
+                    $("#branchnames").val(value);//刷新值会被消除，则需要重新设定
                     break;
                 case 'deleteid'://删除多个
                     var data = checkStatus.data;
@@ -161,18 +148,17 @@
                     if(data.length>0){
                         layer.confirm('真的要删除么', function(index) {
                             //获取所有选中的id
-                            var lid="";
+                            var tcid="";
                             for (var i = 0; i < data.length; i++) {
-                                lid+=data[i].lid+"-";
-                                console.log(data[i].lid);
+                                tcid+=data[i].tcid+"-";
+                                console.log(data[i].tcid);
                             }
-
                             layer.close(index);
                             //使用ajax删除选中的
                             $.ajax({
                                 type : "POST",
-                                url : "line/delete",
-                                data : "lid="+lid,
+                                url : "../driver/delete",
+                                data : "tcid="+tcid,
                                 success : function(msg) {
                                     layer.msg('删除成功！');
                                     table.reload('test');
@@ -196,31 +182,27 @@
                     layer.close(index);
                     $.ajax({
                         type: "POST",
-                        url: "line/delete",
-                        data:"lid="+data.lid,
+                        url: "../driver/delete",
+                        data:"tcid="+data.tcid,
                         success: function(msg){
                             layer.alert("删除成功！");
                         }
                     });
                 });
             } else if(obj.event === 'edit'){
-                //alert(1);
-                url="updateById";
+                url="../../driver/update";
                 //给表单赋值
                 form.val("formTest", {
-                    "lid": data.lid
-                    , "line": data.line
-                    ,"linename": data.linename
-                    ,"linepath": data.linepath
+                     "trid":data.trid
+                    ,"chanuffeurid":data.chanuffeurid
                 });
-
-
                 layer.open({
                     type: 1,
                     title: '修改',
-                    shadeClose: true,
+                    //shadeClose: true,
                     shade: false,
                     maxmin: true, //开启最大化最小化按钮
+                    offse:'100px',
                     area: ['400px','400px'],
                     content: $("#lineDiv")
                 });

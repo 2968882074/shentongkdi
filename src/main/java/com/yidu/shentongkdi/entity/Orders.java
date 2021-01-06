@@ -8,15 +8,15 @@ import java.io.Serializable;
  * (Orders)实体类
  *
  * @author makejava
- * @since 2020-12-28 14:56:39
+ * @since 2021-01-05 15:55:09
  */
 @Component
 public class Orders implements Serializable {
-    private static final long serialVersionUID = -60026962333419028L;
+    private static final long serialVersionUID = -10539219958481836L;
     
     private Integer oid;
     
-    private Integer picid;
+    private Integer reid;
     
     private Integer seid;
     
@@ -28,6 +28,20 @@ public class Orders implements Serializable {
     
     private Integer state;
 
+    private Recipients recipients;
+
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Recipients getRecipients() {
+        return recipients;
+    }
+
+    public void setRecipients(Recipients recipients) {
+        this.recipients = recipients;
+    }
 
     public Integer getOid() {
         return oid;
@@ -37,12 +51,12 @@ public class Orders implements Serializable {
         this.oid = oid;
     }
 
-    public Integer getPicid() {
-        return picid;
+    public Integer getReid() {
+        return reid;
     }
 
-    public void setPicid(Integer picid) {
-        this.picid = picid;
+    public void setReid(Integer reid) {
+        this.reid = reid;
     }
 
     public Integer getSeid() {
@@ -85,12 +99,9 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
-    public Orders() {
-    }
-
-    public Orders(Integer oid, Integer picid, Integer seid, Double weight, Double amount, Integer amountstate, Integer state) {
+    public Orders(Integer oid, Integer reid, Integer seid, Double weight, Double amount, Integer amountstate, Integer state) {
         this.oid = oid;
-        this.picid = picid;
+        this.reid = reid;
         this.seid = seid;
         this.weight = weight;
         this.amount = amount;
@@ -98,11 +109,14 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
+    public Orders() {
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
                 "oid=" + oid +
-                ", picid=" + picid +
+                ", reid=" + reid +
                 ", seid=" + seid +
                 ", weight=" + weight +
                 ", amount=" + amount +
