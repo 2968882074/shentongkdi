@@ -1,7 +1,10 @@
 package com.yidu.shentongkdi.dao;
 
 import com.yidu.shentongkdi.entity.Sender;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,8 +13,9 @@ import java.util.List;
  * @author makejava
  * @since 2021-01-06 10:44:10
  */
+@Mapper
+@Repository
 public interface SenderDao {
-
     /**
      * 通过ID查询单条数据
      *

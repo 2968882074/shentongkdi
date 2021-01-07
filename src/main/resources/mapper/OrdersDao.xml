@@ -5,13 +5,15 @@
     <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Orders">
         <!--@Table orders-->
         <result property="oid" column="oid" jdbcType="INTEGER"/>
-        <result property="reid" column="reid" jdbcType="INTEGER"/>
-        <result property="seid" column="seid" jdbcType="INTEGER"/>
         <result property="weight" column="Weight" jdbcType="NUMERIC"/>
         <result property="amount" column="Amount" jdbcType="NUMERIC"/>
         <result property="amountstate" column="Amountstate" jdbcType="INTEGER"/>
         <result property="state" column="state" jdbcType="INTEGER"/>
-        <collection property="recipients" select="src.main.resources.mapper.RecipientsDao.queryById" column="reid"/>
+        <result property="seid" column="seid" jdbcType="NUMERIC"/>
+        <result property="reid" column="reid" jdbcType="NUMERIC"/>
+        <association  property="recipients" select="com.yidu.shentongkdi.dao.RecipientsDao.queryById" column="reid"/>
+        <association  property="sender" select="com.yidu.shentongkdi.dao.SenderDao.queryById" column="seid"/>
+
     </resultMap>
     <!-- 统计行数 -->
     <select id="count" resultType="int">

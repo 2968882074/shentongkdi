@@ -1,22 +1,19 @@
 package com.yidu.shentongkdi.entity;
 
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 
 /**
  * (Recipients)实体类
  *
  * @author makejava
- * @since 2021-01-06 10:43:33
+ * @since 2021-01-07 13:52:03
  */
-@Component
 public class Recipients implements Serializable {
-    private static final long serialVersionUID = 985162053309699962L;
+    private static final long serialVersionUID = -10361155276444238L;
     
     private Integer reid;
     
-    private String rename;
+    private String rname;
     
     private String rephone;
     
@@ -43,12 +40,12 @@ public class Recipients implements Serializable {
         this.reid = reid;
     }
 
-    public String getRename() {
-        return rename;
+    public String getRname() {
+        return rname;
     }
 
-    public void setRename(String rename) {
-        this.rename = rename;
+    public void setRname(String rname) {
+        this.rname = rname;
     }
 
     public String getRephone() {

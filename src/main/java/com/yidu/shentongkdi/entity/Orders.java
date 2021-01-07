@@ -16,10 +16,6 @@ public class Orders implements Serializable {
     
     private Integer oid;
     
-    private Integer reid;
-    
-    private Integer seid;
-    
     private Double weight;
     
     private Double amount;
@@ -30,6 +26,35 @@ public class Orders implements Serializable {
 
     private Recipients recipients;
 
+    private Sender sender;
+
+    private int seid;
+
+    private int reid;
+
+    public int getSeid() {
+        return seid;
+    }
+
+    public void setSeid(int seid) {
+        this.seid = seid;
+    }
+
+    public int getReid() {
+        return reid;
+    }
+
+    public void setReid(int reid) {
+        this.reid = reid;
+    }
+
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -51,21 +76,7 @@ public class Orders implements Serializable {
         this.oid = oid;
     }
 
-    public Integer getReid() {
-        return reid;
-    }
 
-    public void setReid(Integer reid) {
-        this.reid = reid;
-    }
-
-    public Integer getSeid() {
-        return seid;
-    }
-
-    public void setSeid(Integer seid) {
-        this.seid = seid;
-    }
 
     public Double getWeight() {
         return weight;
@@ -99,29 +110,9 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
-    public Orders(Integer oid, Integer reid, Integer seid, Double weight, Double amount, Integer amountstate, Integer state) {
-        this.oid = oid;
-        this.reid = reid;
-        this.seid = seid;
-        this.weight = weight;
-        this.amount = amount;
-        this.amountstate = amountstate;
-        this.state = state;
-    }
 
     public Orders() {
     }
 
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "oid=" + oid +
-                ", reid=" + reid +
-                ", seid=" + seid +
-                ", weight=" + weight +
-                ", amount=" + amount +
-                ", amountstate=" + amountstate +
-                ", state=" + state +
-                '}';
-    }
+
 }
