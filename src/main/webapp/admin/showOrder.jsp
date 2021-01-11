@@ -80,6 +80,11 @@
     </tr>
     </thead>--%>
 </table>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
 <script src="../js/jquery-3.4.1.min.js" ></script>
 <script src="../layui/layui.all.js"></script>
 
@@ -106,6 +111,7 @@
             ,{field: 'amount', title: '支付金额'}
             ,{field: 'amountstate', title: '支付状态', sort: true}
             ,{field: 'state', title: '订单状态',  sort: true}
+            ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
         ]]
     });
 
@@ -124,6 +130,48 @@
         $("#form").reset();
         return false;
     })
+
+    //监听行工具事件
+    table.on('tool(tab)', function(obj){
+        var data = obj.data;
+        console.log(data)
+        if(obj.event === 'del'){
+            layer.confirm('真的删除行么', function(index){
+                //行删除
+                $.ajax({
+                    type:"post",
+                    url:"../orders/delete",
+                    data:"id="+data.oid,
+                    success:function(json){
+                        layer.msg(data.oid+json.data);
+                        table.reload("tables");
+                    }
+                });
+            });
+        } else if(obj.event === 'edit'){
+            //行修改
+            var fd=data;
+            formselect("recipients",".selOne","selR","update",fd);
+            formselect("sender",".selTwo","selS","update",fd);
+            method="updateById";
+            form.val("formfilter",{
+                oid:fd.oid,
+                weight:fd.weight,
+                amount:fd.amount,
+                amountstate:fd.amountstate,
+                state:fd.state
+                //reid:fd.recipients.rname,
+                //seid:fd.sender.sname
+            });
+            layer.open({
+                type:1,
+                content:$('#form'),
+                title:'修改',
+                area:['400px','600px'],
+                resize:false
+            });
+        }
+    });
 
     //头工具栏事件
     table.on('toolbar(tab)', function(obj){
@@ -198,7 +246,7 @@
             success:function(data){
                 $(className).empty();
                 if(method=="insert"){
-                    $(className).append(new Option("请选择",-1));
+                    $(className).append(new Option("请选择",1));
                 }else if(method=="update"){
                     $(className).append(new Option(selVal=="selS"?msg.sender.sname:msg.recipients.rname,selVal=="selS"?msg.sender.seid:msg.recipients.reid));
                 }
