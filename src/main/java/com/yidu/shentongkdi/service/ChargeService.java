@@ -1,6 +1,7 @@
 package com.yidu.shentongkdi.service;
 
 import com.yidu.shentongkdi.entity.Charge;
+
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public interface ChargeService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Charge> queryAllByLimit(int offset, int limit,String chargename);
+    List<Charge> queryAllByLimit(int offset, int limit,String chargetime);
 
     /**
      * 新增数据
