@@ -5,6 +5,7 @@
     <resultMap type="com.yidu.shentongkdi.entity.Branch" id="BranchMap">
         <result property="brid" column="brid" jdbcType="INTEGER"/>
         <result property="branchname" column="branchName" jdbcType="VARCHAR"/>
+        <result property="brname" column="brName" jdbcType="VARCHAR"/>
         <result property="brpone" column="brpone" jdbcType="VARCHAR"/>
         <result property="postcode" column="postcode" jdbcType="VARCHAR"/>
         <result property="business" column="business" jdbcType="VARCHAR"/>
@@ -15,39 +16,38 @@
         <result property="subordinate" column="Subordinate" jdbcType="VARCHAR"/>
         <result property="brnumberpone" column="brNumberPone" jdbcType="VARCHAR"/>
         <result property="workaddress" column="workAddress" jdbcType="VARCHAR"/>
+        <result property="userid" column="userid" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="BranchMap">
         select
-          brid, branchName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress
+          brid, branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress, userid
         from shentong.branch
         where brid = #{brid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BranchMap">
+        select
+          brid, branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress, userid
+        from shentong.branch
+        <if test="branchName!=null">
+            and branchName like '%${branchName}%'
+        </if>
+        limit #{offset}, #{limit}
     </select>
     <!--统计-->
     <select id="count" resultType="int">
         select
-          count(*)
+       count(*)
         from shentong.branch
     </select>
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="BranchMap">
-        select
-          brid, branchName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress
-        from shentong.branch
-        <where>
-            <if test="branchName!=null">
-                branchName like "%"#{branchName}#"%"
-            </if>
-        </where>
-        limit #{offset}, #{limit}
-    </select>
-
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BranchMap">
         select
-        brid, branchName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate,
-        brNumberPone, workAddress
+        brid, branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber,
+        Subordinate, brNumberPone, workAddress, userid
         from shentong.branch
         <where>
             <if test="brid != null">
@@ -55,6 +55,9 @@
             </if>
             <if test="branchname != null and branchname != ''">
                 and branchName = #{branchname}
+            </if>
+            <if test="brname != null and brname != ''">
+                and brName = #{brname}
             </if>
             <if test="brpone != null and brpone != ''">
                 and brpone = #{brpone}
@@ -86,40 +89,43 @@
             <if test="workaddress != null and workaddress != ''">
                 and workAddress = #{workaddress}
             </if>
+            <if test="userid != null">
+                and userid = #{userid}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="brid" useGeneratedKeys="true">
-        insert into shentong.branch(branchName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress)
-        values (#{branchname}, #{brpone}, #{postcode}, #{business}, #{branchtype}, #{idnumber}, #{unusualpone}, #{nextnumber}, #{subordinate}, #{brnumberpone}, #{workaddress})
+        insert into shentong.branch(branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone, nextNumber, Subordinate, brNumberPone, workAddress, userid)
+        values (#{branchname}, #{brname}, #{brpone}, #{postcode}, #{business}, #{branchtype}, #{idnumber}, #{unusualpone}, #{nextnumber}, #{subordinate}, #{brnumberpone}, #{workaddress}, #{userid})
     </insert>
 
     <insert id="insertBatch" keyProperty="brid" useGeneratedKeys="true">
-        insert into shentong.branch(branchName, brpone, postcode, business, branchType, IDnumber, unusualPone,
-        nextNumber, Subordinate, brNumberPone, workAddress)
+        insert into shentong.branch(branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone,
+        nextNumber, Subordinate, brNumberPone, workAddress, userid)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.branchname}, #{entity.brpone}, #{entity.postcode}, #{entity.business}, #{entity.branchtype},
-            #{entity.idnumber}, #{entity.unusualpone}, #{entity.nextnumber}, #{entity.subordinate},
-            #{entity.brnumberpone}, #{entity.workaddress})
+            (#{entity.branchname}, #{entity.brname}, #{entity.brpone}, #{entity.postcode}, #{entity.business},
+            #{entity.branchtype}, #{entity.idnumber}, #{entity.unusualpone}, #{entity.nextnumber},
+            #{entity.subordinate}, #{entity.brnumberpone}, #{entity.workaddress}, #{entity.userid})
         </foreach>
     </insert>
 
     <insert id="insertOrUpdateBatch" keyProperty="brid" useGeneratedKeys="true">
-        insert into shentong.branch(branchName, brpone, postcode, business, branchType, IDnumber, unusualPone,
-        nextNumber, Subordinate, brNumberPone, workAddress)
+        insert into shentong.branch(branchName, brName, brpone, postcode, business, branchType, IDnumber, unusualPone,
+        nextNumber, Subordinate, brNumberPone, workAddress, userid)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.branchname}, #{entity.brpone}, #{entity.postcode}, #{entity.business}, #{entity.branchtype},
-            #{entity.idnumber}, #{entity.unusualpone}, #{entity.nextnumber}, #{entity.subordinate},
-            #{entity.brnumberpone}, #{entity.workaddress})
+            (#{entity.branchname}, #{entity.brname}, #{entity.brpone}, #{entity.postcode}, #{entity.business},
+            #{entity.branchtype}, #{entity.idnumber}, #{entity.unusualpone}, #{entity.nextnumber},
+            #{entity.subordinate}, #{entity.brnumberpone}, #{entity.workaddress}, #{entity.userid})
         </foreach>
         on duplicate key update
-        branchName = values(branchName) , brpone = values(brpone) , postcode = values(postcode) , business =
-        values(business) , branchType = values(branchType) , IDnumber = values(IDnumber) , unusualPone =
-        values(unusualPone) , nextNumber = values(nextNumber) , Subordinate = values(Subordinate) , brNumberPone =
-        values(brNumberPone) , workAddress = values(workAddress)
+        branchName = values(branchName) , brName = values(brName) , brpone = values(brpone) , postcode =
+        values(postcode) , business = values(business) , branchType = values(branchType) , IDnumber = values(IDnumber) ,
+        unusualPone = values(unusualPone) , nextNumber = values(nextNumber) , Subordinate = values(Subordinate) ,
+        brNumberPone = values(brNumberPone) , workAddress = values(workAddress) , userid = values(userid)
     </insert>
 
     <!--通过主键修改数据-->
@@ -128,6 +134,9 @@
         <set>
             <if test="branchname != null and branchname != ''">
                 branchName = #{branchname},
+            </if>
+            <if test="brname != null and brname != ''">
+                brName = #{brname},
             </if>
             <if test="brpone != null and brpone != ''">
                 brpone = #{brpone},
@@ -158,6 +167,9 @@
             </if>
             <if test="workaddress != null and workaddress != ''">
                 workAddress = #{workaddress},
+            </if>
+            <if test="userid != null">
+                userid = #{userid},
             </if>
         </set>
         where brid = #{brid}

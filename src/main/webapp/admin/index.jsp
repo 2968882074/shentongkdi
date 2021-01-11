@@ -43,10 +43,56 @@
     <!--morris css-->
     <link rel="stylesheet" href="../assets/plugins/morris/morris.css">
 
+    <%--layui--%>
+    <link rel="stylesheet" href="../assets/plugins/layui/css/layui.css" />
 
+    <style>
+        .layui-nav{
+            width: 100% !important;
+            background-color:white !important;
+
+        }
+
+        .layui-nav .layui-nav-mored, .layui-nav-itemed>a .layui-nav-more {
+            margin-top: -9px;
+            border-style: dashed dashed solid;
+            border-color: transparent transparent black !important;
+        }
+
+        .layui-nav-more{
+            border-top-color: black !important;
+        }
+
+        .layui-nav-item a{
+            color: black !important;
+        }
+
+        .layui-nav-item a:hover{
+            color: white !important;
+        }
+
+        .tab-close {
+            position: absolute;
+            right: -2px;
+            top: 0;
+            display: inline;
+            opacity: 0.2;
+        }
+        .tab-close:hover {
+            opacity: 1;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+
+        .wh100 {
+            width: 100%;
+        }
+    </style>
 </head>
 
-<body class="app ">
+<body class="app " onresize="iframesize()">
 
 <div id="spinner"></div>
 
@@ -230,217 +276,216 @@
                     </a>
                 </div>
             </div>
-            <ul class="side-menu">
-                <c:forEach items="${menuset}" var="menuinfo">
-                    <li class="slide">
-                        <a class="side-menu__item"  data-toggle="slide" href="../index.html#"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">${menuinfo.title}</span><i class="angle fa fa-angle-right"></i></a>
-                        <ul class="slide-menu">
-                            <li><a class="slide-item"  href="../index.html"><span>Dashboard 01</span></a></li>
-                            <li><a class="slide-item" href="index2.html"><span>Dashboard 02</span></a></li>
-                            <li><a class="slide-item" href="index3.html"><span>Dashboard 03</span></a></li>
-                        </ul>
+            <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
+                <c:forEach items="${menulist}" var="menuinfo">
+                    <li class="layui-nav-item">
+                        <a href="javascript:void(0);">${menuinfo.title}</a>
+                        <dl class="layui-nav-child">
+                            <c:forEach items="${menuinfo.menulist}" var="menuinfos">
+                                <dd><a href="javascript:;" class="tab-active" title="${menuinfos.title}" lay-id="${menuinfos.menuid}" lay-url="${menuinfos.url}">${menuinfos.title}</a></dd>
+                            </c:forEach>
+                        </dl>
                     </li>
                 </c:forEach>
-
             </ul>
         </aside>
 
         <div class="app-content">
-            <section class="section">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.html#" class="text-muted">Home</a></li>
-                    <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li>
-                </ol>
-
-                <div class="row">
-                    <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="dash1">
-                                            <h4 class="text-dark">675</h4>
-                                            <small class="text-muted ">Posts</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div id="chart1" class="overflow-hidden"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="dash1">
-                                            <h4 class="text-dark">875</h4>
-                                            <small class="text-muted">Clicks</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div id="chart2" class="overflow-hidden"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="dash1">
-                                            <h4 class="text-dark">976</h4>
-                                            <small class="text-muted">Shares</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div id="chart3" class="overflow-hidden"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="dash1">
-                                            <h4 class="text-dark">418</h4>
-                                            <small class="text-muted">Remarks</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div id="chart4" class="overflow-hidden"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="row ">
-                    <div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Monthly Sales</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="bar-chart" class="overflow-hidden" > </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Yearly Template Sales</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="sales-chart" class="overflow-hidden"> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Account Retention</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="index" class="overflow-hidden h-400 mx-auto text-center " ></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12 col-xl-8 col-md-12 col-12 col-sm-12">
-                        <div class="card">
-                            <div class="pt-0 pb-0 pl-3 pr-3 card-body">
-                                <div class="row">
-                                    <div class="col-xs-12 col-lg-5 cover-image weather-radius text-center position-relative transparent" data-image-src="assets/img/weather.jpg">
-                                        <div class="weather-shade">
-                                            <i class="wi wi-day-sleet text-white"></i>
-                                        </div>
-                                        <div class="card-body mt-5 pt-5">
-                                            <i class="vl_weather-day-rain text-light  mt-5 pt-5 d-block"></i>
-                                        </div>
-                                        <div class="bg-transparent border-0 text-light  pt-4">
-                                            <h3 class="weight300">Sunny Day</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-lg-7 widgetb p-0">
-                                        <div class="card-body p-4">
-                                            <h4 class="mb-0">MONDAY <br/>
-                                                <span class="text-muted h5"> 22  October</span>
-                                            </h4>
-                                            <div class="fs-45 text-primary pt-4 ">
-                                                32<sup>o</sup>
-                                                <span class="h3 ">Sunny</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer bg-white text-center ">
+            <div class="layui-tab layui-tab-brief" lay-filter="tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="0">首页</li>
+                </ul>
+                <div class="layui-tab-content" style="min-height: 500px;">
+                    <div class="layui-tab-item layui-show">
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
                                             <div class="row">
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">TUE</h6>
-                                                    <i class="fe fe-cloud-rain"></i>
-                                                    <p class="mb-0 text-muted">18<sup>o</sup>c</p>
+                                                <div class="col-6">
+                                                    <div class="dash1">
+                                                        <h4 class="text-dark">675</h4>
+                                                        <small class="text-muted ">Posts</small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">WED</h6>
-                                                    <i class="fe fe-cloud"></i>
-                                                    <p class="mb-0 text-muted">22<sup>o</sup>c</p>
+                                                <div class="col-6">
+                                                    <div id="chart1" class="overflow-hidden"></div>
                                                 </div>
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">THU</h6>
-                                                    <i class="fe fe-cloud-snow"></i>
-                                                    <p class="mb-0 text-muted">15<sup>o</sup>c</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="dash1">
+                                                        <h4 class="text-dark">875</h4>
+                                                        <small class="text-muted">Clicks</small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">FRI</h6>
-                                                    <i class="fe fe-cloud-rain"></i>
-                                                    <p class="mb-0 text-muted">19<sup>o</sup>c</p>
+                                                <div class="col-6">
+                                                    <div id="chart2" class="overflow-hidden"></div>
                                                 </div>
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">SAT</h6>
-                                                    <i class="fe fe-cloud"></i>
-                                                    <p class="mb-0 text-muted">29<sup>o</sup>c</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="dash1">
+                                                        <h4 class="text-dark">976</h4>
+                                                        <small class="text-muted">Shares</small>
+                                                    </div>
                                                 </div>
-                                                <div class="col-sm-2 col-4 mt-2 pb-2">
-                                                    <h6 class="text-muted mb-3">SUN</h6>
-                                                    <i class="fe fe-cloud-snow"></i>
-                                                    <p class="mb-0 text-muted">17<sup>o</sup>c</p>
+                                                <div class="col-6">
+                                                    <div id="chart3" class="overflow-hidden"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="dash1">
+                                                        <h4 class="text-dark">418</h4>
+                                                        <small class="text-muted">Remarks</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div id="chart4" class="overflow-hidden"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-12 col-xl-4 col-md-12 col-12 col-sm-12">
-                        <div class="card">
-                            <div id="calendar-1"></div>
-                        </div>
+
+
+                            <div class="row ">
+                                <div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Monthly Sales</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="bar-chart" class="overflow-hidden" > </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Yearly Template Sales</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="sales-chart" class="overflow-hidden"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Account Retention</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="index" class="overflow-hidden h-400 mx-auto text-center " ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-8 col-md-12 col-12 col-sm-12">
+                                    <div class="card">
+                                        <div class="pt-0 pb-0 pl-3 pr-3 card-body">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-5 cover-image weather-radius text-center position-relative transparent" data-image-src="assets/img/weather.jpg">
+                                                    <div class="weather-shade">
+                                                        <i class="wi wi-day-sleet text-white"></i>
+                                                    </div>
+                                                    <div class="card-body mt-5 pt-5">
+                                                        <i class="vl_weather-day-rain text-light  mt-5 pt-5 d-block"></i>
+                                                    </div>
+                                                    <div class="bg-transparent border-0 text-light  pt-4">
+                                                        <h3 class="weight300">Sunny Day</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-7 widgetb p-0">
+                                                    <div class="card-body p-4">
+                                                        <h4 class="mb-0">MONDAY <br/>
+                                                            <span class="text-muted h5"> 22  October</span>
+                                                        </h4>
+                                                        <div class="fs-45 text-primary pt-4 ">
+                                                            32<sup>o</sup>
+                                                            <span class="h3 ">Sunny</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-white text-center ">
+                                                        <div class="row">
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">TUE</h6>
+                                                                <i class="fe fe-cloud-rain"></i>
+                                                                <p class="mb-0 text-muted">18<sup>o</sup>c</p>
+                                                            </div>
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">WED</h6>
+                                                                <i class="fe fe-cloud"></i>
+                                                                <p class="mb-0 text-muted">22<sup>o</sup>c</p>
+                                                            </div>
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">THU</h6>
+                                                                <i class="fe fe-cloud-snow"></i>
+                                                                <p class="mb-0 text-muted">15<sup>o</sup>c</p>
+                                                            </div>
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">FRI</h6>
+                                                                <i class="fe fe-cloud-rain"></i>
+                                                                <p class="mb-0 text-muted">19<sup>o</sup>c</p>
+                                                            </div>
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">SAT</h6>
+                                                                <i class="fe fe-cloud"></i>
+                                                                <p class="mb-0 text-muted">29<sup>o</sup>c</p>
+                                                            </div>
+                                                            <div class="col-sm-2 col-4 mt-2 pb-2">
+                                                                <h6 class="text-muted mb-3">SUN</h6>
+                                                                <i class="fe fe-cloud-snow"></i>
+                                                                <p class="mb-0 text-muted">17<sup>o</sup>c</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-xl-4 col-md-12 col-12 col-sm-12">
+                                    <div class="card">
+                                        <div id="calendar-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
                     </div>
                 </div>
-
-            </section>
+            </div>
         </div>
 
-        <footer class="main-footer">
-            <div class="text-center">
-                Copyright &copy;Kharna-Admin 2018. Design By更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>
-            </div>
-        </footer>
+
 
     </div>
 </div>
@@ -486,5 +531,66 @@
 <!--Dashboard js-->
 <script src="../assets/js/dashboard.js"></script>
 <script src="../assets/js/apexcharts.js"></script>
+
+
+<%--layui js--%>
+<script src="../assets/plugins/layui/layui.all.js" ></script>
+
+<script>
+
+    var element = layui.element;
+    var method = {
+        tabAdd:function (url,name,id) {
+            element.tabAdd('tab',{
+                title:name+'<a href="javascript:;" class="tab-close"><i class="layui-icon layui-icon-close"></i></a>',
+                content:'<iframe class="wh100"  frameborder="0" src="' + url + '"></iframe>',
+                id: id
+            });
+            //为关闭按钮绑定事件
+            $('.tab-close').click(function () {
+                method.tabDelete($(this).parent('li').attr('lay-id'));
+            });
+            //新增tab后，改变选中tab
+            method.tabChange(id);
+        }, tabChange: function (id) {
+            element.tabChange('tab', id); // 'tab'为layui-tab所在div的lay-fiilter
+        },
+        tabDelete: function (id) {
+            element.tabDelete('tab', id); // 'tab'为layui-tab所在div的lay-fiilter
+        }
+    };
+
+
+    //绑定点击事件
+    $('.tab-active').click(function(){
+        //获取属性值
+        var id = $(this).attr('lay-id'), name = $(this).attr('title'), url = $(this).attr('lay-url');
+        console.log(id + "--" + name + "--" + url);
+        //    判断是否已打开
+        if (checkTab(id)) {
+            method.tabChange(id);
+        } else {
+            method.tabAdd(url, name, id);
+        }
+        /*调整iframe高度*/
+        iframesize();
+    });
+
+    function checkTab(id) {
+        var lis = $('.layui-tab-title li:gt(0)'), //获取到除主页的tab
+            open = false; //用于判断是否已打开
+            layui.each(lis, function (index, li) {
+                if ($(li).attr('lay-id') == id) {//说明已打开
+                    open = true;  //此处不能直接return
+                }
+            })
+        return open;
+    }
+    /*iframe自适应*/
+    function iframesize() {
+        var iframeheight =$(window).height()-200;
+        $(".wh100").height(iframeheight);
+    }
+</script>
 </body>
 </html>

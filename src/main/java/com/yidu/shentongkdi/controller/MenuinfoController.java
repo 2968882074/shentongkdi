@@ -49,4 +49,40 @@ public class MenuinfoController {
         //返回map
         return map;
     }
+
+    /**
+     * 权限新增
+     * @param menuinfo 实体
+     * @return json
+     */
+    @ResponseBody
+    @RequestMapping("addMenuinfo")
+    public String insert(Menuinfo menuinfo){
+        try{
+            /*执行插入*/
+            menuinfoService.insert(menuinfo);
+            return "{\"state\":true}";
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "{\"state\":false}";
+    }
+
+    /**
+     * 权限修改
+     * @param menuinfo 实体
+     * @return json
+     */
+    @ResponseBody
+    @RequestMapping("updateMenuinfo")
+    public String update(Menuinfo menuinfo){
+        try{
+            /*执行插入*/
+            menuinfoService.update(menuinfo);
+            return "{\"state\":true}";
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "{\"state\":false}";
+    }
 }

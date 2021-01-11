@@ -97,9 +97,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="menuid" useGeneratedKeys="true">
-        insert into shentong.menuinfo(title, menustate, url, previd, iconCls)
-        values (#{title}, #{menustate}, #{url}, #{previd}, #{iconcls})
+    <insert id="insert">
+        insert into shentong.menuinfo(menuid, title, menustate, url, previd, iconCls)
+        values (#{menuid}, #{title}, #{menustate}, #{url}, #{previd}, #{iconcls})
     </insert>
 
     <!--通过主键修改数据-->

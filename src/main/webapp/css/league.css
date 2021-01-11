@@ -322,6 +322,7 @@ ul li {
 	background-color: #F08C48;
 	margin-top: 28px;
 	margin-left: 656px;
+	border: none;
 
 }
 
@@ -341,6 +342,7 @@ ul li {
 	border: 1px solid #DCDFE6;
 	margin-top: -39px;
 	margin-left: 735px;
+	float: left;
 }
 #present-c:hover {
 	color: #F08C48;
@@ -631,7 +633,7 @@ ul li {
 	font-size: 16px;
 }
 #head-s{
-	display: none;
+
 }
 #detail {
 	width: 750px;

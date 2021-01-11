@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.SenderDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Sender">
+        <!--@Table sender-->
+        <result property="seid" column="seid" jdbcType="INTEGER"/>
+        <result property="sname" column="sname" jdbcType="VARCHAR"/>
+        <result property="saddress" column="saddress" jdbcType="VARCHAR"/>
+        <result property="slandline" column="slandline" jdbcType="VARCHAR"/>
+        <result property="sphone" column="sphone" jdbcType="VARCHAR"/>
+        <result property="sdetailedaddress" column="sdetailedAddress" jdbcType="VARCHAR"/>
+        <result property="spayment" column="spayment" jdbcType="VARCHAR"/>
+        <result property="semail" column="sEmail" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          seid, sname, saddress, slandline, sphone, sdetailedAddress, spayment, sEmail
+        from shentong.sender
+        where seid = #{seid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          seid, sname, saddress, slandline, sphone, sdetailedAddress, spayment, sEmail
+        from shentong.sender
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          seid, sname, saddress, slandline, sphone, sdetailedAddress, spayment, sEmail
+        from shentong.sender
+        <where>
+            <if test="seid != null">
+                and seid = #{seid}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname = #{sname}
+            </if>
+            <if test="saddress != null and saddress != ''">
+                and saddress = #{saddress}
+            </if>
+            <if test="slandline != null and slandline != ''">
+                and slandline = #{slandline}
+            </if>
+            <if test="sphone != null and sphone != ''">
+                and sphone = #{sphone}
+            </if>
+            <if test="sdetailedaddress != null and sdetailedaddress != ''">
+                and sdetailedAddress = #{sdetailedaddress}
+            </if>
+            <if test="spayment != null and spayment != ''">
+                and spayment = #{spayment}
+            </if>
+            <if test="semail != null and semail != ''">
+                and sEmail = #{semail}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="seid" useGeneratedKeys="true">
+        insert into shentong.sender(sname, saddress, slandline, sphone, sdetailedAddress, spayment, sEmail)
+        values (#{sname}, #{saddress}, #{slandline}, #{sphone}, #{sdetailedaddress}, #{spayment}, #{semail})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.sender
+        <set>
+            <if test="sname != null and sname != ''">
+                sname = #{sname},
+            </if>
+            <if test="saddress != null and saddress != ''">
+                saddress = #{saddress},
+            </if>
+            <if test="slandline != null and slandline != ''">
+                slandline = #{slandline},
+            </if>
+            <if test="sphone != null and sphone != ''">
+                sphone = #{sphone},
+            </if>
+            <if test="sdetailedaddress != null and sdetailedaddress != ''">
+                sdetailedAddress = #{sdetailedaddress},
+            </if>
+            <if test="spayment != null and spayment != ''">
+                spayment = #{spayment},
+            </if>
+            <if test="semail != null and semail != ''">
+                sEmail = #{semail},
+            </if>
+        </set>
+        where seid = #{seid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.sender where seid = #{seid}
+    </delete>
+
+</mapper>

@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
 </head>
 <body>
-<table class="layui-table" lay-filter="tab" lay-data="{height:512,url:'../totals/selectAll',page:true,toolbar:'default',id:'tables'}">
-    <thead>
+<table class="layui-table" lay-filter="tab" id="tables">
+   <%-- <thead>
     <tr>
         <th lay-data="{type: 'checkbox', fixed: 'left'}"></th>
         <th lay-data="{field:'twid', width:80}">ID</th>
@@ -22,14 +22,35 @@
         <th lay-data="{field:'state'}">状态</th>
         <th lay-data="{field:'code'}">地区码</th>
     </tr>
-    </thead>
+    </thead>--%>
 </table>
-<script src="../js/jquery-3.5.1.min.js" ></script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="../js/jquery-3.4.1.min.js" ></script>
 <script src="../layui/layui.all.js"></script>
 
 <script>
     var table = layui.table,layer=layui.layer,form=layui.form;
     var method=null;
+    //方法渲染查询
+    table.render({
+        elem: '#tables'
+        ,height: 500
+        ,toolbar:'default'
+        ,url: '../totals/selectAll' //数据接口
+        ,page: true //开启分页
+        ,cols: [[ //表头
+            {type: 'checkbox', fixed: 'left'}
+            ,{field: 'twid', title: 'ID', sort: true}
+            ,{field: 'twname', title: '姓名'}
+            ,{field: 'twtime', title: '时间'}
+            ,{field: 'state', title: '状态', sort: true}
+            ,{field: 'code', title: '地区码',  sort: true}
+            ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+        ]]
+    });
     //新增修改
     form.on('submit(formsubmit)',function(data){
         layer.close(layer.index);
@@ -45,6 +66,41 @@
         });
         return false;
     })
+
+    //监听行工具事件
+    table.on('tool(tab)', function(obj){
+        var data = obj.data;
+        console.log(data)
+        if(obj.event === 'del'){
+            layer.confirm('真的删除行么', function(index){
+                //行删除
+                $.ajax({
+                    type:"post",
+                    url:"../totals/delete",
+                    data:"id="+data.twid,
+                    success:function(json){
+                        layer.msg(data.twid+json.data);
+                        table.reload("tables");
+                    }
+                });
+            });
+        } else if(obj.event === 'edit'){
+            //行修改
+            method="updateById";
+            $(".twid").val(data.twid);
+            $(".twname").val(data.twname);
+            $(".twtime").val(data.twtime);
+            $(".state").val(data.state);
+            $(".code").val(data.code);
+            layer.open({
+                type:1,
+                content:$('#form'),
+                title:'修改',
+                area:['400px','600px'],
+                resize:false
+            });
+        }
+    });
 
     //头工具栏事件
     table.on('toolbar(tab)', function(obj){
@@ -83,11 +139,12 @@
                 break;
             case 'update':
                 method="updateById";
-                $(".twid").val(data[0].twid);
-                $(".twname").val(data[0].twname);
-                $(".twtime").val(data[0].twtime);
-                $(".state").val(data[0].state);
-                $(".code").val(data[0].code);
+                var data=data[0];
+                $(".twid").val(data.twid);
+                $(".twname").val(data.twname);
+                $(".twtime").val(data.twtime);
+                $(".state").val(data.state);
+                $(".code").val(data.code);
                 layer.open({
                     type:1,
                     content:$('#form'),
@@ -104,7 +161,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">ID</label>
         <div class="layui-input-block">
-            <input type="text" name="twid" disabled autocomplete="off"  class="layui-input twid">
+            <input type="text" name="twid"  placeholder="只读" disabled autocomplete="off"  class="layui-input twid">
         </div>
     </div>
     <div class="layui-form-item">

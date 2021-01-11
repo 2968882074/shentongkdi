@@ -24,7 +24,15 @@
         <div class="layui-form-item">
             <label class="layui-form-label">线路类型</label>
             <div class="layui-input-inline">
-                <input type="text" name="line" required lay-verify="required" placeholder="请输入线路类型" autocomplete="off" class="layui-input">
+                <select name="line" lay-filter="aihao">
+                    <option value="">线路类型</option>
+                    <option value="1">全部</option>
+                    <option value="2" >干线</option>
+                    <option value="3">周边</option>
+                    <option value="4">省内</option>
+                    <option value="5" >临时</option>
+                    <option value="6">市内</option>
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
