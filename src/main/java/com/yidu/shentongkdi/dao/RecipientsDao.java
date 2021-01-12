@@ -11,7 +11,7 @@ import java.util.List;
  * (Recipients)表数据库访问层
  *
  * @author makejava
- * @since 2021-01-06 10:43:34
+ * @since 2021-01-11 14:55:22
  */
 @Mapper
 @Repository

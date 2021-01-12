@@ -12,21 +12,12 @@ import java.util.List;
  * (Sender)表服务实现类
  *
  * @author makejava
- * @since 2021-01-07 09:45:47
+ * @since 2021-01-11 11:01:00
  */
 @Service("senderService")
 public class SenderServiceImpl implements SenderService {
     @Resource
     private SenderDao senderDao;
-    /**
-     *  查询所有数据
-     * @param sender 实例对象
-     * @return 对象列表
-     */
-    @Override
-    public List<Sender> queryAll(Sender sender) {
-        return this.senderDao.queryAll(sender);
-    }
 
     /**
      * 通过ID查询单条数据
@@ -84,5 +75,15 @@ public class SenderServiceImpl implements SenderService {
     @Override
     public boolean deleteById(Integer seid) {
         return this.senderDao.deleteById(seid) > 0;
+    }
+
+
+    public List<Sender> queryAll(){
+        return this.senderDao.queryAll();
+    }
+
+    @Override
+    public int selectCount() {
+        return this.senderDao.selectCount();
     }
 }

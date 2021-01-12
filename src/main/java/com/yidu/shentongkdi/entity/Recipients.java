@@ -1,19 +1,22 @@
 package com.yidu.shentongkdi.entity;
 
+import org.springframework.stereotype.Controller;
+
 import java.io.Serializable;
 
 /**
  * (Recipients)实体类
  *
  * @author makejava
- * @since 2021-01-07 13:52:03
+ * @since 2021-01-11 14:55:21
  */
+@Controller
 public class Recipients implements Serializable {
-    private static final long serialVersionUID = -10361155276444238L;
+    private static final long serialVersionUID = -67724042768410000L;
     
     private Integer reid;
     
-    private String rname;
+    private String rename;
     
     private String rephone;
     
@@ -30,7 +33,25 @@ public class Recipients implements Serializable {
     private String repredicttime;
     
     private String repredictprice;
+    
+    private String rectime;
 
+    @Override
+    public String toString() {
+        return "Recipients{" +
+                "reid=" + reid +
+                ", rename='" + rename + '\'' +
+                ", rephone='" + rephone + '\'' +
+                ", readdress='" + readdress + '\'' +
+                ", redetailedaddress='" + redetailedaddress + '\'' +
+                ", relandline='" + relandline + '\'' +
+                ", reweight=" + reweight +
+                ", retype='" + retype + '\'' +
+                ", repredicttime='" + repredicttime + '\'' +
+                ", repredictprice='" + repredictprice + '\'' +
+                ", rectime='" + rectime + '\'' +
+                '}';
+    }
 
     public Integer getReid() {
         return reid;
@@ -40,12 +61,12 @@ public class Recipients implements Serializable {
         this.reid = reid;
     }
 
-    public String getRname() {
-        return rname;
+    public String getRename() {
+        return rename;
     }
 
-    public void setRname(String rname) {
-        this.rname = rname;
+    public void setRename(String rename) {
+        this.rename = rename;
     }
 
     public String getRephone() {
@@ -110,6 +131,14 @@ public class Recipients implements Serializable {
 
     public void setRepredictprice(String repredictprice) {
         this.repredictprice = repredictprice;
+    }
+
+    public String getRectime() {
+        return rectime;
+    }
+
+    public void setRectime(String rectime) {
+        this.rectime = rectime;
     }
 
 }

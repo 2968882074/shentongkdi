@@ -1,7 +1,7 @@
 package com.yidu.shentongkdi.service.impl;
 
-import com.yidu.shentongkdi.dao.RecipientsDao;
 import com.yidu.shentongkdi.entity.Recipients;
+import com.yidu.shentongkdi.dao.RecipientsDao;
 import com.yidu.shentongkdi.service.RecipientsService;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +12,12 @@ import java.util.List;
  * (Recipients)表服务实现类
  *
  * @author makejava
- * @since 2021-01-07 09:45:46
+ * @since 2021-01-11 14:55:22
  */
 @Service("recipientsService")
 public class RecipientsServiceImpl implements RecipientsService {
     @Resource
     private RecipientsDao recipientsDao;
-    /**
-     *  查询所有数据
-     * @param recipients 实例对象
-     * @return 对象列表
-     */
-    @Override
-    public List<Recipients> queryAll(Recipients recipients) {
-        return recipientsDao.queryAll(recipients);
-    }
 
     /**
      * 通过ID查询单条数据

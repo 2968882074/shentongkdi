@@ -1,0 +1,525 @@
+@charset "utf-8";
+
+/*sendRes.css
+2017-04-18 刘佳康创建
+   */
+
+input{
+    outline:none;
+}
+.banner {
+    width: 100%;
+background-image: url(../imgliu/energy.png);
+    border-image-repeat:initial;
+    height: 300px;
+}
+.alert{
+    width:100%;
+    height:50px;
+    background:#f3fffb;
+    line-height:50px;
+}
+.alertBox{
+    width:1000px;
+    margin:0 auto;
+}
+.alertContent{
+    width:90%;
+    margin:0 auto;
+    color:#2ea5ab;
+    text-align:center;
+    font-size:14px;
+}
+.content{
+    width:100%;
+    background:#f0f4f5;
+    padding-top:29px;
+}
+.sendUser{
+    width:1000px;
+    margin:0 auto;
+    height:285px;
+    background:#fff;
+}
+.sendUser .title{
+    width:40px;
+    height:100%;
+    background:#ee6900;
+    font-size:16px;
+    color:#fff;
+    text-align:center;
+    line-height:20px;
+  *line-height:20px;
+    float:left;
+}
+.SendUserInfo .line{
+    padding-top:22px;
+}
+.sendUser .left{
+    float:left;
+    margin-left:42px;
+    margin-right:36px;
+}
+.sendUser .left input{
+    width:278px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+    *line-height:38px;
+}
+.sendUser .left select{
+    width:278px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+    *line-height:38px;
+}
+.sendUser label{
+    font-size:14px;
+    color:#555555;
+    width:75px;
+    display:inline-block;
+    text-align:right;
+}
+.sendUser .right{
+    float:left;
+}
+.sendUser .right input{
+    width:388px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+}
+.sendUser .right select{
+    width:388px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+}
+.putUser{
+    width:1000px;
+    margin:0 auto;
+    height:340px;
+    background:#fff;
+    margin-top:22px;
+}
+.putUser .title{
+    width:40px;
+    height:100%;
+    background:#25c2e3;
+    font-size:16px;
+    color:#fff;
+    text-align:center;
+    line-height:20px;
+    float:left;
+}
+.putUserInfo .line{
+    padding-top:22px;
+}
+.putUserInfo .line .left{
+    float:left;
+    margin-left:42px;
+    margin-right:36px;
+}
+.putUserInfo .line .left input{
+    width:278px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+}
+
+
+.putUserInfo .line label{
+    font-size:14px;
+    color:#555555;
+    width:75px;
+    display:inline-block;
+    text-align:right;
+}
+.putUserInfo .right{
+    float:left;
+}
+.putUserInfo .right input{
+    width:388px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    font-size:14px;
+    line-height:38px;
+}
+.goodsType{
+    font-size:14px;
+    margin-top:19px;
+    height:37px;
+    line-height:37px;
+}
+.goodsType label{
+    width:75px;
+    display:inline-block;
+    color:#555;
+    margin-left:47px;
+}
+.goodsType span{
+    font-size:12px;
+    color:#757575;
+    margin-right:18px;
+}
+.goodsType input{
+    width:20px;
+    height:20px;
+    border-radius:25%;
+    outline:none;
+    vertical-align:middle;
+    margin-right:6px;
+    line-height:20px;
+}
+.goodsType a {
+    float:right;
+    width:111px;
+    height:37px;
+    border-radius:4px;
+    display:inline-block;
+    line-height:37px;
+    text-align:center;
+    background:#ee6900;
+    color:#fff;
+    margin-right:53px;
+}
+.goodsType a:hover{
+    background:#f46c00;
+}
+.predictLine{
+    margin-top:18px;
+}
+.predictLine .left{
+    float:left;
+    font-size:14px;
+    color:#555;
+    margin-left:20px;
+}
+.predictLine .left input{
+     width:278px;
+     height:38px;
+     border:1px solid #ededed;
+     border-radius:4px;
+     text-indent:9px;
+     line-height:38px;
+}
+.predictLine .right{
+    float:left;
+    font-size:14px;
+    color:#555;
+    margin-left:41px;
+}
+.predictLine .right input{
+   width:388px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    line-height:38px;
+}
+.remark{
+    width:1000px;
+    height:206px;
+    background:#fff;
+    margin:0 auto;
+    margin-top:22px;
+}
+.remark  .title{
+    width:40px;
+    height:100%;
+    color:#fff;
+    font-size:14px;
+    background:#666465;
+    text-align:center;
+    float:left;
+}
+.remarkContent{
+    float:left;
+}
+.time .date{
+    width:178px;
+    height:38px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    text-indent:9px;
+    color:#757575;
+    font-size:12px;
+    line-height:38px;
+}
+.remarkContent .time{
+    font-size:14px;
+    color:#555;
+    padding-top:20px;
+}
+.remarkContent .time label{
+    margin-left:21px;
+}
+.remarkInput{
+    font-size:14px;
+    color:#555;
+    margin-top:23px;
+}
+.remarkInput label{
+    margin-left:50px;
+    vertical-align:top;
+}
+.remarkInput textarea{
+    width:795px;
+    height:87px;
+    outline:none;
+    resize:none;
+    border-radius:4px;
+    border:1px solid #ededed;
+    padding-top:12px;
+    text-indent:6px;
+    color:#757575;
+}
+.protocol{
+    text-align:center;
+    height:25px;
+    line-height:25px;
+    margin-top:10px;
+}
+.protocol input{
+    width:18px;
+    height:18px;
+    border:1px solid #ededed;
+    border-radius:4px;
+    vertical-align:text-top;
+    line-height:18px;
+}
+.protocol span{
+    height:25px;
+    line-height:25px;
+    display:inline-block;
+}
+.submitBtn{
+    text-align:center;
+    margin-top:14px;
+    padding-bottom:78px;
+}
+.submitBtn input{
+    width:350px;
+    height:50px;
+    border:none;
+    outline:none;
+    background:#ee6900;
+    color:#fff;
+    text-align:center;
+    line-height:50px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.submitBtn input:hover{
+    background:#f46c00;
+}
+.a_title{
+    font-size:16px;
+    font-weight:bold;
+    color:#555;
+    padding-bottom:25px;
+}
+.a_content{
+    font-size:12px;
+    color:#555;
+    line-height:20px;
+    padding-bottom:20px;
+}
+.agreement p{
+    width:96%;
+    margin:0 auto;
+}
+.agreement{
+    display:none;
+}
+.agreement .cut{
+    margin-bottom:40px;
+    font-size:12px;
+    color:#555;
+    line-height:20px;
+}
+/*覆盖控件*/
+.city-picker-span {
+    display: none;
+}
+
+.clearfix { 
+  *zoom: 1; 
+} 
+.clearfix:before, 
+
+.clearfix:after {
+  display: table; 
+  line-height: 0; 
+  content: ""; 
+} 
+.clearfix:after { 
+  clear: both; 
+} 
+.order_text_img
+{
+    float:left;
+   margin-left:-80px;
+   margin-top:2px;
+}
+.ordertype{
+         width:1000px;
+    margin:0 auto;
+    height:50px;
+    background:#fff;
+     text-align:center;
+     margin-bottom:20px;
+ }
+.ordertype .title{
+    width:40px;
+    height:100%;
+    background:#2ea5ab;
+    font-size:16px;
+    color:#fff;
+    text-align:center;
+    line-height:20px;
+  *line-height:20px;
+    float:left;
+}
+.signalorder {
+    font-size: 28px;
+    color: #ee6900;
+    width: 175px;
+    display: inline-block;
+    text-align: center;
+    margin-left: -50px;
+    background: #cec9c9;
+    padding: 1px;
+    margin: 3px;
+}
+
+ table{
+    text-align:center
+}
+.titleName{
+    width:140px;
+    height:50px;
+    border-right:1px solid #e5e5e5;
+}
+table .titleBox{
+    background:#f5f5f5;
+}
+.titleTel{
+    width:140px;
+    height:50px;
+    border-right:1px solid #e5e5e5;
+}
+.titleAddress{
+    width:250px;
+    height:50px;
+    border-right:1px solid #e5e5e5;
+}
+.titleOperate{
+    width:156px;
+    height:50px;
+}
+.tableName{
+    height:83px;
+}
+.tableName,.tableTel,.tableAddress,.tablelOperate
+{
+    border-bottom:1px  dashed #ededed;
+    color:#555;
+}
+.tableAddress{
+    line-height:24px;
+    text-align:center;
+}
+.addresColor{
+    color:#ed6c00;
+}
+.fastentrydiv{
+       margin-bottom:15px;
+}
+.fastentry{
+    color:#ee6900;
+    margin-left:120px;
+ 
+}
+
+
+.submitBtnfast{
+    text-align:center;
+    margin-top:30px;
+   
+}
+.submitBtnfast input{
+    width:100px;
+    height:30px;
+    border:none;
+    outline:none;
+    background:#ee6900;
+    color:#fff; 
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+ 
+}
+.Fastentry{
+    display:none;
+}
+.submitBtnfast input:hover{
+    background:#f46c00;
+}
+
+
+
+.fasttitle{
+    margin-bottom:20px;
+    margin-top:-5px;
+    text-align:center;
+}
+.radiobutoon{
+    width:100px;
+}
+.Fastentrycontent{
+    text-align:center;
+    line-height:30px;
+}
+.Fastentrycontentarer{
+    width: 550px;
+    height: 78px;
+    resize: none;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    outline: none;
+    text-indent: 0.5em;
+    padding-top: 10px;
+    border-radius: 4px;
+}
+.memotextarea{
+
+    width: 165px;
+    height: 35px;
+    resize: none;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    outline: none;
+    text-indent: 0.5em;
+    border-radius: 4px;
+ margin-bottom:-12px;
+}
