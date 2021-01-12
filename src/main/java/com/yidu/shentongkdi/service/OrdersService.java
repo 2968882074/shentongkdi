@@ -1,6 +1,7 @@
 package com.yidu.shentongkdi.service;
 
 import com.yidu.shentongkdi.entity.Orders;
+
 import java.util.List;
 
 /**
@@ -12,9 +13,18 @@ import java.util.List;
 public interface OrdersService {
     /**
      * 统计行数
-     * @return 实例对象
+     * @param orders 实例对象
+     * @return 影响行数
      */
     public int count(Orders orders);
+    /**
+     * 通过用户ID和订单状态查询数据
+     *
+     * @param userid 用户id
+     * @param state 订单状态
+     * @return 实例对象
+     */
+    List<Orders> selectByUidAndState(Integer userid,Integer state);
     /**
      * 通过ID查询单条数据
      *
