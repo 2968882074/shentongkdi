@@ -1,10 +1,9 @@
 package com.yidu.shentongkdi.service.impl;
 
-import com.yidu.shentongkdi.entity.Charge;
 import com.yidu.shentongkdi.dao.ChargeDao;
+import com.yidu.shentongkdi.entity.Charge;
 import com.yidu.shentongkdi.service.ChargeService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -46,8 +45,8 @@ public class ChargeServiceImpl implements ChargeService {
      * @return 对象列表
      */
     @Override
-    public List<Charge> queryAllByLimit(int offset, int limit,String chargename) {
-        return this.chargeDao.queryAllByLimit(offset, limit,chargename);
+    public List<Charge> queryAllByLimit(int offset, int limit,String chargetime) {
+        return this.chargeDao.queryAllByLimit(offset, limit,chargetime);
     }
 
     /**
