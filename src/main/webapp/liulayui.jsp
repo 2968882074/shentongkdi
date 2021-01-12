@@ -18,25 +18,55 @@
         <div class="layui-form-item">
 
             <div class="layui-input-inline">
-                <input name="lid" readonly="readonly" required="required"   class="layui-input" type="hidden">
+                <input name="seid" readonly="readonly" required="required"   class="layui-input" type="hidden">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">线路类型</label>
+            <label class="layui-form-label">寄件人名</label>
             <div class="layui-input-inline">
-                <input type="text" name="line" required lay-verify="required" placeholder="请输入线路类型" autocomplete="off" class="layui-input">
+                <input type="text" name="sname" required lay-verify="required" placeholder="请输入寄件人名" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">线路名称</label>
+            <label class="layui-form-label">寄件人地址</label>
             <div class="layui-input-inline">
-                <input type="text" name="linename" required lay-verify="required" placeholder="请输入线路名称" autocomplete="off" class="layui-input">
+                <input type="text" name="saddress" required lay-verify="required" placeholder="请输入寄件人座机号" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">路径</label>
+            <label class="layui-form-label">寄件人座机号码</label>
             <div class="layui-input-inline">
-                <input type="text" name="linepath" required lay-verify="required" placeholder="请输入路径" autocomplete="off" class="layui-input">
+                <input type="text" name="slandline" required lay-verify="required" placeholder="请输入座机号码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">寄件人手机号码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sphone" required lay-verify="required" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">寄件人详细地址</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sdetailedaddress" required lay-verify="required" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">付款方式</label>
+            <div class="layui-input-inline">
+                <input type="text" name="spayment" required lay-verify="required" placeholder="付款方式" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-inline">
+                <input type="text" name="semail" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">寄件时间</label>
+            <div class="layui-input-inline">
+                <input type="text" id="sendertime" name="sendertime" required lay-verify="required" placeholder="寄件时间" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -91,10 +121,15 @@
             , title: '线路管理数据表'
             , cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                , {field: 'lid', title: '线路id', width: 300, fixed: 'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'line', title: '线路类型', width: 300, edit: 'text',align : 'center'}
-                , {field: 'linename', title: '线路名称', width: 300, edit: 'text',align : 'center'}
-                , {field: 'linepath', title: '路径', width: 300, edit: 'text', sort: true,align : 'center'}
+                , {field: 'seid', title: '寄件人ID', width: 100, fixed: 'left', unresize: true, sort: true,align : 'center'}
+                , {field: 'sname', title: '寄件人姓名', width: 100, edit: 'text',align : 'center'}
+                , {field: 'saddress', title: '寄件人地址', width: 100, edit: 'text',align : 'center'}
+                , {field: 'slandline', title: '座机', width: 100, edit: 'text', sort: true,align : 'center'}
+                , {field: 'sphone', title: '手机', width: 100, edit: 'text', sort: true,align : 'center'}
+                , {field: 'sdetailedaddress', title: '详细地址', width: 100, edit: 'text', sort: true,align : 'center'}
+                , {field: 'spayment', title: '支付方式', width: 100, edit: 'text', sort: true,align : 'center'}
+                , {field: 'semail', title: '电子邮箱', width: 200, edit: 'text', sort: true,align : 'center'}
+                , {field: 'sendertime', title: '寄货时间', width: 100, edit: 'text', sort: true,align : 'center'}
                 , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 280,align : 'center'}
             ]]
             , page: true
@@ -106,7 +141,7 @@
             var json=JSON.stringify(data.field);
             $.ajax({
                 type: "POST",
-                url: "line/"+url,
+                url: "lw/"+url,
                 data:"json="+json,
                 dataType:"text",
                 success: function(msg){
@@ -136,6 +171,17 @@
                         maxmin: true, //开启最大化最小化按钮
                         content: $('#lineDiv')
                     });
+                    var myDate = new Date();//获取系统当前时间
+
+
+                        var a=	myDate.getFullYear()
+                        var b=	myDate.getMonth()+1
+                        var c=	myDate.getDate()
+                        var d=	myDate.getHours()
+                        var e=	myDate.getMinutes()
+                       var aaa=(a+"-"+b+"-"+c+"/"+d+":"+e)
+
+                    $("#sendertime").val(aaa)
                     break;
                 case 'search':
                     //得到输入框的值
@@ -156,18 +202,18 @@
                     if(data.length>0){
                         layer.confirm('真的要删除么', function(index) {
                             //获取所有选中的id
-                            var lid="";
+                            var seid="";
                             for (var i = 0; i < data.length; i++) {
-                                lid+=data[i].lid+"-";
-                                console.log(data[i].lid);
+                                seid+=data[i].seid+"-";
+                                console.log(data[i].seid);
                             }
 
                             layer.close(index);
                             //使用ajax删除选中的
                             $.ajax({
                                 type : "POST",
-                                url : "line/delete",
-                                data : "lid="+lid,
+                                url : "lw/delete",
+                                data : "seid="+seid,
                                 success : function(msg) {
                                     layer.msg('删除成功！');
                                     table.reload('test');
@@ -191,8 +237,8 @@
                     layer.close(index);
                     $.ajax({
                         type: "POST",
-                        url: "line/delete",
-                        data:"lid="+data.lid,
+                        url: "lw/delete",
+                        data:"seid="+data.seid,
                         success: function(msg){
                             layer.alert("删除成功！");
                         }
@@ -203,10 +249,15 @@
                 url="updateById";
                 //给表单赋值
                 form.val("formTest", {
-                    "lid": data.lid
-                    , "line": data.line
-                    ,"linename": data.linename
-                    ,"linepath": data.linepath
+                    "seid": data.seid
+                    , "sname": data.sname
+                    ,"saddress": data.saddress
+                    ,"slandline": data.slandline
+                    ,"sphone": data.sphone
+                    ,"sdetailedaddress": data.sdetailedaddress
+                    ,"spayment": data.spayment
+                    ,"semail": data.semail
+                    ,"sendertime": data.sendertime
                 });
 
 
