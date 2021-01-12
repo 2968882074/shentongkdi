@@ -36,7 +36,7 @@ public interface ChargeDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Charge> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("chargename") String chargename);
+    List<Charge> queryAllByLimit(@Param("offset")int offset, @Param("limit")int limit, @Param("chargetime")String chargetime);
 
 
     /**

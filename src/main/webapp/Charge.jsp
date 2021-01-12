@@ -21,39 +21,39 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">收费名称</label>
+            <label class="layui-form-label">始发地</label>
             <div class="layui-input-inline">
-                <input type="text" name="chargename" required lay-verify="required" placeholder="请输入收费名称" autocomplete="off" class="layui-input">
+                <input type="text" name="commence" required lay-verify="required" placeholder="请输入始发地" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">包裹的重量</label>
+            <label class="layui-form-label">目的地</label>
             <div class="layui-input-inline">
-                <input type="text" name="weight" required lay-verify="required" placeholder="请输入包裹的重量" autocomplete="off" class="layui-input">
+                <input type="text" name="those" required lay-verify="required" placeholder="请输入目的地" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">地址的远近</label>
+            <label class="layui-form-label">物品重量</label>
             <div class="layui-input-inline">
-                <input type="text" name="distanc" required lay-verify="required" placeholder="请输入地址的远近" autocomplete="off" class="layui-input">
+                <input type="text" name="goods" required lay-verify="required" placeholder="请输入物品重量" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">操作人员</label>
+            <label class="layui-form-label">日期</label>
             <div class="layui-input-inline">
-                <input type="text" name="operationstaff" required lay-verify="required" placeholder="请输入操作人员" autocomplete="off" class="layui-input">
+                <input type="text" name="chargetime" required lay-verify="required" placeholder="请输入日期" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">收费单位</label>
+            <label class="layui-form-label">现付参考价格</label>
             <div class="layui-input-inline">
-                <input type="text" name="unit" required lay-verify="required" placeholder="请输入收费单位" autocomplete="off" class="layui-input">
+                <input type="text" name="price" required lay-verify="required" placeholder="请输入现付参考价格" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">收费时间</label>
+            <label class="layui-form-label">预计到达时间</label>
             <div class="layui-input-inline">
-                <input type="text" name="chargetime" required lay-verify="required" placeholder="请输入收费时间" autocomplete="off" class="layui-input">
+                <input type="text" name="predicttime" required lay-verify="required" placeholder="请输入预计到达时间" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -71,9 +71,9 @@
         <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="add"><i class="layui-icon"></i></button>
         <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" lay-event="deleteid"><i class="layui-icon"></i></button>
     </div>
-    收费名称：
+    日期：
     <div class="layui-inline">
-        <input class="layui-input" name="chargename" id="chargename" autocomplete="off" placeholder="请输入收费名称">
+        <input class="layui-input" name="chargetime" id="chargetime" autocomplete="off" placeholder="请输入日期">
     </div>
     <button class="layui-btn" data-type="reload" lay-event="search">搜索</button>
 </script>
@@ -103,12 +103,12 @@
             , cols: [[
                 {type: 'checkbox', fixed: 'left'}
                 , {field: 'chid', title: '收费id', width: 160, fixed: 'left', unresize: true, sort: true,align : 'center'}
-                , {field: 'chargename', title: '收费名称', width: 160, edit: 'text',align : 'center'}
-                , {field: 'weight', title: '包裹的重量', width: 160, edit: 'text',align : 'center'}
-                , {field: 'distanc', title: '地址的远近', width: 160, edit: 'text', sort: true,align : 'center'}
-                , {field: 'operationstaff', title: '操作人员', width: 160, edit: 'text', sort: true,align : 'center'}
-                , {field: 'unit', title: '收费单位', width: 160, edit: 'text', sort: true,align : 'center'}
-                , {field: 'chargetime', title: '收费时间', width: 160, edit: 'text', sort: true,align : 'center'}
+                , {field: 'commence', title: '始发地', width: 160, edit: 'text',align : 'center'}
+                , {field: 'those', title: '目的地', width: 160, edit: 'text',align : 'center'}
+                , {field: 'goods', title: '物品的重量', width: 160, edit: 'text', sort: true,align : 'center'}
+                , {field: 'chargetime', title: '日期', width: 160, edit: 'text', sort: true,align : 'center'}
+                , {field: 'price', title: '现付参考价格', width: 160, edit: 'text', sort: true,align : 'center'}
+                , {field: 'predicttime', title: '预计到达时间', width: 160, edit: 'text', sort: true,align : 'center'}
                 , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 180,align : 'center'}
             ]]
             , page: true
@@ -154,16 +154,16 @@
                     break;
                 case 'search':
                     //得到输入框的值
-                    var value=$("#chargename").val();
+                    var value=$("#chargetime").val();
                     //执行重载
                     table.reload('test', {
-                        url : "charge/selectAll?chargename="+value
+                        url : "charge/selectAll?chargetime="+value
                         ,page : {
                             curr : 1
                             //重新从第 1 页开始
                         }
                     });
-                    $("#chargename").val(value);//刷新值会被消除，则需要重新设定
+                    $("#chargetime").val(value);//刷新值会被消除，则需要重新设定
                     break;
                 case 'deleteid'://删除多个
                     var data = checkStatus.data;
@@ -218,12 +218,12 @@
                 //给表单赋值
                 form.val("formTest", {
                     "chid": data.chid
-                    , "chargename": data.chargename
-                    ,"weight": data.weight
-                    ,"distanc": data.distanc
-                    ,"operationstaff": data.operationstaff
-                    ,"unit": data.unit
+                    , "commence": data.commence
+                    ,"those": data.those
+                    ,"goods": data.goods
                     ,"chargetime": data.chargetime
+                    ,"price": data.price
+                    ,"predicttime": data.predicttime
                 });
 
 

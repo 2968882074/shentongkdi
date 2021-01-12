@@ -1,8 +1,6 @@
 package com.yidu.shentongkdi.controller;
 
 import com.yidu.shentongkdi.entity.Charge;
-import com.yidu.shentongkdi.entity.User;
-import com.yidu.shentongkdi.service.ChargeService;
 import com.yidu.shentongkdi.service.impl.ChargeServiceImpl;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -84,12 +82,12 @@ public class ChargeController {
      * 模糊查询以及分页查询
      * @param page 页数
      * @param limit 行数
-     * @param chargename 线路管理的名字
+     * @param chargetime 线路管理的名字
      * @return 成功返回真
      */
     @ResponseBody
     @RequestMapping("selectAll")
-    public Map<String,Object> selectAll(int page, int  limit, String chargename){
+    public Map<String,Object> selectAll(int page, int  limit, String chargetime){
         //创建一个map集合对象
         Map<String,Object> map=new HashMap<>();
         map.put("code", 0);
@@ -97,7 +95,7 @@ public class ChargeController {
         //调用线路管理表服务接口类的统计方法
         map.put("count",chargeService.count());
         //调用线路管理表服务接口类的分页查询以及模糊查询的方法
-        map.put("data",chargeService.queryAllByLimit((page-1)*limit, limit,chargename));
+        map.put("data",chargeService.queryAllByLimit((page-1)*limit, limit,chargetime));
         //返回map集合
         return map;
     }
