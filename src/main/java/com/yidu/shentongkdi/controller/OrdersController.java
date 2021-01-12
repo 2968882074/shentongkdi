@@ -115,4 +115,10 @@ public class OrdersController {
         return map;
     }
 
+    public Map<String,Object> selectById(Integer state){
+        Map<String,Object> map=new HashMap<>();
+        map.put("msg",ordersService.selectByUidAndState(1,state)!=null?"ok":"null");
+        return map;
+    }
+
 }
