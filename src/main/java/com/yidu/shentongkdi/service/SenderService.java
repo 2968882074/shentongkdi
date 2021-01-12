@@ -7,15 +7,10 @@ import java.util.List;
  * (Sender)表服务接口
  *
  * @author makejava
- * @since 2021-01-07 09:45:47
+ * @since 2021-01-11 11:01:00
  */
 public interface SenderService {
-    /**
-     *  查询所有数据
-     * @param sender 实例对象
-     * @return 对象列表
-     */
-    List<Sender> queryAll(Sender sender);
+
     /**
      * 通过ID查询单条数据
      *
@@ -56,5 +51,10 @@ public interface SenderService {
      * @return 是否成功
      */
     boolean deleteById(Integer seid);
-
+    List<Sender> queryAll();
+    /**
+     *
+     * @return 查询总数
+     */
+    int selectCount();
 }

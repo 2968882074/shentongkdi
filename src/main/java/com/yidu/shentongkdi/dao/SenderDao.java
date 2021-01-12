@@ -11,11 +11,12 @@ import java.util.List;
  * (Sender)表数据库访问层
  *
  * @author makejava
- * @since 2021-01-06 10:44:10
+ * @since 2021-01-11 11:00:59
  */
 @Mapper
 @Repository
 public interface SenderDao {
+
     /**
      * 通过ID查询单条数据
      *
@@ -37,10 +38,10 @@ public interface SenderDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param sender 实例对象
+     *
      * @return 对象列表
      */
-    List<Sender> queryAll(Sender sender);
+    List<Sender> queryAll();
 
     /**
      * 新增数据
@@ -66,4 +67,9 @@ public interface SenderDao {
      */
     int deleteById(Integer seid);
 
+    /**
+     *
+     * @return 查询总数
+     */
+    int selectCount();
 }

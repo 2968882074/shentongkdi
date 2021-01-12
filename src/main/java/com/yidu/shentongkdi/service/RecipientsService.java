@@ -1,22 +1,16 @@
 package com.yidu.shentongkdi.service;
 
 import com.yidu.shentongkdi.entity.Recipients;
-
 import java.util.List;
 
 /**
  * (Recipients)表服务接口
  *
- * @author 何志豪
- * @since 2021-01-07 09:45:45
+ * @author makejava
+ * @since 2021-01-11 14:55:22
  */
 public interface RecipientsService {
-    /**
-     *  查询所有数据
-     * @param recipients 实例对象
-     * @return 对象列表
-     */
-    List<Recipients> queryAll(Recipients recipients);
+
     /**
      * 通过ID查询单条数据
      *
