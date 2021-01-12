@@ -3,6 +3,7 @@ package com.yidu.shentongkdi.controller;
 import com.yidu.shentongkdi.entity.Orders;
 import com.yidu.shentongkdi.service.OrdersService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -114,11 +115,14 @@ public class OrdersController {
         //返回map
         return map;
     }
+    @RequestMapping("selectByState")
+    public ModelAndView selectById(Integer state){
+        List<Orders> list=ordersService.selectByUidAndState(1,state);
+        ModelAndView mav=new ModelAndView("../OrderGL.jsp");
+        mav.addObject("orderList",list);
+        System.out.println("list="+list.size());
 
-    public Map<String,Object> selectById(Integer state){
-        Map<String,Object> map=new HashMap<>();
-        map.put("msg",ordersService.selectByUidAndState(1,state)!=null?"ok":"null");
-        return map;
+        return mav;
     }
 
 }

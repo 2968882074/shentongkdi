@@ -3,7 +3,6 @@
 <mapper namespace="com.yidu.shentongkdi.dao.OrdersDao">
 
     <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Orders">
-        <!--@Table orders-->
         <result property="oid" column="oid" jdbcType="INTEGER"/>
         <result property="reid" column="reid" jdbcType="INTEGER"/>
         <result property="seid" column="seid" jdbcType="INTEGER"/>
@@ -40,7 +39,7 @@
         select
           oid, reid, seid, Weight, Amount, Amountstate, state, wayid, brid, picid, userid, courid, downtime
         from shentong.orders
-        where userid = #{userid} and state = #{state}
+        where userid = #{userid} and state like '%${state}%'
     </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
@@ -152,6 +151,7 @@
     <delete id="deleteById">
         delete from shentong.orders where oid = #{oid}
     </delete>
+
     <!--删除多个-->
     <delete id="deleteByIds" parameterType="java.lang.String">
         delete from shentong.orders where oid in

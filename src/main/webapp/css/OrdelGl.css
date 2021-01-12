@@ -9,7 +9,7 @@
 			    font-family: 微软雅黑;
 			    font-size: 12px;
 			    -webkit-text-size-adjust: none;
-				overflow:-Scroll;
+				overflow:Scroll;
 				overflow-x: hidden;
 			}
 			input, select, textarea {
@@ -24,8 +24,6 @@
 			    margin: 0 auto;
 			    margin-top: 20px;
 			    margin-bottom: 38px;
-			    float: left;
-                margin-left: 260px;
 			}
 			/* viewOrder左边 */
 			.viewOrder .left{
@@ -62,7 +60,6 @@
 			}
 			.viewOrder .left ul li:hover{
 				cursor: pointer;
-				color: #ee6900;
 			}
 			.viewOrder .left ul li {
 			    line-height: 55px;

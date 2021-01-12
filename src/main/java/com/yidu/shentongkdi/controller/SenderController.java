@@ -45,16 +45,14 @@ public  String getSenderOrRecipients(Sender sender, Recipients recipients){
 }
 @ResponseBody
 @RequestMapping("/selectAll")
-   public Map<String,Object> selectAll(){
-    int i = senderService.selectCount();
-    System.out.println("i = " + i);
+   public Map<String,Object> selectAll(Sender sender){
     Map<String,Object> map=new HashMap<>();
        map.put("code", 0);
        map.put("mag", "");
        //调用线路管理表服务接口类的统计方法
        map.put("count", 10);
        //调用线路管理表服务接口类的分页查询以及模糊查询的方法
-       map.put("data",senderService.queryAll());
+       map.put("data",senderService.queryAll(sender));
        //返回map集合
        return map;
    }

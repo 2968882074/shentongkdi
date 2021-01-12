@@ -1,96 +1,68 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
 }
-ul li{
+
+ul li {
 	list-style: none;
 }
-#top{
+
+#top {
 	border: 1px solid white;
 	background-color: white;
 	width: 100%;
 	height: 193.2px;
 }
-#top dl{
-	margin-left: 400px;
-	 margin-top: 60px;
+
+#foot_slide {
+	padding: 20px 32px;
+	height: 120px;
+	margin: 0 auto;
+	padding: 20px 32px;
 }
-#top dl dt:hover{
-  cursor: pointer;
-  color: #777;
+
+.kefu {
+	font-weight: 800;
+	width: 100px;
+	height: 50px;
+	float: right;
+	margin-top: 25px;
 }
-#top dl dt{
-	text-align: center;
-    font-size: 20px;
+
+.code {
+	height: 115px;
+	float: right;
 }
-#top ul {
-	margin-left: 1050px;
-	margin-top: -100px;
-}
-#top ul li{
-	float: left;
-	margin-left: 30px;
-}
-#top ul li img{
+
+.code span {
+	display: inline-block;
+	margin: 0px 30px;
 	width: 100px;
 	height: 100px;
 }
-#top span:hover{
-	cursor: pointer;
-	color: #777;
+
+.dibu {
+	background-color: #f0f4f5;
+	height: 50px;
 }
-#top span{
-	font-size: 12px;
-	float: left;
-	margin-left: 1100px;
-	margin-top: 5px;
+
+.dibu-content {
+	padding: 8px 0;
+	padding-right: 70px;
+	border-bottom: 1px solid #f2f3f5;
+	color: #9b9b9b;
+	margin: 0 auto;
+	text-align: right;
 }
-#top p{
-	font-size: 12px;
-	float: left;
-	margin-left: 1230px;
-	margin-top: -15px;
+
+.copyright {
+	padding-right: 20px;
 }
-#top p:hover{
-	cursor: pointer;
-	color: #777;
+
+.records {
+    line-height: 20px;
+    color: #ed6a00;
 }
-#top i{
-	font-size: 12px;
-	float: left;
-	margin-left: 1350px;
-	margin-top: -15px;
-}
-#top i:hover{
-	cursor: pointer;
-	color: #777;
-}
-#top_top{
-	border: 1px solid red;
-	background: #f0f4f5;
-	width: 100%;
-	height: 36.8px;
-}
-#top_top p{
-	color: #757575;
-	font-size: 14px;
-	float: right;
-	margin-right: 300px;
-	margin-top: 10px;
-}
-#top_top img{
-	width: 20px;
-	height: 20px;
-	float: right;
-	margin-right: -410px;
-	margin-top: 10px;
-	cursor: pointer;
-}
-#top_top span{
-	font-size: 14px;
-	color: #ed6a00;
-	float: right;
-	margin-right: -560px;
-	margin-top: 10px;
-	cursor: pointer;
+a{
+	text-decoration: none;
 }
