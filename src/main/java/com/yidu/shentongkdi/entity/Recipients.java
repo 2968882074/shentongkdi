@@ -1,6 +1,6 @@
 package com.yidu.shentongkdi.entity;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.io.Serializable;
 
@@ -8,11 +8,11 @@ import java.io.Serializable;
  * (Recipients)实体类
  *
  * @author makejava
- * @since 2021-01-06 10:43:33
+ * @since 2021-01-11 14:55:21
  */
-@Component
+@Controller
 public class Recipients implements Serializable {
-    private static final long serialVersionUID = 985162053309699962L;
+    private static final long serialVersionUID = -67724042768410000L;
     
     private Integer reid;
     
@@ -33,7 +33,25 @@ public class Recipients implements Serializable {
     private String repredicttime;
     
     private String repredictprice;
+    
+    private String rectime;
 
+    @Override
+    public String toString() {
+        return "Recipients{" +
+                "reid=" + reid +
+                ", rename='" + rename + '\'' +
+                ", rephone='" + rephone + '\'' +
+                ", readdress='" + readdress + '\'' +
+                ", redetailedaddress='" + redetailedaddress + '\'' +
+                ", relandline='" + relandline + '\'' +
+                ", reweight=" + reweight +
+                ", retype='" + retype + '\'' +
+                ", repredicttime='" + repredicttime + '\'' +
+                ", repredictprice='" + repredictprice + '\'' +
+                ", rectime='" + rectime + '\'' +
+                '}';
+    }
 
     public Integer getReid() {
         return reid;
@@ -113,6 +131,14 @@ public class Recipients implements Serializable {
 
     public void setRepredictprice(String repredictprice) {
         this.repredictprice = repredictprice;
+    }
+
+    public String getRectime() {
+        return rectime;
+    }
+
+    public void setRectime(String rectime) {
+        this.rectime = rectime;
     }
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace=".dao.RecipientsDao">
+<mapper namespace="com.yidu.shentongkdi.dao.RecipientsDao">
 
     <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Recipients">
         <!--@Table recipients-->
@@ -14,12 +14,13 @@
         <result property="retype" column="retype" jdbcType="VARCHAR"/>
         <result property="repredicttime" column="repredictTime" jdbcType="VARCHAR"/>
         <result property="repredictprice" column="repredictprice" jdbcType="VARCHAR"/>
+        <result property="rectime" column="recTime" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
-          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice, recTime
         from shentong.recipients
         where reid = #{reid}
     </select>
@@ -27,7 +28,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
-          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice, recTime
         from shentong.recipients
         limit #{offset}, #{limit}
     </select>
@@ -35,7 +36,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice
+          reid, reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice, recTime
         from shentong.recipients
         <where>
             <if test="reid != null">
@@ -68,13 +69,16 @@
             <if test="repredictprice != null and repredictprice != ''">
                 and repredictprice = #{repredictprice}
             </if>
+            <if test="rectime != null and rectime != ''">
+                and recTime = #{rectime}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="reid" useGeneratedKeys="true">
-        insert into shentong.recipients(reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice)
-        values (#{rename}, #{rephone}, #{readdress}, #{redetailedaddress}, #{relandline}, #{reweight}, #{retype}, #{repredicttime}, #{repredictprice})
+        insert into shentong.recipients(reName, rephone, readdress, redetailedAddress, relandline, reweight, retype, repredictTime, repredictprice, recTime)
+        values (#{rename}, #{rephone}, #{readdress}, #{redetailedaddress}, #{relandline}, #{reweight}, #{retype}, #{repredicttime}, #{repredictprice}, #{rectime})
     </insert>
 
     <!--通过主键修改数据-->
@@ -107,6 +111,9 @@
             </if>
             <if test="repredictprice != null and repredictprice != ''">
                 repredictprice = #{repredictprice},
+            </if>
+            <if test="rectime != null and rectime != ''">
+                recTime = #{rectime},
             </if>
         </set>
         where reid = #{reid}

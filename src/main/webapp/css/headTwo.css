@@ -23,10 +23,12 @@ body {
 	color: #9b9b9b;
 }
 #head dl{
-	margin-left: 1120px;
+	width: 950px;
+	height: 30.8px;
+	margin: 0 auto;
 }
 #head dl dt{
-	float: left;
+	float: right;
 	margin-left: 10px;
 	text-align: center;
 	color: #9b9b9b;
@@ -47,11 +49,16 @@ body {
 	
 }
 #head_up dl{
-	margin-left: 200px;
+	width: 1000px;
+	margin: 0 auto;
 }
+#head_up dl dt:nth-child(1){
+	margin-left: 0px;
+}
+
 #head_up dl dt{
 	float: left;
-	margin-left: 50px;
+	margin-left: 48px;
 	color: #555555;
 	font-size: 16px;
 	text-align: center;

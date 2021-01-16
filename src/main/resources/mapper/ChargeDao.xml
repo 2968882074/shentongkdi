@@ -5,14 +5,13 @@
     <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Charge">
         <!--@Table charge-->
         <result property="chid" column="chid" jdbcType="INTEGER"/>
-        <result property="chargename" column="chargeName" jdbcType="VARCHAR"/>
-        <result property="weight" column="weight" jdbcType="VARCHAR"/>
-        <result property="distanc" column="distanc" jdbcType="VARCHAR"/>
-        <result property="operationstaff" column="operationStaff" jdbcType="VARCHAR"/>
-        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="commence" column="commence" jdbcType="VARCHAR"/>
+        <result property="those" column="those" jdbcType="VARCHAR"/>
+        <result property="goods" column="goods" jdbcType="VARCHAR"/>
         <result property="chargetime" column="chargeTime" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="VARCHAR"/>
+        <result property="predicttime" column="predictTime" jdbcType="VARCHAR"/>
     </resultMap>
-
     <!-- 统计行数-->
     <select id="count" resultType="int">
         select count(1) num from yyy.charge
@@ -21,7 +20,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
-          chid, chargeName, weight, distanc, operationStaff, unit, chargeTime
+          chid, commence, those, goods, chargeTime, price, predictTime
         from yyy.charge
         where chid = #{chid}
     </select>
@@ -29,11 +28,11 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
-          chid, chargeName, weight, distanc, operationStaff, unit, chargeTime
+          chid, commence, those, goods, chargeTime, price, predictTime
         from yyy.charge
         <where>
-            <if test="chargename!=null">
-                and chargeName like '%${chargename}%'
+            <if test="chargetime!=null">
+            and chargeTime like '%${chargetime}%'
             </if>
         </where>
         limit #{offset}, #{limit}
@@ -42,60 +41,60 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          chid, chargeName, weight, distanc, operationStaff, unit, chargeTime
+          chid, commence, those, goods, chargeTime, price, predictTime
         from yyy.charge
         <where>
             <if test="chid != null">
                 and chid = #{chid}
             </if>
-            <if test="chargename != null and chargename != ''">
-                and chargeName = #{chargename}
+            <if test="commence != null and commence != ''">
+                and commence = #{commence}
             </if>
-            <if test="weight != null and weight != ''">
-                and weight = #{weight}
+            <if test="those != null and those != ''">
+                and those = #{those}
             </if>
-            <if test="distanc != null and distanc != ''">
-                and distanc = #{distanc}
-            </if>
-            <if test="operationstaff != null and operationstaff != ''">
-                and operationStaff = #{operationstaff}
-            </if>
-            <if test="unit != null and unit != ''">
-                and unit = #{unit}
+            <if test="goods != null and goods != ''">
+                and goods = #{goods}
             </if>
             <if test="chargetime != null and chargetime != ''">
                 and chargeTime = #{chargetime}
+            </if>
+            <if test="price != null and price != ''">
+                and price = #{price}
+            </if>
+            <if test="predicttime != null and predicttime != ''">
+                and predictTime = #{predicttime}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="chid" useGeneratedKeys="true">
-        insert into yyy.charge(chargeName, weight, distanc, operationStaff, unit, chargeTime)
-        values (#{chargename}, #{weight}, #{distanc}, #{operationstaff}, #{unit}, #{chargetime})
+        insert into yyy.charge(commence, those, goods, chargeTime, price, predictTime)
+        values (#{commence}, #{those}, #{goods}, #{chargetime}, #{price}, #{predicttime})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
         update yyy.charge
         <set>
-            <if test="chargename != null and chargename != ''">
-                chargeName = #{chargename},
+            <if test="commence != null and commence != ''">
+                commence = #{commence},
             </if>
-            <if test="weight != null and weight != ''">
-                weight = #{weight},
+            <if test="those != null and those != ''">
+                those = #{those},
             </if>
-            <if test="distanc != null and distanc != ''">
-                distanc = #{distanc},
-            </if>
-            <if test="operationstaff != null and operationstaff != ''">
-                operationStaff = #{operationstaff},
-            </if>
-            <if test="unit != null and unit != ''">
-                unit = #{unit},
+            <if test="goods != null and goods != ''">
+                goods = #{goods},
             </if>
             <if test="chargetime != null and chargetime != ''">
                 chargeTime = #{chargetime},
+            </if>
+            <if test="price != null and price != ''">
+                price = #{price},
+            </if>
+            <if test="predicttime != null and predicttime != ''">
+                predictTime = #{predicttime},
             </if>
         </set>
         where chid = #{chid}

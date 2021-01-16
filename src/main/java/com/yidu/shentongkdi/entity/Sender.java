@@ -8,11 +8,11 @@ import java.io.Serializable;
  * (Sender)实体类
  *
  * @author makejava
- * @since 2021-01-06 10:44:10
+ * @since 2021-01-11 11:00:58
  */
 @Component
 public class Sender implements Serializable {
-    private static final long serialVersionUID = 431214156170644193L;
+    private static final long serialVersionUID = -16369159201327479L;
     
     private Integer seid;
     
@@ -29,6 +29,8 @@ public class Sender implements Serializable {
     private String spayment;
     
     private String semail;
+    
+    private String sendertime;
 
 
     public Integer getSeid() {
@@ -95,4 +97,26 @@ public class Sender implements Serializable {
         this.semail = semail;
     }
 
+    public String getSendertime() {
+        return sendertime;
+    }
+
+    public void setSendertime(String sendertime) {
+        this.sendertime = sendertime;
+    }
+
+    @Override
+    public String toString() {
+        return "Sender{" +
+                "seid=" + seid +
+                ", sname='" + sname + '\'' +
+                ", saddress='" + saddress + '\'' +
+                ", slandline='" + slandline + '\'' +
+                ", sphone='" + sphone + '\'' +
+                ", sdetailedaddress='" + sdetailedaddress + '\'' +
+                ", spayment='" + spayment + '\'' +
+                ", semail='" + semail + '\'' +
+                ", sendertime='" + sendertime + '\'' +
+                '}';
+    }
 }

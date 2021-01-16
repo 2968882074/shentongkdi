@@ -8,11 +8,11 @@ import java.io.Serializable;
  * (Orders)实体类
  *
  * @author makejava
- * @since 2021-01-05 15:55:09
+ * @since 2021-01-12 14:03:58
  */
 @Component
 public class Orders implements Serializable {
-    private static final long serialVersionUID = -10539219958481836L;
+    private static final long serialVersionUID = -89529553158149280L;
     
     private Integer oid;
     
@@ -27,9 +27,22 @@ public class Orders implements Serializable {
     private Integer amountstate;
     
     private Integer state;
+    
+    private Integer wayid;
+    
+    private Integer brid;
+    
+    private Integer picid;
+    
+    private Integer userid;
+    
+    private Integer courid;
+    
+    private String downtime;
 
     private Recipients recipients;
 
+    private Sender sender;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -41,6 +54,14 @@ public class Orders implements Serializable {
 
     public void setRecipients(Recipients recipients) {
         this.recipients = recipients;
+    }
+
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
     }
 
     public Integer getOid() {
@@ -99,29 +120,52 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
-    public Orders(Integer oid, Integer reid, Integer seid, Double weight, Double amount, Integer amountstate, Integer state) {
-        this.oid = oid;
-        this.reid = reid;
-        this.seid = seid;
-        this.weight = weight;
-        this.amount = amount;
-        this.amountstate = amountstate;
-        this.state = state;
+    public Integer getWayid() {
+        return wayid;
     }
 
-    public Orders() {
+    public void setWayid(Integer wayid) {
+        this.wayid = wayid;
     }
 
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "oid=" + oid +
-                ", reid=" + reid +
-                ", seid=" + seid +
-                ", weight=" + weight +
-                ", amount=" + amount +
-                ", amountstate=" + amountstate +
-                ", state=" + state +
-                '}';
+    public Integer getBrid() {
+        return brid;
     }
+
+    public void setBrid(Integer brid) {
+        this.brid = brid;
+    }
+
+    public Integer getPicid() {
+        return picid;
+    }
+
+    public void setPicid(Integer picid) {
+        this.picid = picid;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public Integer getCourid() {
+        return courid;
+    }
+
+    public void setCourid(Integer courid) {
+        this.courid = courid;
+    }
+
+    public String getDowntime() {
+        return downtime;
+    }
+
+    public void setDowntime(String downtime) {
+        this.downtime = downtime;
+    }
+
 }

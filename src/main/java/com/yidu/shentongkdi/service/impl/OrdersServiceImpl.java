@@ -1,7 +1,7 @@
 package com.yidu.shentongkdi.service.impl;
 
-import com.yidu.shentongkdi.entity.Orders;
 import com.yidu.shentongkdi.dao.OrdersDao;
+import com.yidu.shentongkdi.entity.Orders;
 import com.yidu.shentongkdi.service.OrdersService;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +18,25 @@ import java.util.List;
 public class OrdersServiceImpl implements OrdersService {
     @Resource
     private OrdersDao ordersDao;
-
+    /**
+     * 统计行数
+     * @param orders 实例对象
+     * @return 影响行数
+     */
     @Override
     public int count(Orders orders) {
         return this.ordersDao.count(orders);
+    }
+    /**
+     * 通过用户ID和订单状态查询数据
+     *
+     * @param userid 用户id
+     * @param state 订单状态
+     * @return 实例对象
+     */
+    @Override
+    public List<Orders> selectByUidAndState(Integer userid, Integer state) {
+        return this.ordersDao.selectByUidAndState(userid,state);
     }
 
     /**
