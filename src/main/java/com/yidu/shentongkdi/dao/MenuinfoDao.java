@@ -34,7 +34,7 @@ public interface MenuinfoDao {
      * @param menuinfo 查询条件
      * @return 对象列表
      */
-    List<Menuinfo> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Menuinfo menuinfo);
+    List<Menuinfo> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("menuinfo") Menuinfo menuinfo);
 
     /**
      * 得到数量可根据条件
@@ -51,6 +51,7 @@ public interface MenuinfoDao {
      * @return 对象列表
      */
     List<Menuinfo> queryAll(Menuinfo menuinfo);
+
 
     /**
      * 新增数据

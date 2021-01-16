@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class Roleinfo implements Serializable {
     private static final long serialVersionUID = -69955605481789772L;
-    
+
     private Integer roleid;
-    
+
     private String rolename;
-    
+
     private Integer rolegroup;
-    
+
     private Integer rolestate;
 
     private List<Menuinfo> menulist;

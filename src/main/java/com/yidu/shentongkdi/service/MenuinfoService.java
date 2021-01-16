@@ -30,12 +30,29 @@ public interface MenuinfoService {
      */
     List<Menuinfo> queryAllByLimit(int offset, int limit,Menuinfo menuinfo);
 
+
     /**
      * 得到数量可根据条件
      * @param menuinfo 查询条件
      * @return 数量
      */
     int count(Menuinfo menuinfo);
+
+
+    /**
+     * 查询全部
+     * @param menuinfo 查询条件
+     * @return 对象列表
+     */
+    List<Menuinfo> queryAll(Menuinfo menuinfo);
+
+
+    /**
+     * 格式化权限
+     * @param menuinfoList
+     * @return
+     */
+    public List<Menuinfo> marge(List<Menuinfo> menuinfoList);
 
     /**
      * 新增数据

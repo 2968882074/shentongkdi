@@ -1,7 +1,6 @@
 package com.yidu.shentongkdi.dao;
 
-
-import com.yidu.shentongkdi.entity.Admin;
+import com.yidu.shentongkdi.entity.Menuinfo;
 import com.yidu.shentongkdi.entity.Roleinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -10,86 +9,71 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (Admin)表数据库访问层
+ * (Roleinfo)表数据库访问层
  *
  * @author makejava
- * @since 2020-12-13 17:56:18
+ * @since 2021-01-07 10:20:38
  */
-
 @Mapper
 @Repository
-public interface AdminDao {
+public interface RoleinfoDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param adminid 主键
+     * @param roleid 主键
      * @return 实例对象
      */
-    Admin queryById(Integer adminid);
+    Roleinfo queryById(Integer roleid);
 
     /**
      * 查询指定行数据
      *
      * @param offset 查询起始位置
      * @param limit 查询条数
-     * @param admin 员工实体
+     * @param roleinfo 查询条件
      * @return 对象列表
      */
-    List<Admin> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Admin admin);
+    List<Roleinfo> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Roleinfo roleinfo);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param admin 实例对象
+     * @param roleinfo 实例对象
      * @return 对象列表
      */
-    List<Admin> queryAll(Admin admin);
+    List<Roleinfo> queryAll(Roleinfo roleinfo);
 
     /**
      * 得到数量可根据条件
-     * @param admin 查询条件
+     * @param roleinfo 查询条件
      * @return 数量
      */
-    int count(Admin admin);
-
-    /**
-     * 判断是否存在
-     * @param admin 查询条件
-     * @return 数量
-     */
-    int exists(Admin admin);
-
-    /**
-     * 登录
-     * @param admin
-     * @return
-     */
-    Admin login(Admin admin);
+    int count(Roleinfo roleinfo);
 
     /**
      * 新增数据
      *
-     * @param admin 实例对象
+     * @param roleinfo 实例对象
      * @return 影响行数
      */
-    int insert(Admin admin);
+    int insert(Roleinfo roleinfo);
 
     /**
      * 修改数据
      *
-     * @param admin 实例对象
+     * @param roleinfo 实例对象
      * @return 影响行数
      */
-    int update(Admin admin);
+    int update(Roleinfo roleinfo);
 
     /**
      * 通过主键删除数据
      *
-     * @param adminid 主键
+     * @param roleid 主键
      * @return 影响行数
      */
-    int deleteById(Integer adminid);
+    int deleteById(String roleid);
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,6 +54,47 @@ public class MenuinfoServiceImpl implements MenuinfoService {
     public int count(Menuinfo menuinfo) {
         return this.menuinfoDao.count(menuinfo);
     }
+
+    @Override
+    public List<Menuinfo> queryAll(Menuinfo menuinfo) {
+        return this.menuinfoDao.queryAll(menuinfo);
+    }
+
+    @Override
+    public List<Menuinfo> marge(List<Menuinfo> menuinfoList){
+        //一级权限
+        //创建权限列表,存放权限
+        List<Menuinfo> menulist = new ArrayList<>();
+        //遍历menuset,取出权限
+        for (Menuinfo menuinfo : menuinfoList) {
+            //判断权限的上级为空,说明是一级权限
+            if(menuinfo.getPrevid() == null){
+                //添加到列表
+                menulist.add(menuinfo);
+            }
+        }
+
+        //把一级权限从menuset中删除
+        menuinfoList.removeAll(menulist);
+
+
+        //遍历一级权限
+        for (Menuinfo menuinfo : menulist) {
+            //遍历权限列表
+            for (Menuinfo menuinfo1 : menuinfoList) {
+                //判断一级权限ID为权限的父级ID
+                if(menuinfo.getMenuid().equals(menuinfo1.getPrevid())){
+                    //判断一级权限的子权限列表为空时,开辟空间
+                    if(menuinfo.getMenulist() == null) menuinfo.setMenulist(new ArrayList<>());
+                    //将权限添加到一级权限的子权限列表
+                    menuinfo.getMenulist().add(menuinfo1);
+                }
+            }
+        }
+
+        return menulist;
+    }
+
 
     /**
      * 新增数据

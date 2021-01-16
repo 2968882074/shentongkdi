@@ -20,16 +20,46 @@
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select
-          roleid, rolename, rolegroup, rolestate
-        from shentong.roleinfo
+        select * from shentong.roleinfo
+        <where>
+            <if test="roleinfo.roleid != null">
+                and roleid = #{roleinfo.roleid}
+            </if>
+            <if test="roleinfo.rolename != null and roleinfo.rolename != ''">
+                and rolename like '%${roleinfo.rolename}%'
+            </if>
+            <if test="roleinfo.rolegroup != null">
+                and rolegroup = #{roleinfo.rolegroup}
+            </if>
+            <if test="roleinfo.rolestate != null">
+                and rolestate = #{roleinfo.rolestate}
+            </if>
+        </where>
         limit #{offset}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(1) from shentong.roleinfo
+        <where>
+            <if test="roleid != null">
+                and roleid = #{roleid}
+            </if>
+            <if test="rolename != null and rolename != ''">
+                and rolename like '%${rolename}%'
+            </if>
+            <if test="rolegroup != null">
+                and rolegroup = #{rolegroup}
+            </if>
+            <if test="rolestate != null">
+                and rolestate = #{rolestate}
+            </if>
+        </where>
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          roleid, rolename, rolegroup, rolestate
+        roleid, rolename, rolegroup, rolestate
         from shentong.roleinfo
         <where>
             <if test="roleid != null">
@@ -72,7 +102,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from shentong.roleinfo where roleid = #{roleid}
+        delete from shentong.roleinfo where roleid in (#{roleid})
     </delete>
 
 </mapper>

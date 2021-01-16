@@ -31,7 +31,7 @@
     </style>
 </head>
     <body>
-        <table class="layui-table" lay-data="{page: true,toolbar:'default',url:'../admin/selectMenuinfoLimit'}" lay-filter="table" id="table">
+        <table class="layui-table" lay-data="{page: true,toolbar:'#toolDemo',url:'../admin/selectMenuinfoLimit'}" lay-filter="table" id="table">
             <%--标题--%>
             <thead>
                 <th lay-data="{type:'checkbox'}"></th>
@@ -115,6 +115,25 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
+    <%--头工具栏模板--%>
+    <script type="text/html" id="toolDemo">
+        <div class="layui-inline" lay-event="add">
+            <i class="layui-icon layui-icon-add-1">
+            </i>
+        </div>
+        <div class="layui-inline" lay-event="update">
+            <i class="layui-icon layui-icon-edit">
+            </i>
+        </div>
+        <div class="layui-inline" lay-event="delete">
+            <i class="layui-icon layui-icon-delete">
+            </i>
+        </div>
+        <div style="display: inline-block;">
+            <input class="layui-input" id="searchtext" placeholder="权限名称" style="display: inline-block; width: 200px; float: left;"/>
+            <button class="layui-btn layui-btn-normal" lay-event="search">搜索</button>
+        </div>
+    </script>
     <%--自定义模板--%>
     <script type="text/html" id="templets">
         {{#  if(d.menustate == 1){ }}
@@ -143,16 +162,20 @@
                 case 'update':
                     if(checkStatus.data.length != 1) layer.msg("请选择一个");
                     else{
-                        show_AddAndUpdate('update','修改',obj.checkStatus.data[0]);
+                        show_AddAndUpdate('update','修改',checkStatus.data[0]);
                     }
                     break;
                 case 'delete':
-                    layer.msg("删除");
-                    console.log(obj.data);
-                    var id = "id=";
-                    for(var p in obj.data){
-                        console.log(obj.data[p].menuid);
-                    }
+                    deldata(checkStatus.data);
+                    break;
+                case 'search':
+                    table.reload('table',{
+                        where:{
+                            title:$("#searchtext").val()
+                        },page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                    });
                     break;
             }
         });
@@ -165,7 +188,7 @@
                     show_AddAndUpdate('update','修改',obj.data);
                     break;
                 case 'del':
-
+                    deldata(obj.data);
                     break;
             }
         });
@@ -180,6 +203,8 @@
                 dataType:"json",
                 success:function(json){
                     if(json.state){
+                        //关闭弹出层
+                        layer.close(layer.index);
                         /*提示*/
                         layer.msg("执行成功!");
                         /*重载表格*/
@@ -192,33 +217,63 @@
             return false;
         });
 
-        /*删除操作*/
-        function deldata(){
 
-        }
-
-        /*显示修改或新增面板*/
-        function show_AddAndUpdate(method,title,data=null){
-            if(method == 'add'){
+        /*打开新增或修改面板*/
+        function show_AddAndUpdate(method,title,data=null) {
+            this.method = method;
+            if (method == 'add') {
                 /*清楚表单数据*/
                 document.getElementById("form").reset()
-                /*禁用*/
-                $("input[name='menuid']").removeAttr("disabled");
-            }else if(method == 'update'){
+                /*更改按钮的文本*/
+                $("#submitbtn").text("立即新增");
+            } else if (method == 'update') {
                 /*表单赋值*/
-                form.val("forms",data);
-                /*禁用*/
-                $("input[name='menuid']").prop("disabled","disabled");
+                form.val("forms", data);
+                /*更改按钮的文本*/
+                $("#submitbtn").text("立即修改");
             }
+
 
             /*打开面板*/
             layer.open({
-                type:1,
-                title:title,
+                type: 1,
+                title: title,
                 area: '500px',
-                resize:false,
-                content:$("#form")
+                resize: false,
+                content: $("#form")
             });
         }
+
+        /*删除操作*/
+        function deldata(data){
+            var id = "";
+            /*判断数据是否是数组*/
+            if(Array.isArray(data)){
+                $.each(data,function(key,value){
+                    id+="'"+value.menuid+"',";
+                });
+                /*删除最后一个逗号*/
+                id=id.substring(0,id.length-1);
+            }else id+=data.menuid;
+
+
+            $.ajax({
+                url:"../admin/deleteMenuinfo",
+                data:"id="+id,
+                dataType:"json",
+                success:function(json){
+                    console.log(json);
+                    if(json.state){
+                        layer.msg("删除成功!");
+                        /*重载表格*/
+                        table.reload('table',{});
+                    }else{
+                        layer.msg("删除失败!");
+                    }
+                }
+            });
+        }
+
+
     </script>
 </html>

@@ -22,28 +22,30 @@
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
-        select menuid, title, menustate, url, previd, iconCls from shentong.menuinfo limit #{offset}, #{limit}
+        select menuid, title, menustate, url, previd, iconCls from shentong.menuinfo
         <where>
             <if test="menuinfo.menuid != null and menuinfo.menuid != ''">
-                and menuid = #{menuid}
+                and menuid = #{menuinfo.menuid}
             </if>
             <if test="menuinfo.title != null and menuinfo.title != ''">
-                and title = #{title}
+                and title like '%${menuinfo.title}%'
             </if>
             <if test="menuinfo.menustate != null">
-                and menustate = #{menustate}
+                and menustate = #{menuinfo.menustate}
             </if>
             <if test="menuinfo.url != null and menuinfo.url != ''">
-                and url = #{url}
+                and url = #{menuinfo.url}
             </if>
             <if test="menuinfo.previd != null and menuinfo.previd != ''">
-                and previd = #{previd}
+                and previd = #{menuinfo.previd}
             </if>
             <if test="menuinfo.iconcls != null and menuinfo.iconcls != ''">
-                and iconCls = #{iconcls}
+                and iconCls = #{menuinfo.iconcls}
             </if>
         </where>
+        limit #{offset}, #{limit}
     </select>
+
 
     <select id="count" resultType="int">
         select count(1) from shentong.menuinfo
@@ -52,7 +54,7 @@
                 and menuid = #{menuid}
             </if>
             <if test="title != null and title != ''">
-                and title = #{title}
+                and title like '%${title}%'
             </if>
             <if test="menustate != null">
                 and menustate = #{menustate}
@@ -127,7 +129,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from shentong.menuinfo where menuid = #{menuid}
+        delete from shentong.menuinfo where menuid in(${menuid})
     </delete>
 
 </mapper>

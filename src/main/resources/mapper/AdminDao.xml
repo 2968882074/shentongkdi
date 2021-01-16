@@ -39,6 +39,26 @@
         select
           adminid, adminname, adminpass, compellation, adminimg, state
         from shentong.admin
+        <where>
+            <if test="admin.adminid != null">
+                and adminid = #{admin.adminid}
+            </if>
+            <if test="admin.adminname != null and admin.adminname != ''">
+                and admin.adminname = #{admin.adminname}
+            </if>
+            <if test="admin.adminpass != null and admin.adminpass != ''">
+                and adminpass = #{admin.adminpass}
+            </if>
+            <if test="admin.compellation != null and admin.compellation != ''">
+                and compellation = #{admin.compellation}
+            </if>
+            <if test="admin.adminimg != null and admin.adminimg != ''">
+                and adminimg = #{admin.adminimg}
+            </if>
+            <if test="admin.state != null">
+                and state = #{admin.state}
+            </if>
+        </where>
         limit #{offset}, #{limit}
     </select>
 
@@ -65,6 +85,42 @@
             </if>
             <if test="state != null">
                 and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(1) from shentong.admin
+        <where>
+            <if test="adminid != null">
+                and adminid = #{adminid}
+            </if>
+            <if test="adminname != null and adminname != ''">
+                and adminname like '%${adminname}%'
+            </if>
+            <if test="adminpass != null and adminpass != ''">
+                and adminpass = #{adminpass}
+            </if>
+            <if test="compellation != null and compellation != ''">
+                and compellation = #{compellation}
+            </if>
+            <if test="adminimg != null and adminimg != ''">
+                and adminimg = #{adminimg}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <select id="exists" resultType="int">
+        select count(1) from shentong.admin
+        <where>
+            <if test="adminname != null and adminname != ''">
+                and adminname = #{adminname}
+            </if>
+            <if test="adminpass != null and adminpass != ''">
+                and adminpass = #{adminpass}
             </if>
         </where>
     </select>

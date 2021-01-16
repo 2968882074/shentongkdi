@@ -1,7 +1,7 @@
 package com.yidu.shentongkdi.dao;
 
-
 import com.yidu.shentongkdi.entity.Admin;
+import com.yidu.shentongkdi.entity.Adminrole;
 import com.yidu.shentongkdi.entity.Roleinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -10,86 +10,70 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * (Admin)表数据库访问层
+ * (Adminrole)表数据库访问层
  *
  * @author makejava
- * @since 2020-12-13 17:56:18
+ * @since 2021-01-12 10:48:23
  */
-
 @Mapper
 @Repository
-public interface AdminDao {
+public interface AdminroleDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param adminid 主键
+     * @param adminrole 主键
      * @return 实例对象
      */
-    Admin queryById(Integer adminid);
+    Adminrole queryById(Integer adminrole);
 
     /**
      * 查询指定行数据
      *
      * @param offset 查询起始位置
      * @param limit 查询条数
-     * @param admin 员工实体
      * @return 对象列表
      */
-    List<Admin> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit,Admin admin);
+    List<Adminrole> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param admin 实例对象
+     * @param adminrole 实例对象
      * @return 对象列表
      */
-    List<Admin> queryAll(Admin admin);
-
-    /**
-     * 得到数量可根据条件
-     * @param admin 查询条件
-     * @return 数量
-     */
-    int count(Admin admin);
+    List<Adminrole> queryAll(Adminrole adminrole);
 
     /**
      * 判断是否存在
-     * @param admin 查询条件
-     * @return 数量
-     */
-    int exists(Admin admin);
-
-    /**
-     * 登录
-     * @param admin
+     * @param adminrole
      * @return
      */
-    Admin login(Admin admin);
+    int exists(Adminrole adminrole);
 
     /**
      * 新增数据
      *
-     * @param admin 实例对象
+     * @param adminrole 实例对象
      * @return 影响行数
      */
-    int insert(Admin admin);
+    int insert(Adminrole adminrole);
 
     /**
      * 修改数据
      *
-     * @param admin 实例对象
+     * @param adminrole 实例对象
      * @return 影响行数
      */
-    int update(Admin admin);
+    int update(Adminrole adminrole);
 
     /**
      * 通过主键删除数据
      *
-     * @param adminid 主键
+     * @param adminrole 主键
      * @return 影响行数
      */
-    int deleteById(Integer adminid);
+    int deleteById(Integer adminrole);
 
 }

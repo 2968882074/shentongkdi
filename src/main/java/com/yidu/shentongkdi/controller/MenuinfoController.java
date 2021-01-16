@@ -2,9 +2,11 @@ package com.yidu.shentongkdi.controller;
 
 import com.yidu.shentongkdi.entity.Menuinfo;
 import com.yidu.shentongkdi.service.MenuinfoService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +53,17 @@ public class MenuinfoController {
     }
 
     /**
+     * 查询全部
+     * @return 树形Menuinfo
+     */
+    @ResponseBody
+    @RequestMapping("selectMenuinfoAllTree")
+    public List<Menuinfo> selectAllTree(Menuinfo menuinfo){
+        List<Menuinfo> menuinfoList = menuinfoService.queryAll(menuinfo);
+        return menuinfoService.marge(menuinfoList);
+    }
+
+    /**
      * 权限新增
      * @param menuinfo 实体
      * @return json
@@ -83,6 +96,18 @@ public class MenuinfoController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return "{\"state\":false}";
+    }
+
+    /**
+     * 批量删除
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deleteMenuinfo")
+    public String delete(String id){
+        if(menuinfoService.deleteById(id)) return "{\"state\":true}";
         return "{\"state\":false}";
     }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.RolemenuDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Rolemenu">
+        <!--@Table rolemenu-->
+        <result property="rolemenu" column="rolemenu" jdbcType="INTEGER"/>
+        <result property="roleid" column="roleid" jdbcType="INTEGER"/>
+        <result property="menuid" column="menuid" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          rolemenu, roleid, menuid
+        from shentong.rolemenu
+        where rolemenu = #{rolemenu}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          rolemenu, roleid, menuid
+        from shentong.rolemenu
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          rolemenu, roleid, menuid
+        from shentong.rolemenu
+        <where>
+            <if test="rolemenu != null">
+                and rolemenu = #{rolemenu}
+            </if>
+            <if test="roleid != null">
+                and roleid = #{roleid}
+            </if>
+            <if test="menuid != null and menuid != ''">
+                and menuid = #{menuid}
+            </if>
+        </where>
+    </select>
+
+    <select id="exists" resultType="int">
+        select count(1) from rolemenu where roleid=#{roleid} and menuid=#{menuid};
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="rolemenu" useGeneratedKeys="true">
+        insert into shentong.rolemenu(roleid, menuid)
+        values (#{roleid}, #{menuid})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.rolemenu
+        <set>
+            <if test="roleid != null">
+                roleid = #{roleid},
+            </if>
+            <if test="menuid != null and menuid != ''">
+                menuid = #{menuid},
+            </if>
+        </set>
+        where rolemenu = #{rolemenu}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.rolemenu where rolemenu = #{rolemenu}
+    </delete>
+
+    <!--通过角色id删除-->
+    <delete id="deleteByRoleid">
+        delete from shentong.rolemenu where roleid = #{roleid}
+    </delete>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.AdminroleDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Adminrole">
+        <!--@Table adminrole-->
+        <result property="adminrole" column="adminrole" jdbcType="INTEGER"/>
+        <result property="adminid" column="adminid" jdbcType="INTEGER"/>
+        <result property="roleid" column="roleid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          adminrole, adminid, roleid
+        from shentong.adminrole
+        where adminrole = #{adminrole}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          adminrole, adminid, roleid
+        from shentong.adminrole
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          adminrole, adminid, roleid
+        from shentong.adminrole
+        <where>
+            <if test="adminrole != null">
+                and adminrole = #{adminrole}
+            </if>
+            <if test="adminid != null">
+                and adminid = #{adminid}
+            </if>
+            <if test="roleid != null">
+                and roleid = #{roleid}
+            </if>
+        </where>
+    </select>
+
+    <!--判断是否存在-->
+    <select id="exists" resultType="int">
+        select count(1) from shentong.adminrole
+        <where>
+            <if test="adminid != null">
+                and adminid = #{adminid}
+            </if>
+            <if test="roleid != null">
+                and roleid = #{roleid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="adminrole" useGeneratedKeys="true">
+        insert into shentong.adminrole(adminid, roleid)
+        values (#{adminid}, #{roleid})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.adminrole
+        <set>
+            <if test="adminid != null">
+                adminid = #{adminid},
+            </if>
+            <if test="roleid != null">
+                roleid = #{roleid},
+            </if>
+        </set>
+        where adminrole = #{adminrole}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.adminrole where adminrole = #{adminrole}
+    </delete>
+
+</mapper>
