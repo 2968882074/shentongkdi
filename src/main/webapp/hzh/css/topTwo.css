@@ -1,0 +1,69 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul li {
+	list-style: none;
+}
+
+#top {
+	border: 1px solid white;
+	background-color: white;
+	width: 100%;
+	height: 193.2px;
+	margin-top: 40px;
+}
+
+#foot_slide {
+	padding: 20px 32px;
+	height: 120px;
+	margin: 0 auto;
+	padding: 20px 32px;
+}
+
+.kefu {
+	font-weight: 800;
+	width: 100px;
+	height: 50px;
+	float: right;
+	margin-top: 25px;
+}
+
+.code {
+	height: 115px;
+	float: right;
+}
+
+.code span {
+	display: inline-block;
+	margin: 0px 30px;
+	width: 100px;
+	height: 100px;
+}
+
+.dibu {
+	background-color: #f0f4f5;
+	height: 50px;
+}
+
+.dibu-content {
+	padding: 8px 0;
+	padding-right: 70px;
+	border-bottom: 1px solid #f2f3f5;
+	color: #9b9b9b;
+	margin: 0 auto;
+	text-align: right;
+}
+
+.copyright {
+	padding-right: 20px;
+}
+
+.records {
+    line-height: 20px;
+    color: #ed6a00;
+}
+a{
+	text-decoration: none;
+}

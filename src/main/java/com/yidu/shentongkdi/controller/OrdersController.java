@@ -1,14 +1,23 @@
 package com.yidu.shentongkdi.controller;
 
+import com.google.gson.internal.$Gson$Preconditions;
 import com.yidu.shentongkdi.entity.Orders;
 import com.yidu.shentongkdi.service.OrdersService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * (Orders)表控制层
@@ -115,14 +124,36 @@ public class OrdersController {
         //返回map
         return map;
     }
-    @RequestMapping("selectByState")
-    public ModelAndView selectById(Integer state){
-        List<Orders> list=ordersService.selectByUidAndState(1,state);
-        ModelAndView mav=new ModelAndView("../OrderGL.jsp");
-        mav.addObject("orderList",list);
-        System.out.println("list="+list.size());
 
+    /**
+     *  前端的查询
+     * @param state 订单状态
+     * @return
+     */
+    @RequestMapping("selectByState")
+    public ModelAndView selectById(Integer state,HttpServletRequest request){
+        List<Orders> list=ordersService.selectByUidAndState(1,null);
+        ModelAndView mav=new ModelAndView("../hzh/jsp/OrderGL.jsp");
+        request.getSession().setAttribute("orderList",list);
         return mav;
     }
 
+@RequestMapping("SwitchState")
+    public List<Orders> SwitchState(Integer state,HttpServletRequest request){
+    List<Orders> list=ordersService.selectByUidAndState(1,state);
+    request.getSession().setAttribute("orderList",list);
+    return list;
+    }
+    @RequestMapping("detail")
+    public ModelAndView Detail(Integer oid,HttpServletRequest request){
+        ModelAndView mav=new ModelAndView("../OrderDetail.jsp");
+        HttpSession session = request.getSession();
+        List<Orders> orderList = (List<Orders>)session.getAttribute("orderList");
+        for (Orders o : orderList){
+            if(oid==o.getOid()){
+                request.setAttribute("orderDetail",o);
+            }
+        }
+        return mav;
+    }
 }
