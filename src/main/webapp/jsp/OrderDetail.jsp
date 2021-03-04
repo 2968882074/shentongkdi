@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>申通快递|会员中心|客户的满意,申通的追求!</title>
-		<link rel="stylesheet" href="../css/OrderDetail.css" />
-		<link rel="shortcut icon" href="../img/logo.ICO" type="image/x-icon" />
+		<link rel="stylesheet" href="../hzh/css/OrderDetail.css" />
+		<link rel="shortcut icon" href="../hzh/img/logo.ICO" type="image/x-icon" />
 	</head>
 	<body style="background-color: #f0f4f5;">
 		<!-- 头部 -->
-		<iframe src="../html/headTwo.html" width="100%" height="120px" scrolling="no"></iframe>
+		<iframe src="../hzh/html/headTwo.html" width="100%" height="120px" scrolling="no"></iframe>
 
 		<!-- 中间内容 -->
 		<div class="orderdetailTitle">订单详情&gt;订单编号：ST20210223150282888</div>
@@ -88,6 +88,6 @@
 			</div>
 		</div>
 		<!-- 底部 -->
-		<iframe src="../html/topTwo.html" width="100%" height="200px" scrolling="no"></iframe>
+		<iframe src="../hzh/html/topTwo.html" width="100%" height="200px" scrolling="no"></iframe>
 	</body>
 </html>

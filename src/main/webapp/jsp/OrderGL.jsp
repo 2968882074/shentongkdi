@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<!-- 头部 -->
-		<iframe src="../html/headTwo.html" width="100%" height="120px" scrolling="no"></iframe>
+		<iframe src="../headTwo.html" width="100%" height="120px" scrolling="no"></iframe>
 
 		<!-- 中间内容 -->
 		<div class="viewOrder">
@@ -53,9 +53,9 @@
 							<td class="tablelCheckbox" width="50"> <input type="checkbox" name="checkId" value="${list.oid}">
 							<td class="tableOrder" style="width:180px"> <a class="addresColor" href="../orders/detail?oid=${list.oid}">
 								<c:choose>
-									<c:when test="${list.state == 1}"><img src="../img/handling.png" alt="处理中"> ${list.oid} </a></c:when>
-									<c:when test="${list.state == 2}"><img src="../img/canncel.png" alt="已取消"> ${list.oid} </a></c:when>
-									<c:when test="${list.state == 3}"><img src="../img/finished.png" alt="已完成"> ${list.oid} </a></c:when>
+									<c:when test="${list.state == 1}"><img src="../hzh/img/handling.png" alt="处理中"> ${list.oid} </a></c:when>
+									<c:when test="${list.state == 2}"><img src="../hzh/img/canncel.png" alt="已取消"> ${list.oid} </a></c:when>
+									<c:when test="${list.state == 3}"><img src="../hzh/img/finished.png" alt="已完成"> ${list.oid} </a></c:when>
 								</c:choose>
 								 </td>
 							<td class="tablePerson" style="width:260px">
@@ -87,9 +87,9 @@
 		</div>
 
 		<!-- 底部 -->
-		<iframe src="../html/topTwo.html" width="100%" height="200px" scrolling="no"></iframe>
+		<iframe src="../topTwo.html" width="100%" height="200px" scrolling="no"></iframe>
 	</body>
-	<script type="text/javascript" src="../../html/js/jquery-3.5.1.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
 	<script type="text/javascript">
 		/*$(function () {
 			//location.href="../orders/selectByState";
@@ -115,18 +115,19 @@
 				data:"state="+index,
 				success:function(msg){
 					$(".orderTbody").empty();
+					console.log(msg);
 					$.each(msg,function(i,list){
 						var ste;
 						var stes;
 						if(list.state==1){
 							stes="处理中";
-							ste='<img src="../img/handling.png" alt="处理中"> ';
+							ste='<img src="../hzh/img/handling.png" alt="处理中"> ';
 						}else if (list.state==2){
 							stes="已取消";
-							ste='<img src="../img/canncel.png" alt="已取消">';
+							ste='<img src="../hzh/img/canncel.png" alt="已取消">';
 						}else if(list.state==3){
 							stes="已完成";
-							ste='<img src="../img/finished.png" alt="已完成">';
+							ste='<img src="../hzh/img/finished.png" alt="已完成">';
 						}
 						$(".orderTbody").append('<tr><td class="tablelCheckbox" width="50"> <input type="checkbox" name="checkId" value="'+list.oid+'">\n' +
 								'\t\t\t\t\t\t\t<td class="tableOrder" style="width:180px"> <a class="addresColor" href="../orders/detail?oid='+list.oid+'">\n' +

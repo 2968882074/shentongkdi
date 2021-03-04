@@ -133,7 +133,7 @@ public class OrdersController {
     @RequestMapping("selectByState")
     public ModelAndView selectById(Integer state,HttpServletRequest request){
         List<Orders> list=ordersService.selectByUidAndState(1,null);
-        ModelAndView mav=new ModelAndView("../hzh/jsp/OrderGL.jsp");
+        ModelAndView mav=new ModelAndView("../jsp/OrderGL.jsp");
         request.getSession().setAttribute("orderList",list);
         return mav;
     }
@@ -146,7 +146,7 @@ public class OrdersController {
     }
     @RequestMapping("detail")
     public ModelAndView Detail(Integer oid,HttpServletRequest request){
-        ModelAndView mav=new ModelAndView("../OrderDetail.jsp");
+        ModelAndView mav=new ModelAndView("../jsp/OrderDetail.jsp");
         HttpSession session = request.getSession();
         List<Orders> orderList = (List<Orders>)session.getAttribute("orderList");
         for (Orders o : orderList){
@@ -156,4 +156,6 @@ public class OrdersController {
         }
         return mav;
     }
+    //订单状态  ： 处理中=待取件   _> 已取件=运输中 -> 待签收-> 已完成
+    //订单状态  ： 处理中=待取件   -> 已取消
 }

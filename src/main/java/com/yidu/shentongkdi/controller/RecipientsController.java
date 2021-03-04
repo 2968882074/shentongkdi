@@ -28,8 +28,8 @@ public class RecipientsController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
-    public Recipients selectOne(Integer id) {
+    @RequestMapping("selectByid")
+    public Recipients selectByid(Integer id) {
         return this.recipientsService.queryById(id);
     }
 

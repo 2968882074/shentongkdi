@@ -1,137 +1,182 @@
 /* 元素 */
-			* {
-			    margin: 0;
-			    padding: 0;
-			    border: 0px;
-			}
-			body {
-				background-color: #f0f4f5;
-			    font-family: 微软雅黑;
-			    font-size: 12px;
-			    -webkit-text-size-adjust: none;
-				overflow:Scroll;
-				overflow-x: hidden;
-			}
-			input, select, textarea {
-			    font-family: 宋体;
-			}
-			li {
-			    list-style: none;
-			}
-			/* 中间内容 */
-			.viewOrder {
-			    width: 1000px;
-			    margin: 0 auto;
-			    margin-top: 20px;
-			    margin-bottom: 38px;
-			}
-			/* viewOrder左边 */
-			.viewOrder .left{
-				    width: 200px;
-				    background: #fff;
-				    float: left;
-				    margin-right: 10px;
-				    padding-bottom: 900px;
-			}
-			.viewOrder .left .title {
-			    height: 68px;
-			    width: 100%;
-			    line-height: 68px;
-			    font-size: 18px;
-			    color: #555;
-			}
-			
-			.viewOrder .left .title span {
-			    height: 68px;
-			    display: inline-block;
-			}
-			.viewOrder .left .title img {
-			    vertical-align: middle;
-			    margin-left: 13px;
-			}
-			.titleText {
-			    margin-left: 10px;
-			}
-			.viewOrder .left .adress_top_tab{
-				margin-left:50px
-			}
-			.viewOrder .left ul{
-				padding: 0;
-			}
-			.viewOrder .left ul li:hover{
-				cursor: pointer;
-			}
-			.viewOrder .left ul li {
-			    line-height: 55px;
-			}
-			/* viewOrder右边 */
-			.viewOrder .right {
-			    width: 750px;
-			    background: #fff;
-			    border-radius: 6px;
-			    float: left;
-			    padding-bottom: 100px;
-			}
-			.orderInputBox {
-			    height: 94px;
-			}
-			/* 右边搜索框 */
-			.orderSearchBox {
-			    width: 327px;
-			    height: 40px;
-			    border: 1px solid #ededed;
-			    border-right: none;
-			    border-radius: 6px 0 0 6px;
-			    text-indent: 0.5em;
-			    vertical-align: middle;
-			    margin-left: 290px;
-			    margin-top: 25px;
-			}
-			.orderSearchBtn {
-			    width: 100px;
-			    height: 42px;
-			    border-radius: 0 6px 6px 0;
-			    background: #ed6800;
-			    font-size: 18px;
-			    color: #fff;
-			    border: none;
-			    outline: none;
-			    vertical-align: middle;
-			    cursor: pointer;
-			    margin-top: 25px;
-			}
-			/* 右边的表格 */
-			tbody {
-			    display: table-row-group;
-			    vertical-align: middle;
-			    border-color: inherit;
-			}
-			/* tr */
-			table .titleBox {
-			    background: #f5f5f5;
-			}
-			/* th */
-			.titleCheckbox {
-			    width: 70px;
-			    height: 50px;
-			    border-right: 1px solid #e5e5e5;
-			}
-			.titleOrder {
-			    width: 228px;
-			    height: 50px;
-			    border-right: 1px solid #e5e5e5;
-			}
-			.titlePerson {
-			    width: 340px;
-			    height: 50px;
-			    border-right: 1px solid #e5e5e5;
-			}
-			.titleTime {
-			    width: 184px;
-			    height: 50px;
-			    border-right: 1px solid #e5e5e5;
-			}
-			.titleOperate {
-			    width: 140px;
-			    height: 50px;
-			}
+* {
+	margin: 0;
+	padding: 0;
+	border: 0px;
+}
+a {
+	text-decoration: none!important;
+	cursor: pointer;
+}
+body {
+	background-color: #f0f4f5;
+	font-family: 微软雅黑;
+	font-size: 12px;
+	-webkit-text-size-adjust: none;
+	overflow:Scroll;
+	overflow-x: hidden;
+}
+input, select, textarea {
+	font-family: 宋体;
+}
+li {
+	list-style: none;
+}
+/* 中间内容 */
+.viewOrder {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 38px;
+}
+/* viewOrder左边 */
+.viewOrder .left{
+	width: 200px;
+	background: #fff;
+	float: left;
+	margin-right: 10px;
+	padding-bottom: 900px;
+}
+.viewOrder .left .title {
+	height: 68px;
+	width: 100%;
+	line-height: 68px;
+	font-size: 18px;
+	color: #555;
+}
+
+.viewOrder .left .title span {
+	height: 68px;
+	display: inline-block;
+}
+.viewOrder .left .title img {
+	vertical-align: middle;
+	margin-left: 13px;
+}
+.titleText {
+	margin-left: 10px;
+}
+.viewOrder .left .adress_top_tab{
+	margin-left:50px
+}
+.viewOrder .left ul{
+	padding: 0;
+}
+.viewOrder .left ul li:hover{
+	cursor: pointer;
+}
+.viewOrder .left ul li {
+	line-height: 55px;
+}
+/* viewOrder右边 */
+.viewOrder .right {
+	width: 750px;
+	background: #fff;
+	border-radius: 6px;
+	float: left;
+	padding-bottom: 100px;
+}
+.orderInputBox {
+	height: 94px;
+}
+/* 右边搜索框 */
+.orderSearchBox {
+	width: 327px;
+	height: 40px;
+	border: 1px solid #ededed;
+	border-right: none;
+	border-radius: 6px 0 0 6px;
+	text-indent: 0.5em;
+	vertical-align: middle;
+	margin-left: 290px;
+	margin-top: 25px;
+}
+.orderSearchBtn {
+	width: 100px;
+	height: 42px;
+	border-radius: 0 6px 6px 0;
+	background: #ed6800;
+	font-size: 18px;
+	color: #fff;
+	border: none;
+	outline: none;
+	vertical-align: middle;
+	cursor: pointer;
+	margin-top: 25px;
+}
+/* 右边的表格 */
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+/* tr */
+table .titleBox {
+	background: #f5f5f5;
+}
+/* th */
+.titleCheckbox {
+	width: 70px;
+	height: 50px;
+	border-right: 1px solid #e5e5e5;
+}
+.titleOrder {
+	width: 228px;
+	height: 50px;
+	border-right: 1px solid #e5e5e5;
+}
+.titlePerson {
+	width: 340px;
+	height: 50px;
+	border-right: 1px solid #e5e5e5;
+}
+.titleTime {
+	width: 184px;
+	height: 50px;
+	border-right: 1px solid #e5e5e5;
+}
+.titleOperate {
+	width: 140px;
+	height: 50px;
+}
+table {
+	text-align: center;
+	font-size:12px;
+}
+.addresColor {
+	color: #ed6c00;
+}
+.tableOrder img {
+	position: absolute;
+	top: 9px;
+	left: 0;
+}
+.tableOrder, .tablePerson, .tableTime, .tablelOperate {
+	border-bottom: 1px dashed #ededed;
+	color: #555;
+}
+.tableOrder {
+	position: relative;
+	height: 83px;
+}
+.create_order_more_page_box {
+	font-size: 2px;
+	text-align: center;
+	margin-top: 30px;
+}
+.create_order_more_page_box a.cur {
+	background: #ee6900;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 0;
+}
+.create_order_more_page_box a {
+	display: inline-block;
+	width: 30px;
+	height: 25px;
+	line-height: 25px;
+	float: inherit;
+	margin: 0 10px 0 0;
+	color: #666;
+	border: 1px solid #ccc;
+}

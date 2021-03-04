@@ -39,7 +39,10 @@
         select
           oid, reid, seid, Weight, Amount, Amountstate, state, wayid, brid, picid, userid, courid, downtime
         from shentong.orders
-        where userid = #{userid} and state like '%${state}%'
+        where userid = #{userid}
+            <if test="state!=null">
+                and state = #{state}
+            </if>
     </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
