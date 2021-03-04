@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface TotalwatehouseDao {
     /**
-     * 统计行数
+     * 统计表行数
      * @return 实例对象
      */
     public int count(Totalwatehouse totalwatehouse);

@@ -75,4 +75,15 @@ public class Totalwatehouse implements Serializable {
         this.code = code;
     }
 
+    @Override
+    public String toString() {
+        return "Totalwatehouse{" +
+                "twid=" + twid +
+                ", twname='" + twname + '\'' +
+                ", entertwtime='" + entertwtime + '\'' +
+                ", gotime='" + gotime + '\'' +
+                ", state=" + state +
+                ", code='" + code + '\'' +
+                '}';
+    }
 }

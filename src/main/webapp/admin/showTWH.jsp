@@ -170,7 +170,7 @@
         <label class="layui-form-label">姓名</label>
         <div class="layui-input-block">
             <input type="text" name="twname" lay-verify="required|title"
-                   autocomplete="off" class="layui-input twname">
+                   autocomplete="off" class="layui-input  twname">
         </div>
     </div>
     <div class="layui-form-item">

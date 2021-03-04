@@ -88,7 +88,7 @@ public class TotalwatehouseController {
      * @return 成功返回真
      */
     @ResponseBody
-    @RequestMapping("insert")
+    @RequestMapping("insert") 
     public Map<String,Object> insert(Totalwatehouse totalwatehouse){
         totalwatehouse.setEntertwtime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         totalwatehouse.setGotime("暂无");
