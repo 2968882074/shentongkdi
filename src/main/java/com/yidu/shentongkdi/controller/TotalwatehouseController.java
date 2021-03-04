@@ -91,7 +91,7 @@ public class TotalwatehouseController {
     @RequestMapping("insert")
     public Map<String,Object> insert(Totalwatehouse totalwatehouse){
         totalwatehouse.setEntertwtime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        totalwatehouse.setGotime("");
+        totalwatehouse.setGotime("暂无");
         Map<String,Object> map=new HashMap<>();
         //调用实现接口类的新增方法
         map.put("data",totalwatehouseService.insert(totalwatehouse)!=null?"新增成功":"新增失败");

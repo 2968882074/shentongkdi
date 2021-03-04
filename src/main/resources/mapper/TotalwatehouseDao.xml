@@ -11,7 +11,7 @@
         <result property="state" column="state" jdbcType="INTEGER"/>
         <result property="code" column="code" jdbcType="VARCHAR"/>
     </resultMap>
-    <!--统计行数-->
+    <!--统计行数 -->
     <select id="count" resultType="int">
         select count(1) from shentong.totalwatehouse where twid = #{twid}
     </select>
