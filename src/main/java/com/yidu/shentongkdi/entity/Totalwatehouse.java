@@ -1,24 +1,23 @@
 package com.yidu.shentongkdi.entity;
 
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 
 /**
  * (Totalwatehouse)实体类
  *
  * @author makejava
- * @since 2020-12-28 14:56:39
+ * @since 2021-03-04 14:00:11
  */
-@Component
 public class Totalwatehouse implements Serializable {
-    private static final long serialVersionUID = -83450510768166476L;
+    private static final long serialVersionUID = -72297688988643500L;
     
     private Integer twid;
     
     private String twname;
     
-    private String twtime;
+    private String entertwtime;
+    
+    private String gotime;
     
     private Integer state;
     
@@ -41,12 +40,20 @@ public class Totalwatehouse implements Serializable {
         this.twname = twname;
     }
 
-    public String getTwtime() {
-        return twtime;
+    public String getEntertwtime() {
+        return entertwtime;
     }
 
-    public void setTwtime(String twtime) {
-        this.twtime = twtime;
+    public void setEntertwtime(String entertwtime) {
+        this.entertwtime = entertwtime;
+    }
+
+    public String getGotime() {
+        return gotime;
+    }
+
+    public void setGotime(String gotime) {
+        this.gotime = gotime;
     }
 
     public Integer getState() {
@@ -65,25 +72,4 @@ public class Totalwatehouse implements Serializable {
         this.code = code;
     }
 
-    public Totalwatehouse() {
-    }
-
-    public Totalwatehouse(Integer twid, String twname, String twtime, Integer state, String code) {
-        this.twid = twid;
-        this.twname = twname;
-        this.twtime = twtime;
-        this.state = state;
-        this.code = code;
-    }
-
-    @Override
-    public String toString() {
-        return "Totalwatehouse{" +
-                "twid=" + twid +
-                ", twname='" + twname + '\'' +
-                ", twtime='" + twtime + '\'' +
-                ", state=" + state +
-                ", code='" + code + '\'' +
-                '}';
-    }
 }

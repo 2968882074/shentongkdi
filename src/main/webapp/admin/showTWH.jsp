@@ -45,7 +45,8 @@
             {type: 'checkbox', fixed: 'left'}
             ,{field: 'twid', title: 'ID', sort: true}
             ,{field: 'twname', title: '姓名'}
-            ,{field: 'twtime', title: '时间'}
+            ,{field: 'entertwtime', title: '入仓时间'}
+            ,{field: 'gotime', title: '出仓时间'}
             ,{field: 'state', title: '状态', sort: true}
             ,{field: 'code', title: '地区码',  sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
@@ -89,7 +90,8 @@
             method="updateById";
             $(".twid").val(data.twid);
             $(".twname").val(data.twname);
-            $(".twtime").val(data.twtime);
+            $(".entertwtime").val(data.entertwtime);
+            $(".gotime").val(data.gotime);
             $(".state").val(data.state);
             $(".code").val(data.code);
             layer.open({
@@ -141,8 +143,8 @@
                 method="updateById";
                 var data=data[0];
                 $(".twid").val(data.twid);
-                $(".twname").val(data.twname);
-                $(".twtime").val(data.twtime);
+                $(".entertwtime").val(data.entertwtime);
+                $(".gotime").val(data.gotime);
                 $(".state").val(data.state);
                 $(".code").val(data.code);
                 layer.open({
@@ -172,10 +174,17 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">时间</label>
+        <label class="layui-form-label">入仓时间</label>
         <div class="layui-input-block">
-            <input type="text" name="twtime" lay-verify="required|title"
-                   autocomplete="off" class="layui-input twtime">
+            <input type="text" name="entertwtime" lay-verify="required|title"
+                   autocomplete="off" class="layui-input entertwtime">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">出仓时间</label>
+        <div class="layui-input-block">
+            <input type="text" name="gotime" lay-verify="required|title"
+                   autocomplete="off" class="layui-input gotime">
         </div>
     </div>
     <div class="layui-form-item">

@@ -7,6 +7,8 @@ import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,6 +90,8 @@ public class TotalwatehouseController {
     @ResponseBody
     @RequestMapping("insert")
     public Map<String,Object> insert(Totalwatehouse totalwatehouse){
+        totalwatehouse.setEntertwtime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        totalwatehouse.setGotime("");
         Map<String,Object> map=new HashMap<>();
         //调用实现接口类的新增方法
         map.put("data",totalwatehouseService.insert(totalwatehouse)!=null?"新增成功":"新增失败");
