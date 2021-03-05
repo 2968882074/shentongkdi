@@ -14,12 +14,9 @@
         <result property="semail" column="sEmail" jdbcType="VARCHAR"/>
         <result property="sendertime" column="senderTime" jdbcType="VARCHAR"/>
     </resultMap>
-<!--查询总数-->
-    <select id="selectCount" resultType="INTEGER">
-       select count(1)  from sender
-    </select>
+
     <!--查询单个-->
-    <select id="queryById" resultMap="BaseResultMap">
+    <select id="queryById" resultMap="BaseResultMap" >
         select
           seid, sname, saddress, slandline, sphone, sdetailedAddress, spayment, sEmail, senderTime
         from shentong.sender

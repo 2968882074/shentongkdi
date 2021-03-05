@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.shentongkdi.dao.PickupDao">
+
+    <resultMap id="BaseResultMap" type="com.yidu.shentongkdi.entity.Pickup">
+        <!--@Table pickup-->
+        <result property="picid" column="picid" jdbcType="INTEGER"/>
+        <result property="seid" column="seid" jdbcType="INTEGER"/>
+        <result property="coding" column="coding" jdbcType="VARCHAR"/>
+        <result property="starttime" column="starttime" jdbcType="VARCHAR"/>
+        <result property="stoptime" column="stoptime" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          picid, seid, coding, starttime, stoptime, remark
+        from shentong.pickup
+        where picid = #{picid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          picid, seid, coding, starttime, stoptime, remark
+        from shentong.pickup
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          picid, seid, coding, starttime, stoptime, remark
+        from shentong.pickup
+        <where>
+            <if test="picid != null">
+                and picid = #{picid}
+            </if>
+            <if test="seid != null">
+                and seid = #{seid}
+            </if>
+            <if test="coding != null and coding != ''">
+                and coding = #{coding}
+            </if>
+            <if test="starttime != null and starttime != ''">
+                and starttime = #{starttime}
+            </if>
+            <if test="stoptime != null and stoptime != ''">
+                and stoptime = #{stoptime}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="picid" useGeneratedKeys="true">
+        insert into shentong.pickup(seid, coding, starttime, stoptime, remark)
+        values (#{seid}, #{coding}, #{starttime}, #{stoptime}, #{remark})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shentong.pickup
+        <set>
+            <if test="seid != null">
+                seid = #{seid},
+            </if>
+            <if test="coding != null and coding != ''">
+                coding = #{coding},
+            </if>
+            <if test="starttime != null and starttime != ''">
+                starttime = #{starttime},
+            </if>
+            <if test="stoptime != null and stoptime != ''">
+                stoptime = #{stoptime},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+        </set>
+        where picid = #{picid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shentong.pickup where picid = #{picid}
+    </delete>
+
+</mapper>

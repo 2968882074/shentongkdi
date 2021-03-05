@@ -13,7 +13,7 @@
     </resultMap>
     <!--统计行数  -->
     <select id="count" resultType="int">
-        select count(1) from shentong.totalwatehouse where twid = #{twid}
+        select count(1) from shentong.totalwatehouse
     </select>
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">

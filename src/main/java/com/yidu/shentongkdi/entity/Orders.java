@@ -28,7 +28,7 @@ public class Orders implements Serializable {
     
     private Integer state;
     
-    private Integer wayid;
+    private String wnumber;
     
     private Integer brid;
     
@@ -44,9 +44,61 @@ public class Orders implements Serializable {
 
     private Sender sender;
 
+    private Waybill waybill;
+
+    private  Branch branch;
+
+    private  Pickup pickup;
+
+    private User user;
+
+    private  Courier courier;
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Courier getCourier() {
+        return courier;
+    }
+
+    public void setCourier(Courier courier) {
+        this.courier = courier;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+
+    public Pickup getPickup() {
+        return pickup;
+    }
+
+    public void setPickup(Pickup pickup) {
+        this.pickup = pickup;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    public Waybill getWaybill() {
+        return waybill;
+    }
+
+    public void setWaybill(Waybill waybill) {
+        this.waybill = waybill;
+    }
+
 
     public Recipients getRecipients() {
         return recipients;
@@ -120,12 +172,12 @@ public class Orders implements Serializable {
         this.state = state;
     }
 
-    public Integer getWayid() {
-        return wayid;
+    public String getWnumber() {
+        return wnumber;
     }
 
-    public void setWayid(Integer wayid) {
-        this.wayid = wayid;
+    public void setWnumber(String wnumber) {
+        this.wnumber = wnumber;
     }
 
     public Integer getBrid() {

@@ -1,45 +1,48 @@
 package com.yidu.shentongkdi.entity;
 
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 
 /**
  * (Branch)实体类
  *
  * @author makejava
- * @since 2021-01-06 08:56:17
+ * @since 2021-03-05 10:15:52
  */
-@Component
 public class Branch implements Serializable {
-    private static final long serialVersionUID = -50611654598710783L;
-
+    private static final long serialVersionUID = 324460613389974177L;
+    
     private Integer brid;
-
+    
     private String branchname;
-
+    
     private String brname;
-
+    
     private String brpone;
-
+    
     private String postcode;
-
+    
     private String business;
-
+    
     private String branchtype;
-
+    
     private String idnumber;
-
+    
     private String unusualpone;
-
+    
     private String nextnumber;
-
+    
     private String subordinate;
-
+    
     private String brnumberpone;
-
+    
     private String workaddress;
-
+    
+    private String applicationdate;
+    
+    private String approvaltime;
+    
+    private String examineresult;
+    
     private Integer userid;
 
 
@@ -145,6 +148,30 @@ public class Branch implements Serializable {
 
     public void setWorkaddress(String workaddress) {
         this.workaddress = workaddress;
+    }
+
+    public String getApplicationdate() {
+        return applicationdate;
+    }
+
+    public void setApplicationdate(String applicationdate) {
+        this.applicationdate = applicationdate;
+    }
+
+    public String getApprovaltime() {
+        return approvaltime;
+    }
+
+    public void setApprovaltime(String approvaltime) {
+        this.approvaltime = approvaltime;
+    }
+
+    public String getExamineresult() {
+        return examineresult;
+    }
+
+    public void setExamineresult(String examineresult) {
+        this.examineresult = examineresult;
     }
 
     public Integer getUserid() {

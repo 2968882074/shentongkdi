@@ -1,6 +1,5 @@
 package com.yidu.shentongkdi.controller;
 
-import com.yidu.shentongkdi.dao.SenderDao;
 import com.yidu.shentongkdi.entity.Recipients;
 import com.yidu.shentongkdi.entity.Sender;
 import com.yidu.shentongkdi.service.SenderService;
@@ -33,7 +32,8 @@ public class SenderController {
      * @param id 主键
      * @return 单条数据
      */
-    @RequestMapping ("/selectOne")
+    @ResponseBody
+    @RequestMapping ("selectOne")
     public Sender selectOne(Integer id) {
         System.out.println("你可以完全信任布隆");
         return this.senderService.queryById(id);
@@ -44,20 +44,6 @@ public  String getSenderOrRecipients(Sender sender, Recipients recipients){
         System.out.println("sender = " + sender+"recipients="+recipients);
         return "ok";
 }
-@ResponseBody
-@RequestMapping("/selectAll")
-   public Map<String,Object> selectAll(){
-
-    Map<String,Object> map=new HashMap<>();
-       map.put("code", 0);
-       map.put("mag", "");
-       //调用线路管理表服务接口类的统计方法
-       map.put("count", senderService.selectCount());
-       //调用线路管理表服务接口类的分页查询以及模糊查询的方法
-       map.put("data",senderService.queryAll());
-       //返回map集合
-       return map;
-   }
     /**
      * 根据寄件人表的id删除线路管理表的信息
      * @return 成功返回真

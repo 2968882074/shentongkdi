@@ -3,6 +3,7 @@ package com.yidu.shentongkdi.entity;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * (用户)实体类
@@ -31,8 +32,28 @@ public class User implements Serializable {
     private String chinald;
     
     private String address;
+
+    private String udetailedAddress;
     
     private String nation;
+    private List<Address> addresses;
+
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public String getUdetailedAddress() {
+        return udetailedAddress;
+    }
+
+    public void setUdetailedAddress(String udetailedAddress) {
+        this.udetailedAddress = udetailedAddress;
+    }
 
     public User(){
 
@@ -47,7 +68,7 @@ public class User implements Serializable {
         this.uphone = uphone;
     }
 
-    public User(Integer userid, String username, String userpass, String uphone, String sex, String age, String chinaname, String chinald, String address, String nation) {
+    public User(Integer userid, String username, String userpass, String uphone, String sex, String age, String chinaname, String chinald, String address, String udetailedAddress, String nation) {
         this.userid = userid;
         this.username = username;
         this.userpass = userpass;
@@ -57,6 +78,7 @@ public class User implements Serializable {
         this.chinaname = chinaname;
         this.chinald = chinald;
         this.address = address;
+        this.udetailedAddress = udetailedAddress;
         this.nation = nation;
     }
 
@@ -153,6 +175,7 @@ public class User implements Serializable {
                 ", chinaname='" + chinaname + '\'' +
                 ", chinald='" + chinald + '\'' +
                 ", address='" + address + '\'' +
+                ", udetailedAddress='" + udetailedAddress + '\'' +
                 ", nation='" + nation + '\'' +
                 '}';
     }

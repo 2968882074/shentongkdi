@@ -25,6 +25,11 @@ public class BranchController {
      */
     @Autowired
     private BranchService branchService;
+    @ResponseBody
+    @RequestMapping("selectOne")
+    public Branch selectOne(Integer brid){
+        return branchService.queryById(brid);
+    }
     /**
      *网点信息的分页查询以及模糊查询
      * @param page 页数

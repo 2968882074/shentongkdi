@@ -10,6 +10,11 @@
 <head>
     <title>订单管理</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
+    <style type="text/css">
+        .layui-table-page {
+            position:fixed;
+        }
+    </style>
 </head>
 <body>
 <form class="layui-form" lay-filter="formfilter" enctype="multipart/form-data" id="form" style="display: none; padding: 20px;">
@@ -89,14 +94,14 @@
 <script src="../layui/layui.all.js"></script>
 
 <script>
+
     var table = layui.table,layer=layui.layer,form=layui.form;
     var method=null;
     //方法渲染查询
     table.render({
         elem: '#tables'
-        ,height: 500
         ,toolbar:'default'
-        ,url: '../orders/selectAll' //数据接口
+        ,url: '../orders/selectLimit' //数据接口
         ,page: true //开启分页
         ,cols: [[ //表头
              {type: 'checkbox', fixed: 'left'}
@@ -107,10 +112,25 @@
             ,{field: 'rname', title: '寄件人',templet: function (data) {
                     return data.sender.sname;
                 }}
+            ,{field: 'wayid', title: '运单号',width:200,templet: function (data) {
+                    return data.waybill.wnumber;
+                }}
+            ,{field: 'brid', title: '网点名称',templet: function (data) {
+                    return data.branch.branchname;
+                }}
+            ,{field: 'picid', title: '取件码',templet: function (data) {
+                    return data.pickup.coding;
+                }}
+            ,{field: 'courid', title: '快递员',width:100,templet: function (data) {
+                    return data.courier.couname;
+                }}
+            ,{field: 'userid', title: '用户名',templet: function (data) {
+                    return data.user.username;
+                }}
             ,{field: 'weight', title: '重量'}
             ,{field: 'amount', title: '支付金额'}
-            ,{field: 'amountstate', title: '支付状态', sort: true}
-            ,{field: 'state', title: '订单状态',  sort: true}
+            ,{field: 'amountstate', title: '支付状态'}
+            ,{field: 'state', title: '订单状态'}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
         ]]
     });
@@ -152,7 +172,7 @@
             //行修改
             var fd=data;
             formselect("recipients",".selOne","selR","update",fd);
-            formselect("sender",".selTwo","selS","update",fd);
+            formselect("lw",".selTwo","selS","update",fd);
             method="updateById";
             form.val("formfilter",{
                 oid:fd.oid,
@@ -181,7 +201,7 @@
         switch(obj.event){
             case 'add':
                 formselect("recipients",".selOne","selR","insert");
-                formselect("sender",".selTwo","selS","insert");
+                formselect("lw",".selTwo","selS","insert");
                 method="insert"
                 layer.open({
                     type:1,
@@ -214,7 +234,7 @@
                 if(data.length==1) {
                     var fd=data[0];
                     formselect("recipients",".selOne","selR","update",fd);
-                    formselect("sender",".selTwo","selS","update",fd);
+                    formselect("lw",".selTwo","selS","update",fd);
                     method="updateById";
                     form.val("formfilter",{
                         oid:fd.oid,
@@ -241,7 +261,7 @@
     function formselect(urlName,className,selVal,method,msg) {
         $.ajax({
             type:"post",
-            url:"../"+urlName+"/selectAll",
+            url:"../"+urlName+"/selectOne",
             data:"",
             success:function(data){
                 $(className).empty();

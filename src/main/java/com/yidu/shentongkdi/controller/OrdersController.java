@@ -41,8 +41,9 @@ public class OrdersController {
      * @return 成功返回真
      */
     @ResponseBody
-    @RequestMapping("selectAll")
-    public Map<String,Object> selectAll(int page, int  limit, Orders orders){
+    @RequestMapping("selectLimit")
+    public Map<String,Object> selectLimit(int page, int  limit, Orders orders){
+        System.out.println("page = " + page + ", limit = " + limit + ", orders = " + orders);
         List<Orders> orderList = ordersService.queryAllByLimit(page, limit, orders);
         //创建一个map集合对象
         Map<String,Object> map=new HashMap<>();
